@@ -2185,7 +2185,7 @@
   integrity sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==
   dependencies:
     "@types/node" "*"
-
+    
 "@types/history@^4.7.11":
   version "4.7.11"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.11.tgz#56588b17ae8f50c53983a524fc3cc47437969d64"
@@ -2313,7 +2313,7 @@
   dependencies:
     "@types/react" "*"
 
-<<<<<<< HEAD
+
 "@types/react-is@^16.7.1 || ^17.0.0":
   version "17.0.3"
   resolved "https://registry.yarnpkg.com/@types/react-is/-/react-is-17.0.3.tgz#2d855ba575f2fc8d17ef9861f084acc4b90a137a"
@@ -2326,7 +2326,7 @@
   resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.5.tgz#aae20dcf773c5aa275d5b9f7cdbca638abc5e416"
   integrity sha512-juKD/eiSM3/xZYzjuzH6ZwpP+/lejltmiS3QEzV/vmb/Q8+HfDmxu+Baga8UEMGBqV88Nbg4l2hY/K2DkyaLLA==
   dependencies:
-=======
+
 "@types/react-router-dom@^5.3.3":
   version "5.3.3"
   resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-5.3.3.tgz#e9d6b4a66fcdbd651a5f106c2656a30088cc1e83"
@@ -2342,7 +2342,6 @@
   integrity sha512-YYknwy0D0iOwKQgz9v8nOzt2J6l4gouBmDnWqUUznltOTaon+r8US8ky8HvN0tXvc38U9m6z/t2RsVsnd1zM0g==
   dependencies:
     "@types/history" "^4.7.11"
->>>>>>> 84fa693f96b063aff28a1d74525e54f09a93f40d
     "@types/react" "*"
 
 "@types/react@*", "@types/react@^18.0.0":
@@ -3406,11 +3405,11 @@ cliui@^7.0.2:
     strip-ansi "^6.0.0"
     wrap-ansi "^7.0.0"
 
-<<<<<<< HEAD
+
 clsx@^1.1.1, clsx@^1.2.1:
-=======
+
 clsx@^1.1.1:
->>>>>>> 84fa693f96b063aff28a1d74525e54f09a93f40d
+
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.2.1.tgz#0ddc4a20a549b59c93a4116bb26f5294ca17dc12"
   integrity sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==
@@ -5113,11 +5112,13 @@ history@^5.2.0:
   dependencies:
     "@babel/runtime" "^7.7.6"
 
-<<<<<<< HEAD
-hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.3.1:
-=======
+
 hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.3.0:
->>>>>>> 84fa693f96b063aff28a1d74525e54f09a93f40d
+
+hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.3.1:
+
+hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.3.0:
+
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
   integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
@@ -7834,7 +7835,7 @@ react-toastify@^9.0.8:
   dependencies:
     clsx "^1.1.1"
 
-<<<<<<< HEAD
+
 react-transition-group@^4.4.5:
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.5.tgz#e53d4e3f3344da8521489fbef8f2581d42becdd1"
@@ -7845,8 +7846,7 @@ react-transition-group@^4.4.5:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-=======
->>>>>>> 84fa693f96b063aff28a1d74525e54f09a93f40d
+
 react@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
