@@ -1,6 +1,9 @@
 const { createGlobalStyle } = require("styled-components");
 
 export const Global = createGlobalStyle`
+    #root{
+        width: 100%;
+    }
     *{
         margin: 0;
         padding: 0;
@@ -24,7 +27,7 @@ export const Global = createGlobalStyle`
         --mediumOrange: #E84500;
     }
 
-    body, header, main, footer, section, div{
+    body, header, main, footer, div, section{
         width: 100%;
 
         display: flex;
@@ -57,8 +60,8 @@ export const Global = createGlobalStyle`
     input{
         width: 90%;
 
-        background-color: var();
-        color: var(--greyText);
+        background-color: var(--lightGrey);
+        color: var(--darkGrey);
         
         padding: 5px;
         
@@ -67,7 +70,7 @@ export const Global = createGlobalStyle`
 
         ::placeholder{
             padding-left: 10px;
-            color: var(--greyText); 
+            color: var(--darkGrey); 
             font-weight: 600;
         }
     }
@@ -75,12 +78,17 @@ export const Global = createGlobalStyle`
         width: 150px;
 
         color: var(--greyText);
-        background-color: var(--greyInput);
+        background-color: var(--lightGrey);
         
         padding: 5px;
         
         border: 2px solid var(--darkGrey);
         border-radius: 7px;
+
+        cursor: pointer;
+    }
+    ul{
+        width: 100%;
     }
     img{
         height: 70px;
@@ -92,11 +100,14 @@ export const Global = createGlobalStyle`
     h2{
         color: var(--blue);
     }
-    h3, h4{
+    h3{
         color: var(--black);
     }
+    h4{
+        color: var(--darkGrey);
+    }
     p{
-        color: var(--greyText);
+        color: var(--darkGrey);
     }
     span{
         color: var(--green);
