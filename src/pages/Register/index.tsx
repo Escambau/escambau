@@ -1,3 +1,5 @@
-function algumaCoisa7() {
-  return <></>;
-}
+const Register = () => {
+  return;
+};
+
+export default Register;

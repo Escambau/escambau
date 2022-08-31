@@ -1,3 +1,5 @@
-function algumaCoisa6() {
-  return <></>;
-}
+const Dashboard = () => {
+  return;
+};
+
+export default Dashboard;

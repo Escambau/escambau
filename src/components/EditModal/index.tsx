@@ -1,3 +1,5 @@
-function algumaCoisa2() {
+const EditModal = () => {
   return <></>;
-}
+};
+
+export default EditModal;

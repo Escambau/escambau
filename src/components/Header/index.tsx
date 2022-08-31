@@ -1,3 +1,5 @@
-function algumaCoisa3() {
-  return <></>;
-}
+const Header = () => {
+  return;
+};
+
+export default Header;

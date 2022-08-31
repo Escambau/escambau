@@ -1,3 +1,5 @@
-function algumaCoisa4() {
-  return <></>;
-}
+const RegisterForm = () => {
+  return;
+};
+
+export default RegisterForm;

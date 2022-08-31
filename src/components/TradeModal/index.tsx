@@ -1,3 +1,5 @@
-function algumaCoisa5() {
-  return <></>;
-}
+const TradeModal = () => {
+  return;
+};
+
+export default TradeModal;
