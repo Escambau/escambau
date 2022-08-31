@@ -6,6 +6,7 @@ import "./global.css";
 import App from "./App";
 import { UserProvider } from "./contexts/UserContext";
 import { ProductProvider } from "./contexts/ProductContext";
+import GlobalStyle from "./styles/global";
 
 
 const root = ReactDOM.createRoot(
@@ -15,6 +16,7 @@ root.render(
   <React.StrictMode>
     <UserProvider>
       <ProductProvider>
+        <GlobalStyle />
         <App />
       </ProductProvider>
     </UserProvider>
