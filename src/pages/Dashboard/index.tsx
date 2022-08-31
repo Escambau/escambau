@@ -1,5 +1,6 @@
-const Cards = () => {
-    return (
-        <></>
-    )
- }
+const Dashboard = () => {
+  return;
+};
+
+export default Dashboard;
+

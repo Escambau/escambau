@@ -1,5 +1,6 @@
-const Cards = () => {
-    return (
-        <></>
-    )
- }
+const Register = () => {
+  return;
+};
+
+export default Register;
+
