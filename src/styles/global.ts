@@ -8,7 +8,7 @@ import RobotoWoff2 from "../fonts/roboto-v30-latin-regular.woff2";
 
 const GlobalStyle = createGlobalStyle`
 
-"		:root {
+:root {
 			--lightGreyBackground: #D9D9D9 50%;
 			--lightGrey: #D9D9D9;
 			--grey: #979797;
@@ -64,6 +64,12 @@ const GlobalStyle = createGlobalStyle`
 			cursor: pointer;
 		}
 
+		button{
+        background-color: transparent;
+        border: none;
+        border-radius: 8px;
+    }
+
 		/* HTML5 display-role reset for older browsers */
 		article, aside, details, figcaption, figure, 
 		footer, header, hgroup, menu, nav, section {
@@ -87,7 +93,7 @@ const GlobalStyle = createGlobalStyle`
 		table {
 			border-collapse: collapse;
 			border-spacing: 0;
-		}"
+		}
 `;
 
 export default GlobalStyle;
