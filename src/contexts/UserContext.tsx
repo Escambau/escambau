@@ -5,8 +5,8 @@ import {
   Dispatch,
   SetStateAction,
 } from "react";
-
 import { NavigateFunction, useNavigate } from "react-router-dom";
+import { StringMappingType } from "typescript";
 import api from "../services/api";
 import { LoginError } from "../ToastContainer";
 
@@ -21,7 +21,6 @@ interface IUserContext {
   token: null | string;
   setToken: Dispatch<SetStateAction<null>>;
   isPasswordShow: boolean;
-
   setIsPasswordShow: Dispatch<SetStateAction<boolean>>;
   navigate: NavigateFunction;
   viewPass: () => void;
@@ -32,25 +31,14 @@ interface IUser {
   email: string;
   id: number;
   avatarUrl: string;
-  endereco: string;
+  cidade: string;
+  estado: string;
   cpf: string;
   idade: number;
 }
 export interface ILogin {
   email: string;
   password: string;
-}
-
-interface IUser {
-  id: number;
-  name: string;
-  email: string;
-  password: string;
-  avatarUrl: string;
-  cidade: string;
-  estado: string;
-  cpf: string;
-  idade: number;
 }
 
 export interface IRegister {
@@ -65,11 +53,6 @@ export interface IRegister {
   idade: number;
 }
 
-interface IRegisterResponse {
-  acessToken: string;
-  user: IUser;
-}
-
 export const UserContext = createContext<IUserContext>({} as IUserContext);
 
 export function UserProvider({ children }: IUserProviders) {
@@ -82,11 +65,9 @@ export function UserProvider({ children }: IUserProviders) {
   const viewPass = () => {
     setIsPasswordShow(!isPasswordShow);
   };
-
   const redirectToRegister = () => {
     navigate("/users", { replace: true });
   };
-
   const onSubmitLogin = (data: ILogin) => {
     api
       .post("/login", data)
