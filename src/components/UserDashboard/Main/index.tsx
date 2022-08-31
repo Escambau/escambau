@@ -21,7 +21,6 @@ const Main = () => {
         </div>
 
         <section className="listContainer">
-          <h3>Sua lista de produtos:</h3>
           <div>
             {window.innerWidth < 764 && <h3>Categorias:</h3>}
             {window.innerWidth < 764 ? (

@@ -1,103 +1,113 @@
 import styled from "styled-components";
 
 export const MainTag = styled.main`
-  height: 100vh;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  padding-top: 20px;
 
   .container {
-    width: 100%;
-    height: 100vh;
-
-    align-items: center;
-
-    background-color: var(--white);
-
-    padding-top: 20px;
+    width: 90%;
   }
 
   .addProduct {
-    width: 90%;
-
-    flex-direction: row;
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 
-    margin-bottom: 25px;
-
+    & > h2 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--blue);
+      font-family: "Montserrat";
+    }
     & > button {
-      background-color: var(--grey);
-      border: none;
-      padding: 7px;
-      padding-bottom: 4px;
+      background-color: var(--lightGrey);
+      padding: 5px 6px 2px 6px;
 
+      transition: 0.3s;
       :hover {
-        background-color: var(--mediumGrey);
+        background-color: grey;
       }
+
       & > svg {
-        color: black;
-        font-size: 22px;
+        font-size: 18px;
       }
     }
   }
 
   .listContainer {
-    width: 90%;
-
-    & > h3 {
-      margin-bottom: 15px;
-    }
+    margin-top: 20px;
 
     & > div {
-      flex-direction: row;
-      align-items: center;
+      display: flex;
       justify-content: space-between;
-
+      align-items: center;
       margin-bottom: 20px;
+
+      & > h3 {
+        color: var(--blue);
+        font-size: 14px;
+        font-family: "Montserrat";
+        font-weight: 600;
+      }
+      & > select {
+        border: 1px solid var(--blue);
+        border-radius: 8px;
+        padding: 3px 3px;
+        text-align: center;
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      & > div {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
     }
   }
 
   .btnsCategory {
-    background-color: var(--lightGrey);
-    color: var(--black);
-    padding: 2px 25px;
-    margin-bottom: 5px;
+    border: 1px solid var(--blue);
+    border-radius: 8px;
+    padding: 7px 30px;
+    text-align: center;
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: 600;
+    margin: 5px 5px;
 
-    :hover{
-      background-color: var(--mediumBlue);
+    transition: 0.3s;
+    :hover {
+      background-color: var(--blue);
       color: white;
     }
   }
 
-  @media (min-width: 764px) {
+  @media (min-width: 768px) {
     .container {
       width: 70%;
     }
+
     .addProduct {
-      width: 90%;
-    }
-    .listContainer {
-    & > div {
-      width: 100%;
-
-      flex-direction: column;
-      align-items: flex-start;
-
-      margin-bottom: 20px;
-
-      & > h3{
-        text-align: start;
+      & > h2 {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--blue);
+        font-family: "Montserrat";
       }
+      & > button {
+        background-color: var(--lightGrey);
+        padding: 7px 8px 4px 8px;
 
-      & > div{
-        flex-direction: row;
-        flex-wrap: wrap;
-
-        & > button{
-          margin: 5px;
+        & > svg {
+          font-size: 18px;
         }
       }
     }
-  }
   }
 `;
