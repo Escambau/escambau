@@ -9,9 +9,9 @@ function App() {
   return (
     <div className="App">
       <ToastContainer />
+      <HeaderUnlogged />
       <MoreInfo />
       <GlobalStyle />
-      <HeaderUnlogged />
     </div>
   );
 }

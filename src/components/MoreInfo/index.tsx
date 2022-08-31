@@ -1,11 +1,15 @@
 import { Container } from "./style";
-import GlobalStyle from "./../../styles/global";
+
+export interface ILogged {
+  isLogged: boolean;
+  setIsLogged: (value: boolean) => void;
+}
 
 const MoreInfo = () => {
+  // const [isLogged, setIsLogged] = useState<ILogged>(true);
   return (
-    <>
-      <GlobalStyle />
-      <Container>
+    <Container>
+      <div className="left-wrapper">
         <div className="product-info">
           <small>Tecnologia</small>
           <h3>Smart TV LED 43" LG AI 4K HDR</h3>
@@ -23,20 +27,25 @@ const MoreInfo = () => {
             blablabla...
           </p>
         </div>
+      </div>
+      <div className="right-wrapper">
         <div className="user-info">
           <div>
             <p>Postado por:</p>
-            <h3>Rodrigo Alves</h3>
-            <p>Manaus-AM</p>
-            <h3>Preço estipulado: R$ 2000</h3>
-            <p>
-              <strong>Preferências: </strong>Notebook, PC, TV
-            </p>
+            <h3 className="username">Rodrigo Alves</h3>
           </div>
-          <button>Criar minha conta</button>
+          <p className="address">Manaus-AM</p>
+          <h3 className="price">
+            Preço estipulado: <span className="product-value">R$ 2000</span>
+          </h3>
+          <p className="preferences">Preferências: Notebook, PC, TV</p>
         </div>
-      </Container>
-    </>
+        <button className="btn">
+          Crie sua conta para <br />
+          enviar propostas de troca
+        </button>
+      </div>
+    </Container>
   );
 };
 
