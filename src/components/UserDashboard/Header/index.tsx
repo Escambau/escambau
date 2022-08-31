@@ -1,25 +1,23 @@
 import { HeaderTag } from "./style";
-import logotipo from "../../../assets/icons8-mirror-64.png";
 import { AiOutlineSearch } from "react-icons/ai";
-import { MdNotificationsActive } from "react-icons/md";
+import { IoMdNotificationsOutline } from "react-icons/io";
 import { ImUser } from "react-icons/im";
 
 const Header = () => {
   return (
     <HeaderTag>
       <div className="container">
-        <div className="logotipo">
-          <h1>Escambau</h1>
-          <img src={logotipo} alt="Escambau logotipo" />
-        </div>
+        <h1>Escambau</h1>
 
         <section className="notification-perfil">
           <button>
-            <MdNotificationsActive className="notification" />
+            <IoMdNotificationsOutline className="notification" />
           </button>
           <button>
             <ImUser className="perfil" />
-            {window.innerWidth > 764 && <h3 className="userName">Allan Salatino</h3>}
+            {window.innerWidth > 764 && (
+              <h3 className="userName">Allan Salatino</h3>
+            )}
           </button>
         </section>
       </div>
@@ -27,7 +25,7 @@ const Header = () => {
       <div className="searchBar">
         <input type="text" placeholder="Busque por produtos aqui..." />
         <button>
-          <AiOutlineSearch />
+          <AiOutlineSearch className="magnifyGlass"/>
         </button>
       </div>
     </HeaderTag>
