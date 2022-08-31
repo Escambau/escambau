@@ -1,78 +1,132 @@
 import styled from "styled-components";
 
-const Card = styled.button`
-  width: 100%;
-
+export const ListTag = styled.ul`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+`;
+
+const Card = styled.button`
+  display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: 1px solid var(--lightGrey);
+  padding: 10px 20px;
+  margin: 8px 0px;
 
-  background-color: white;
-  border: 2px solid var(--lightGrey);
+  transition: 0.3s;
+  :hover {
+    width: 99%;
+  }
 
-  padding: 5px 10px 5px 0px;
-
-  & > div{
+  & > section {
+    display: flex;
     flex-direction: row;
+    align-items: center;
 
     & > div {
-      height: 70px;
-      justify-content: space-around;
-      width: 100%;
-  
-      overflow: hidden;
-      white-space: nowrap;
-      text-align: start;
-      text-overflow: ellipsis;
-    }
-  }
-
-  & > section{
-    width: auto;
-    align-items: flex-end;
-    .edit-delete{
-      width: 65%;
-
-      padding: 2px 25px;
-      margin-bottom: 5px;
+      height: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .edit{
-      background-color: var(--mediumGrey);
-      border: var(--mediumGrey);
-
-      :hover{
-        background-color: var(--grey);
-      }
+    .iconInfo {
+      margin-right: 5px;
+      font-size: 14px;
     }
-    .delete{
-      background-color: var(--mediumOrange);
-      border: var(--mediumOrange);
-
-      :hover{
-        background-color: var(--orange);
-      }
-    }
-    .infoPlus{
+    .infoPlus {
       display: flex;
       align-items: center;
-      
-      background-color: transparent;
-      color: var(--black);
-      
-      border: none;
-      padding: 0px;
+      color: var(--blue);
+      font-size: 11px;
+      margin-right: 20px;
 
-      .iconInfo{
-        font-size: 20px;
+      transition: 0.3s;
+
+      :hover {
+        color: var(--darkGrey);
+      }
+    }
+    .edit-delete {
+      font-size: 11px;
+      font-weight: 600;
+      color: white;
+
+      padding: 6px 20px;
+
+      transition: 0.3s;
+    }
+    .edit {
+      color: var(--grey);
+      margin-bottom: 5px;
+      border: 1px solid var(--grey);
+
+      :hover {
+        background-color: grey;
+        color: white;
+      }
+    }
+    .delete {
+      color: var(--orange);
+      border: 1px solid var(--orange);
+      background-color: white;
+
+      :hover {
+        background-color: var(--orange);
+        color: white;
       }
     }
   }
 
-  @media (min-width: 764px){
-    & > div{
-      width: 50%;
+  & > div {
+    display: flex;
+    align-items: center;
+
+    & > img {
+      height: 50px;
+      margin-right: 10px;
     }
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 70px;
+      text-align: start;
+
+      & > div {
+        & > h4 {
+          font-size: 12px;
+          font-weight: 400;
+          color: var(--blue);
+        }
+        & > h3 {
+          font-size: 14px;
+          font-family: "Montserrat";
+        }
+      }
+
+      & > section {
+        display: flex;
+        align-items: center;
+        & > p {
+          font-size: 12px;
+          margin-right: 5px;
+        }
+        & > span {
+          font-size: 14px;
+          color: var(--blue);
+        }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    padding: 30px;
   }
 `;
 
