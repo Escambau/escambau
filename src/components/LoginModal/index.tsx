@@ -5,16 +5,11 @@ import { ModalLogin } from './style';
 
 import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5'
 import { useContext } from 'react';
-import { UserContext } from '../../contexts/UserContext';
-
-interface ILoginForm { 
-  email: string,
-  password: string 
-} 
+import { ILogin, UserContext } from '../../contexts/UserContext';
 
 export function LoginModal() { 
 
-  const {isPasswordShow, viewPass} = useContext(UserContext)
+  const {isPasswordShow, viewPass, redirectToRegister, onSubmitLogin} = useContext(UserContext)
 
   const formSchema = yup.object().shape({
     email:yup.string().required('Insira um e-mail!'),
@@ -25,7 +20,7 @@ export function LoginModal() {
     register, 
     handleSubmit, 
     formState: {errors} 
-  } = useForm<ILoginForm>({ 
+  } = useForm<ILogin>({ 
     resolver: yupResolver(formSchema) 
   })
 
@@ -35,7 +30,7 @@ export function LoginModal() {
 
         <h2>Login</h2> 
 
-        <form > 
+        <form onSubmit={handleSubmit(onSubmitLogin)}> 
           <div> 
             <label htmlFor="email"><h3>E-mail:</h3></label> 
             <input type="email" placeholder='Digite seu email aqui...' {...register('email')} /> 
@@ -47,7 +42,7 @@ export function LoginModal() {
               <input type={isPasswordShow ? "text" : "password"} placeholder='Digite sua senha aqui...' {...register('password')} />
               {isPasswordShow ? 
               <button onClick={viewPass}><IoEyeOutline/></button> 
-              : 
+              :
               <button onClick={viewPass}><IoEyeOffOutline/></button>}
             </div>
             <span>{errors?.password?.message}</span>
@@ -57,7 +52,7 @@ export function LoginModal() {
 
         <div className='box-to-register'>
           <h3>Ainda não tem uma conta?</h3>
-          <button>Cadastre-se</button> 
+          <button onClick={redirectToRegister}>Cadastre-se</button> 
         </div>
 
       </div>
