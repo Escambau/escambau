@@ -21,3 +21,13 @@ export const creationSucess = () => {
     draggable: false
   });
 };
+
+export const LoginError = () => {
+  toast.error('E-mail e/ou senha incorretos!', {
+    icon: <MdErrorOutline />,
+    autoClose: 2000,
+    closeOnClick: false,
+    pauseOnHover: false,
+    draggable: false
+  });
+};
