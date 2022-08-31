@@ -6,7 +6,7 @@ const Cards = () => {
  }
 =======
 const EditModal = () => {
-  return;
+  return <></>;
 };
 
 export default EditModal;

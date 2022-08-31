@@ -1,13 +1,16 @@
 import React from "react";
 import { ToastContainer } from "react-toastify";
 import "./App.css";
-import User from "./pages/User";
+import HeaderUnlogged from "./components/HeaderUnlogged";
+import GlobalStyle from "./styles/global";
 
 function App() {
-  return <div className="App">
-    <ToastContainer />
-    <User />
-  </div>;
+  return (
+    <div className="App">
+      <GlobalStyle />
+      <HeaderUnlogged />
+    </div>
+  );
 }
 
 export default App;
