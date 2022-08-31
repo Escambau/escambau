@@ -1,119 +1,122 @@
 import styled from "styled-components";
 
 export const HeaderTag = styled.header`
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 
-  padding: 15px 0px;
+  background: var(--blue);
+
+  height: 110px;
+
+  padding: 10px 0px;
 
   .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     width: 90%;
 
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    margin-bottom: 0px;
 
-    margin-bottom: 10px;
-  }
-
-  .logotipo {
-    width: 220px;
-
-    flex-direction: row;
-    align-items: center;
-
-    & > img {
-      height: 60px;
+    & > h1 {
+      color: white;
+      font-family: "Montserrat";
+      font-size: 18px;
+      font-weight: 900;
     }
-  }
 
-  .notification-perfil {
-    width: 75px;
-
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-
-    & > button {
-      padding: initial;
-      color: initial;
-
-      display: flex;
-      align-items: center;
-
-      & > .notification {
-        font-size: 30px;
-        transition: 0.3s;
-        :hover {
-          color: yellow;
-        }
-      }
-
-      & > .perfil {
-        background-color: var(--grey);
-        font-size: 36px;
-
-        padding: 5px;
-        margin-left: 15px;
-
-        border-radius: 100%;
-        margin-right: 10px;
-      }
-      .userName {
-        transition: 0.3s;
-        :hover {
-          color: white;
-        }
-      }
+    button {
+      background-color: var(--green);
+      padding: 8px 30px;
+      color: white;
+      font-family: "Montserrat";
+      font-size: 12px;
+      font-weight: 900;
     }
   }
 
   .searchBar {
-    align-items: center;
-    justify-content: center;
-
+    position: relative;
+    width: 90%;
+    max-width: 450px;
     & > input {
-      width: 90%;
-      max-width: 800px;
-      padding: 10px;
+      width: 100%;
+      height: 40px;
+
+      border-radius: 8px;
+      font-size: 14px;
+
+      outline: none;
+
+      padding-left: 15px;
     }
     & > button {
       position: absolute;
-      right: 8%;
-
-      padding: initial;
-      border: none;
-
-      background-color: transparent;
-      color: initial;
+      top: 10px;
+      right: 10px;
     }
-  }
+    .magnifyGlass {
+      font-size: 18px;
+      color: var(--blue);
 
-  @media (min-width: 900px) {
-    .container {
-      margin-bottom: 0px;
-    }
-    .searchBar {
-      position: absolute;
-      width: 50%;
-      right: 25%;
-    }
-    .notification-perfil {
-      width: auto;
-
-      & > .notification {
-        font-size: 30px;
+      transition: 0.3s;
+      :hover {
+        font-size: 20px;
       }
     }
   }
-  @media (min-width: 1200px) {
+
+  @media (min-width: 600px) {
+    position: relative;
+    height: 60px;
+    padding: 0px 0px;
+    justify-content: center;
+
     .container {
-      margin-bottom: 0px;
+      margin: 0px;
+      width: 80%;
     }
+
     .searchBar {
       position: absolute;
-      width: 50%;
-      right: 24%;
+      width: 25%;
+      min-width: 215px;
+
+      & > input {
+        width: 100%;
+        max-width: 450px;
+        height: 40px;
+
+        border-radius: 8px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      width: 70%;
+    }
+
+    .notification-perfil {
+      width: 160px;
+      & > button {
+        display: flex;
+        align-items: center;
+
+        & > h3 {
+          font-size: 14px;
+          color: white;
+          font-weight: 400;
+        }
+
+        & > svg {
+          margin-right: 10px;
+        }
+      }
     }
   }
 `;
