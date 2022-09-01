@@ -1,6 +1,7 @@
 import { Container } from "./style";
 import { motion } from "framer-motion";
 import HeaderUnlogged from "../HeaderUnlogged";
+import Header from "../UserDashboard/Header";
 
 const MoreInfo = () => {
   return (
@@ -10,7 +11,7 @@ const MoreInfo = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <HeaderUnlogged />
+      <Header />
       <Container>
         <div className="left-wrapper">
           <div className="product-info">

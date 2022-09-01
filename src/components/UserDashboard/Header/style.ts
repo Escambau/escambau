@@ -8,6 +8,7 @@ export const HeaderTag = styled.header`
   background: var(--blue);
 
   height: 110px;
+  width: 100vw;
 
   padding: 10px 0px;
 
@@ -37,8 +38,8 @@ export const HeaderTag = styled.header`
     color: white;
     font-size: 20px;
 
-    transition: .3s;
-    :hover{
+    transition: 0.3s;
+    :hover {
       font-size: 22px;
     }
   }
@@ -49,14 +50,14 @@ export const HeaderTag = styled.header`
     padding: 5px;
     border-radius: 100%;
 
-    transition: .3s;
-    :hover{
+    transition: 0.3s;
+    :hover {
       padding: 6px;
     }
   }
   .userName {
-    transition: .3s;
-    :hover{
+    transition: 0.3s;
+    :hover {
       color: var(--darkGrey);
     }
   }
@@ -85,10 +86,10 @@ export const HeaderTag = styled.header`
       font-size: 18px;
       color: var(--blue);
 
-      transition: .3s;
-    :hover{
-      font-size: 20px;
-    }
+      transition: 0.3s;
+      :hover {
+        font-size: 20px;
+      }
     }
   }
 
@@ -119,24 +120,24 @@ export const HeaderTag = styled.header`
     }
   }
 
-  @media (min-width: 768px){
-    .container{
+  @media (min-width: 768px) {
+    .container {
       width: 70%;
     }
 
     .notification-perfil {
       width: 160px;
-      & > button{
+      & > button {
         display: flex;
         align-items: center;
-        
-        & > h3{
+
+        & > h3 {
           font-size: 14px;
           color: white;
           font-weight: 400;
         }
 
-        & > svg{
+        & > svg {
           margin-right: 10px;
         }
       }
