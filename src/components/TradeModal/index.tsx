@@ -15,7 +15,7 @@ const TradeModal = () => {
     isSelected,
     isTradeModal,
     setIsTradeModal,
-    isModalConfirmTrade
+    isModalConfirmTrade,
   } = useContext(ProductContext);
   const { user } = useContext(UserContext);
   useEffect(() => {
@@ -81,56 +81,56 @@ const TradeModal = () => {
 
   return (
     <>
-      {isTradeModal &&
-      <BackgroundGradiente>
-        <Modal>
-          <div>
-            <h3>Selecione o produto que será trocado</h3>
-            <button onClick={() => setIsTradeModal(false)}>
-              <IoMdClose />
-            </button>
-          </div>
+      {isTradeModal && (
+        <BackgroundGradiente>
+          <Modal>
+            <div>
+              <h3>Selecione o produto que será trocado</h3>
+              <button onClick={() => setIsTradeModal(false)}>
+                <IoMdClose />
+              </button>
+            </div>
 
-          <List>
-            {cardList.map((card) => {
-              return (
-                <Card key={card.id} onClick={() => filterProductsUser(card)}>
-                  <div>
-                    <img src={card.image} alt="" />
-
+            <List>
+              {cardList.map((card) => {
+                return (
+                  <Card key={card.id} onClick={() => filterProductsUser(card)}>
                     <div>
+                      <img src={card.image} alt="" />
+
                       <div>
-                        <h4>{card.category}</h4>
-                        <h3>{card.name}</h3>
+                        <div>
+                          <h4>{card.category}</h4>
+                          <h3>{card.name}</h3>
+                        </div>
+                        <section>
+                          <p>Preço estipulado:</p>
+                          <span>{card.price}</span>
+                        </section>
                       </div>
-                      <section>
-                        <p>Preço estipulado:</p>
-                        <span>{card.price}</span>
-                      </section>
                     </div>
-                  </div>
 
-                  <label className="containerCheckbox">
-                    {(isSelected(card)) ? (
-                      <span className="checkmarkFalse" />
-                    ) : (
-                      <FiCheck className="checkmarkTrue" />
-                    )}
-                  </label>
-                </Card>
-              );
-            })}
-          </List>
+                    <label className="containerCheckbox">
+                      {isSelected(card) ? (
+                        <span className="checkmarkFalse" />
+                      ) : (
+                        <FiCheck className="checkmarkTrue" />
+                      )}
+                    </label>
+                  </Card>
+                );
+              })}
+            </List>
 
-          <button
-            className="btnTrade"
-            onClick={() => isModalConfirmTrade(true)}
-          >
-            Solicitar Troca
-          </button>
-        </Modal>
-      </BackgroundGradiente>
-      }
+            <button
+              className="btnTrade"
+              onClick={() => isModalConfirmTrade(true)}
+            >
+              Solicitar Troca
+            </button>
+          </Modal>
+        </BackgroundGradiente>
+      )}
     </>
   );
 };

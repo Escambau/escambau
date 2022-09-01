@@ -76,7 +76,7 @@ export const Card = styled.button`
     width: 25px;
     height: 25px;
   }
-  
+
   .checkmarkTrue {
     position: absolute;
     top: 3px;
@@ -84,15 +84,13 @@ export const Card = styled.button`
     color: green;
     font-size: 20px;
   }
-  .checkmarkFalse{
-    
+  .checkmarkFalse {
   }
 
-
-@media (min-width: 768px){
-    .checkmark{
-        top: 0;
-        right: 30px;
+  @media (min-width: 768px) {
+    .checkmark {
+      top: 0;
+      right: 30px;
     }
-}
+  }
 `;

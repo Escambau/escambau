@@ -59,19 +59,18 @@ export const Modal = styled.div`
       text-align: center;
       line-height: 15px;
     }
-    & > button{
+    & > button {
       position: absolute;
       top: 0px;
       right: 0px;
-      
+
       & > svg {
-  
         font-size: 20px;
         color: white;
         background-color: var(--darkGrey);
         padding: 3px 3px 3px 3px;
         border-radius: 100%;
-  
+
         transition: 0.3s;
         :hover {
           font-size: 21px;
