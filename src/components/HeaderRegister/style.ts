@@ -36,6 +36,10 @@ export const HeaderTag = styled.header`
       font-size: 12px;
       font-weight: 900;
     }
+
+    button:hover {
+      opacity: 80%;
+    }
   }
 
   .searchBar {

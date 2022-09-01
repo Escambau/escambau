@@ -12,13 +12,48 @@ export const registerUserSchema = yup.object().shape({
     .matches(/[A-Z]/, "Deve conter ao menos 1 letra maiúscula")
     .matches(/([a-z])/, "Deve conter ao menos 1 letra minúscula")
     .matches(/(\d)/, "Deve conter ao menos 1 número")
-    .matches(/(\W)|_/, "Deve conter ao menos 1 caracter especial")
+    .matches(/(\W)|_/, "Deve conter ao menos 1 caractere especial")
     .matches(/.{8,}/, "Deve conter ao menos 8 caracteres"),
   confirmPassword: yup
     .string()
     .oneOf([yup.ref("password")], "Suas senhas devem ser iguais"),
   cidade: yup.string().required("Sua cidade é obrigatória"),
-  estado: yup.string().ensure().nullable().required("Seu estado é obrigatório"),
+
+  estado: yup
+    .string()
+    .required()
+    .oneOf(
+      [
+        "Acre",
+        "Alagoas",
+        "Amapá",
+        "Amazonas",
+        "Bahia",
+        "Ceará",
+        "Distrito Federal",
+        "Espírito Santo",
+        "Goiás",
+        "Maranhão",
+        "Mato Grosso",
+        "Mato Grosso do Sul",
+        "Minas Gerais",
+        "Pará",
+        "Paraíba",
+        "Paraná",
+        "Pernambuco",
+        "Piauí",
+        "Rio de Janeiro",
+        "Rio Grande do Sul",
+        "Rondônia",
+        "Roraima",
+        "Santa Catarina",
+        "São Paulo",
+        "Sergipe",
+        "Tocantins",
+      ],
+      "Selecione um estado"
+    ),
+
   cpf: yup
     .string()
     .required("Seu CPF é obrigatório")
@@ -30,6 +65,6 @@ export const registerUserSchema = yup.object().shape({
     .number()
     .typeError("Sua idade é obrigatória")
     .required("Sua idade é obrigatória")
-    .positive()
-    .integer(),
+    .positive("Forneça apenas números positivos")
+    .integer("Forneça apenas números inteiros"),
 });
