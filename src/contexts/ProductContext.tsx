@@ -18,7 +18,8 @@ export function ProductProvider({children}: IProductProvider) {
 
   const [products, setProducts] = useState<any[]>([])
   const [isModalLogin, setIsModalLogin] = useState<boolean>(false);
-  const [currentProduct, setCurrentProduct] = useState<boolean>(false);
+  const [currentProduct, setCurrentProduct] = useState<boolean>(false)
+
 
   return (
     <ProductContext.Provider value={{

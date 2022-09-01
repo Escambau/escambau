@@ -62,7 +62,7 @@ export function UserProvider({children} : IUserProviders) {
 
   return (
     <UserContext.Provider value={{
-      user, setUser, isLoading, setIsLoading, token, setToken, isPasswordShow, setIsPasswordShow,  viewPass, navigate,
+      user, setUser, isLoading, setIsLoading, token, setToken, isPasswordShow, setIsPasswordShow, navigate,viewPass,
       redirectToRegister, onSubmitLogin
     }}>
       {children}
