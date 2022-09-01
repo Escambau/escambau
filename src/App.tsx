@@ -1,13 +1,10 @@
-import React from "react";
-import { ToastContainer } from "react-toastify";
-import "./App.css";
-import GlobalStyle from "./styles/global";
+import EditProduct from "./pages/EditProduct";
 
 function App() {
   return (
-    <div className="App">
-      <GlobalStyle />
-    </div>
+    <>
+      <EditProduct />
+    </>
   );
 }
 

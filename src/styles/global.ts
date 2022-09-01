@@ -8,18 +8,6 @@ import RobotoWoff2 from "../fonts/roboto-v30-latin-regular.woff2";
 
 const GlobalStyle = createGlobalStyle`
 
-<<<<<<< HEAD
-	:root {
-		--lightGreyBackground: #D9D9D9 50%;
-		--lightGrey: #D9D9D9;
-		--grey: #979797;
-		--darkGrey: #2F2F2F;
-		--blue: #4169E1;
-		--green: #83C067;
-		--red: #FF2525;
-		--orange: #E84500;
-	}
-=======
 :root {
 			--lightGreyBackground: #D9D9D9 50%;
 			--lightGrey: #D9D9D9;
@@ -30,7 +18,6 @@ const GlobalStyle = createGlobalStyle`
 			--red: #FF2525;
 			--orange: #E84500;
 		}
->>>>>>> 3b2530cfd5a1227050b862b657e069b9027369d0
 
 	@font-face {
 	font-family: 'Montserrat';
@@ -87,38 +74,6 @@ const GlobalStyle = createGlobalStyle`
 	body {
 		line-height: 1;
 
-<<<<<<< HEAD
-	}
-	ul,ol {
-		list-style: none;
-	}
-	blockquote, q {
-		quotes: none;
-	}
-	blockquote:before, blockquote:after,
-	q:before, q:after {
-		content: '';
-		content: none;
-	}
-	table {
-		border-collapse: collapse;
-		border-spacing: 0;
-	}
-=======
-		button{
-        background-color: transparent;
-        border: none;
-        border-radius: 8px;
-    }
-
-		/* HTML5 display-role reset for older browsers */
-		article, aside, details, figcaption, figure, 
-		footer, header, hgroup, menu, nav, section {
-			display: block;
-		}
-		body {
-			line-height: 1;
-
 		}
 		ul,ol {
 			list-style: none;
@@ -135,7 +90,6 @@ const GlobalStyle = createGlobalStyle`
 			border-collapse: collapse;
 			border-spacing: 0;
 		}
->>>>>>> 3b2530cfd5a1227050b862b657e069b9027369d0
 `;
 
 export default GlobalStyle;
