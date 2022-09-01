@@ -118,7 +118,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 1.2rem;
   width: 100%;
 
   .form-field {
@@ -157,6 +157,9 @@ export const Form = styled.form`
       gap: 4px;
     }
   }
+  .endereco-child-estado {
+    padding-bottom: 15px;
+  }
 
   label {
     color: var(--grey);
@@ -194,7 +197,7 @@ export const Form = styled.form`
     color: var(--grey);
     border-bottom: 1px solid var(--lightGrey);
     height: 2rem;
-    width: 100%;
+    width: 105%;
 
     @media (min-width: 600px) {
       border: none;
@@ -229,5 +232,12 @@ export const Form = styled.form`
   @media (min-width: 600px) {
     width: 50%;
     padding: 2rem 0;
+  }
+  .error {
+    padding-top: 0.4rem;
+    padding-left: 0.1rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--red);
   }
 `;

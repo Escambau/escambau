@@ -1,11 +1,21 @@
 import { useForm } from "react-hook-form";
-import { IRegister } from "../../contexts/UserContext";
+import { IRegister, UserContext } from "../../contexts/UserContext";
 import { Section, Form } from "./style";
 import HeaderUnlogged from "../HeaderUnlogged";
 import RegisterImage from "../../assets/RegisterImage.png";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { formSchema } from "../../validations/registerUser";
+import { useContext } from "react";
 
 const RegisterForm = () => {
-  const { register, handleSubmit } = useForm<IRegister>();
+  const { onSubmitRegister } = useContext(UserContext);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IRegister>({
+    resolver: yupResolver(formSchema),
+  });
 
   return (
     <>
@@ -22,7 +32,7 @@ const RegisterForm = () => {
             <img src={RegisterImage} alt="imagem registro" />
           </div>
 
-          <Form>
+          <Form onSubmit={handleSubmit(onSubmitRegister)}>
             <h3>Cadastre-se</h3>
             <div className="form-field">
               <label>Nome completo:</label>
@@ -31,6 +41,7 @@ const RegisterForm = () => {
                 placeholder="Digite o seu nome"
                 {...register("name")}
               />
+              <span className="error">{errors.name?.message}</span>
             </div>
 
             <div className="form-field">
@@ -40,6 +51,7 @@ const RegisterForm = () => {
                 placeholder="Digite o seu e-mail"
                 {...register("email")}
               />
+              <span className="error">{errors.email?.message}</span>
             </div>
 
             <div className="form-field">
@@ -49,6 +61,7 @@ const RegisterForm = () => {
                 placeholder="Digite a sua senha"
                 {...register("password")}
               />
+              <span className="error">{errors.password?.message}</span>
             </div>
 
             <div className="form-field">
@@ -58,6 +71,7 @@ const RegisterForm = () => {
                 placeholder="Confirme a sua senha"
                 {...register("confirmPassword")}
               />
+              <span className="error">{errors.confirmPassword?.message}</span>
             </div>
 
             <div className="endereco">
@@ -69,6 +83,7 @@ const RegisterForm = () => {
                   placeholder="Cidade"
                   {...register("cidade")}
                 />
+                <span className="error">{errors.cidade?.message}</span>
               </div>
 
               <div className="endereco-child-estado">
@@ -103,17 +118,19 @@ const RegisterForm = () => {
                   <option value="TO">Tocantins</option>
                 </select>
               </div>
+              <span className="error">{errors.estado?.message}</span>
             </div>
 
             <div className="dadosPessoais">
               <div className="dados-child-cpf">
                 <label>CPF:</label>
                 <input
-                  type="number"
+                  type="text"
                   className="inputSmall"
                   placeholder="CPF"
                   {...register("cpf")}
                 />
+                <span className="error">{errors.cpf?.message}</span>
               </div>
 
               <div className="dados-child-idade">
@@ -124,6 +141,7 @@ const RegisterForm = () => {
                   placeholder="Idade"
                   {...register("idade")}
                 />
+                <span className="error">{errors.idade?.message}</span>
               </div>
             </div>
 

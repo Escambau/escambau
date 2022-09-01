@@ -9,6 +9,7 @@ function App() {
   return (
     <div className="App">
       <GlobalStyle />
+      <ToastContainer />
       {/* <HeaderUnlogged /> */}
       <RegisterForm />
     </div>

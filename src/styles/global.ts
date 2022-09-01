@@ -77,6 +77,7 @@ const GlobalStyle = createGlobalStyle`
 		}
 		body {
 			line-height: 1;
+			overflow-x: hidden;
 
 		}
 		ul,ol {

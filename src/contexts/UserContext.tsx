@@ -6,9 +6,8 @@ import {
   SetStateAction,
 } from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
-import { StringMappingType } from "typescript";
 import api from "../services/api";
-import { LoginError } from "../ToastContainer";
+import { LoginError, RegisterSucess, RegisterError } from "../ToastContainer";
 
 interface IUserProviders {
   children: ReactNode;
@@ -26,6 +25,7 @@ interface IUserContext {
   viewPass: () => void;
   redirectToRegister: () => void;
   onSubmitLogin: (data: ILogin) => void;
+  onSubmitRegister: (data: IRegister) => void;
 }
 interface IUser {
   email: string;
@@ -51,6 +51,11 @@ export interface IRegister {
   estado: string;
   cpf: string;
   idade: number;
+}
+
+interface IRegisterResponse {
+  acessToken: string;
+  user: IUser;
 }
 
 export const UserContext = createContext<IUserContext>({} as IUserContext);
@@ -81,6 +86,23 @@ export function UserProvider({ children }: IUserProviders) {
       .catch(() => LoginError());
   };
 
+  const onSubmitRegister = (data: IRegister) => {
+    api
+      .post<IRegisterResponse>("/users", data)
+      .then((res) => {
+        if (res.data) {
+          RegisterSucess();
+          setTimeout(() => {
+            navigate("/login", { replace: true });
+          }, 3000);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        RegisterError();
+      });
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -96,6 +118,7 @@ export function UserProvider({ children }: IUserProviders) {
         navigate,
         redirectToRegister,
         onSubmitLogin,
+        onSubmitRegister,
       }}
     >
       {children}
