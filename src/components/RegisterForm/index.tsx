@@ -19,6 +19,7 @@ const RegisterForm = () => {
 
   return (
     <>
+      {/* Teste de Commit */}
       <HeaderRegister />
       <Section>
         <div className="background">
