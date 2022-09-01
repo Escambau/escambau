@@ -15,7 +15,6 @@ const TradeModal = () => {
     isSelected,
     isTradeModal,
     setIsTradeModal,
-    isModalConfirmTrade,
     setIsModalConfirmTrade
   } = useContext(ProductContext);
   const { user } = useContext(UserContext);
