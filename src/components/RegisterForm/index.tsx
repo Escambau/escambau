@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
 import { IRegister, UserContext } from "../../contexts/UserContext";
 import { Section, Form } from "./style";
-import HeaderUnlogged from "../HeaderUnlogged";
 import RegisterImage from "../../assets/RegisterImage.png";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { formSchema } from "../../validations/registerUser";
+import { registerUserSchema } from "../../validations/registerUser";
 import { useContext } from "react";
+import HeaderRegister from "../HeaderRegister";
 
 const RegisterForm = () => {
   const { onSubmitRegister } = useContext(UserContext);
@@ -14,12 +14,12 @@ const RegisterForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<IRegister>({
-    resolver: yupResolver(formSchema),
+    resolver: yupResolver(registerUserSchema),
   });
 
   return (
     <>
-      <HeaderUnlogged />
+      <HeaderRegister />
       <Section>
         <div className="background">
           <div className="infoInicial">
