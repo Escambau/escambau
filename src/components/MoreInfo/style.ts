@@ -1,5 +1,4 @@
 import styled from "styled-components";
-// import { ILogged } from ".";
 
 export const Container = styled.div`
   width: 70%;
@@ -72,16 +71,26 @@ export const Container = styled.div`
     }
   }
 
-  @media (max-width: 425px) {
+  @media (max-width: 768px) {
     flex-direction: column;
     gap: 20px;
 
     .left-wrapper {
+      .product-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
       img {
-        width: 300px;
+        width: 100%;
       }
       .product-description {
-        width: 300px;
+        width: 100%;
+        text-align: left;
+        h3 {
+          text-align: center;
+        }
       }
     }
 

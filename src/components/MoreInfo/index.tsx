@@ -1,12 +1,8 @@
 import { Container } from "./style";
 import { motion } from "framer-motion";
-export interface ILogged {
-  isLogged: boolean;
-  setIsLogged: (value: boolean) => void;
-}
+import HeaderUnlogged from "../HeaderUnlogged";
 
 const MoreInfo = () => {
-  // const [isLogged, setIsLogged] = useState<ILogged>(true);
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -14,6 +10,7 @@ const MoreInfo = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
+      <HeaderUnlogged />
       <Container>
         <div className="left-wrapper">
           <div className="product-info">
