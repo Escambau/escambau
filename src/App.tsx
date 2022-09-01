@@ -1,15 +1,21 @@
-import React from "react";
-import { ToastContainer } from "react-toastify";
+import React, { useContext } from "react";
 import "./App.css";
+
+import HeaderUnlogged from "./components/HeaderUnlogged";
 import TradeModal from "./components/TradeModal";
-import User from "./pages/User";
+import { ProductContext } from "./contexts/ProductContext";
+import GlobalStyle from "./styles/global";
 
 function App() {
-  return <div className="App">
-    <ToastContainer />
-    <TradeModal />
-    <User />
-  </div>;
+  const {setIsTradeModal} = useContext(ProductContext)
+  return (
+    <div className="App">
+      <TradeModal />
+      <GlobalStyle />
+      <HeaderUnlogged />
+      <button onClick={() => setIsTradeModal(true)}>tradeModal</button>
+    </div>
+  );
 }
 
 export default App;
