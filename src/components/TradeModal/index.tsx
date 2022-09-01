@@ -1,7 +1,7 @@
-import { BackgroundGradiente, List, Modal } from "./modal";
+import { BackgroundGradiente, List, Modal } from "./modalStyle";
 import { IoMdClose } from "react-icons/io";
 import { FiCheck } from "react-icons/fi";
-import { Card } from "./card";
+import { Card } from "./cardStyle";
 import { useContext, useEffect } from "react";
 import { IProduct, ProductContext } from "../../contexts/ProductContext";
 import { UserContext } from "../../contexts/UserContext";
