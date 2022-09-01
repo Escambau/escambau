@@ -5,7 +5,7 @@ import {
   Dispatch,
   SetStateAction,
 } from "react";
-import { NavigateFunction, useNavigate } from 'react-router-dom';
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import api from "../services/api";
 import { LoginError, RegisterSucess, RegisterError } from "../ToastContainer";
 
@@ -39,7 +39,6 @@ export interface ILogin {
   email: string;
   password: string;
 }
-
 export interface IRegister {
   name: string;
   email: string;
@@ -51,7 +50,6 @@ export interface IRegister {
   cpf: string;
   idade: number;
 }
-
 interface IRegisterResponse {
   acessToken: string;
   user: IUser;
@@ -70,7 +68,7 @@ export function UserProvider({ children }: IUserProviders) {
     setIsPasswordShow(!isPasswordShow);
   };
   const redirectToRegister = () => {
-    navigate('/users', {replace: true});
+    navigate("/users", { replace: true });
     navigate("/users", { replace: true });
   };
   const onSubmitLogin = (data: ILogin) => {
@@ -81,13 +79,12 @@ export function UserProvider({ children }: IUserProviders) {
         localStorage.setItem("@id", response.data.user.id);
         setUser(response.data.user);
         setToken(response.data.token);
-        //navigate('/dashboard', {replace: true});
       })
-      .catch(() => LoginError());
-        navigate("/dashboard", { replace: true })
-      }
+      .catch(() => {
+        LoginError();
+        navigate("/dashboard", { replace: true });
+      });
   };
-
   const onSubmitRegister = (data: IRegister) => {
     api
       .post<IRegisterResponse>("/users", data)
