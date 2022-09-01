@@ -6,7 +6,7 @@ import RobotoWoff2 from "../fonts/roboto-v30-latin-regular.woff2";
 const GlobalStyle = createGlobalStyle`
 
 	:root {
-		--lightGreyBackground: #D9D9D9 50%;
+		--lightGreyBackground: #00000080;
 		--lightGrey: #D9D9D9;
 		--grey: #979797;
 		--darkGrey: #2F2F2F;

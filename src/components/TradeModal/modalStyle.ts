@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const BackgroundGradiente = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,20 +59,22 @@ export const Modal = styled.div`
       text-align: center;
       line-height: 15px;
     }
-    & > svg {
+    & > button {
       position: absolute;
       top: 0px;
       right: 0px;
 
-      font-size: 20px;
-      color: white;
-      background-color: var(--darkGrey);
-      padding: 3px 3px 3px 3px;
-      border-radius: 100%;
+      & > svg {
+        font-size: 20px;
+        color: white;
+        background-color: var(--darkGrey);
+        padding: 3px 3px 3px 3px;
+        border-radius: 100%;
 
-      transition: 0.3s;
-      :hover {
-        font-size: 21px;
+        transition: 0.3s;
+        :hover {
+          font-size: 21px;
+        }
       }
     }
   }
@@ -78,7 +84,7 @@ export const Modal = styled.div`
       & > h3 {
         font-size: 14px;
       }
-      & > svg {
+      & > button {
         top: -12px;
         right: -12px;
         font-size: 22px;

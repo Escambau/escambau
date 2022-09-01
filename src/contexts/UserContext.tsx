@@ -5,7 +5,7 @@ import {
   Dispatch,
   SetStateAction,
 } from "react";
-import { NavigateFunction, useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 import api from "../services/api";
 import { LoginError, RegisterSucess, RegisterError } from "../ToastContainer";
 
@@ -25,7 +25,6 @@ interface IUserContext {
   viewPass: () => void;
   redirectToRegister: () => void;
   onSubmitLogin: (data: ILogin) => void;
-  onSubmitRegister: (data: IRegister) => void;
 }
 interface IUser {
   email: string;
@@ -71,6 +70,7 @@ export function UserProvider({ children }: IUserProviders) {
     setIsPasswordShow(!isPasswordShow);
   };
   const redirectToRegister = () => {
+    navigate('/users', {replace: true});
     navigate("/users", { replace: true });
   };
   const onSubmitLogin = (data: ILogin) => {
@@ -81,9 +81,11 @@ export function UserProvider({ children }: IUserProviders) {
         localStorage.setItem("@id", response.data.user.id);
         setUser(response.data.user);
         setToken(response.data.token);
-        navigate("/dashboard", { replace: true });
+        //navigate('/dashboard', {replace: true});
       })
       .catch(() => LoginError());
+        navigate("/dashboard", { replace: true })
+      }
   };
 
   const onSubmitRegister = (data: IRegister) => {
@@ -115,6 +117,8 @@ export function UserProvider({ children }: IUserProviders) {
         isPasswordShow,
         setIsPasswordShow,
         viewPass,
+        redirectToRegister,
+        onSubmitLogin,
         navigate,
         redirectToRegister,
         onSubmitLogin,
