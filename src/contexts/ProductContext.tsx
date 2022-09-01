@@ -11,10 +11,12 @@ interface IProductProvider {
 }
 interface IProductContext {
   products: IProduct[];
-  setProducts: Dispatch<SetStateAction<never[]>>;
+  setProducts: Dispatch<SetStateAction<IProduct[]>>;
   isModalLogin: boolean;
   setIsModalLogin: Dispatch<SetStateAction<boolean>>;
   isTradeModal: boolean;
+  isModalConfirmTrade: boolean;
+  setIsModalConfirmTrade: Dispatch<SetStateAction<boolean>>;
   setIsTradeModal: Dispatch<SetStateAction<boolean>>;
   currentProduct: boolean;
   setCurrentProduct: Dispatch<SetStateAction<boolean>>;
@@ -41,9 +43,10 @@ export const ProductContext = createContext<IProductContext>(
 );
 
 export function ProductProvider({ children }: IProductProvider) {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<IProduct[]>([]);
   const [isModalLogin, setIsModalLogin] = useState<boolean>(false);
-  const [isTradeModal, setIsTradeModal] = useState(false);
+  const [isModalConfirmTrade, setIsModalConfirmTrade] =
+    useState<boolean>(false);
   const [currentProduct, setCurrentProduct] = useState<boolean>(false);
   const [userSelectedProducts, setUserSelectedProducts] = useState<IProduct[]>(
     [] as IProduct[]
@@ -51,6 +54,7 @@ export function ProductProvider({ children }: IProductProvider) {
   const [userProductList, setUserProductList] = useState<IProduct[]>(
     [] as IProduct[]
   );
+  const [isTradeModal, setIsTradeModal] = useState<boolean>(false)
 
   const filterProductsUser = (currentProduct: IProduct) => {
     if (
@@ -94,6 +98,8 @@ export function ProductProvider({ children }: IProductProvider) {
         setUserProductList,
         filterProductsUser,
         isSelected,
+        isModalConfirmTrade,
+        setIsModalConfirmTrade,
       }}
     >
       {children}

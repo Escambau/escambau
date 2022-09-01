@@ -1,11 +1,8 @@
 import { createGlobalStyle } from "styled-components";
-
 import MontserratWoff from "../fonts/montserrat-v25-latin-regular.woff";
 import MontserratWoff2 from "../fonts/montserrat-v25-latin-regular.woff2";
-
 import RobotoWoff from "../fonts/roboto-v30-latin-regular.woff";
 import RobotoWoff2 from "../fonts/roboto-v30-latin-regular.woff2";
-
 const GlobalStyle = createGlobalStyle`
 
 	:root {
@@ -18,7 +15,6 @@ const GlobalStyle = createGlobalStyle`
 		--red: #FF2525;
 		--orange: #E84500;
 	}
-
 
 	@font-face {
 	font-family: 'Montserrat';
@@ -74,6 +70,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 	body {
 		line-height: 1;
+
 	}
 	ul,ol {
 		list-style: none;
@@ -103,6 +100,7 @@ const GlobalStyle = createGlobalStyle`
 		}
 		body {
 			line-height: 1;
+			overflow-x: hidden;
 
 		}
 		ul,ol {

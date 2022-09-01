@@ -5,9 +5,9 @@ import {
   Dispatch,
   SetStateAction,
 } from "react";
-//import { NavigateFunction, useNavigate } from 'react-router-dom';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 import api from "../services/api";
-import { LoginError } from "../ToastContainer";
+import { LoginError, RegisterSucess, RegisterError } from "../ToastContainer";
 
 interface IUserProviders {
   children: ReactNode;
@@ -21,7 +21,7 @@ interface IUserContext {
   setToken: Dispatch<SetStateAction<null>>;
   isPasswordShow: boolean;
   setIsPasswordShow: Dispatch<SetStateAction<boolean>>;
-  //navigate: NavigateFunction;
+  navigate: NavigateFunction;
   viewPass: () => void;
   redirectToRegister: () => void;
   onSubmitLogin: (data: ILogin) => void;
@@ -30,13 +30,31 @@ interface IUser {
   email: string;
   id: number;
   avatarUrl: string;
-  endereco: string;
+  cidade: string;
+  estado: string;
   cpf: string;
   idade: number;
 }
 export interface ILogin {
   email: string;
   password: string;
+}
+
+export interface IRegister {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  avatarUrl: string;
+  cidade: string;
+  estado: string;
+  cpf: string;
+  idade: number;
+}
+
+interface IRegisterResponse {
+  acessToken: string;
+  user: IUser;
 }
 
 export const UserContext = createContext<IUserContext>({} as IUserContext);
@@ -46,13 +64,14 @@ export function UserProvider({ children }: IUserProviders) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [token, setToken] = useState<null>(null);
   const [isPasswordShow, setIsPasswordShow] = useState<boolean>(false);
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const viewPass = () => {
     setIsPasswordShow(!isPasswordShow);
   };
   const redirectToRegister = () => {
-    //navigate('/users', {replace: true});
+    navigate('/users', {replace: true});
+    navigate("/users", { replace: true });
   };
   const onSubmitLogin = (data: ILogin) => {
     api
@@ -65,6 +84,25 @@ export function UserProvider({ children }: IUserProviders) {
         //navigate('/dashboard', {replace: true});
       })
       .catch(() => LoginError());
+        navigate("/dashboard", { replace: true })
+      }
+  };
+
+  const onSubmitRegister = (data: IRegister) => {
+    api
+      .post<IRegisterResponse>("/users", data)
+      .then((res) => {
+        if (res.data) {
+          RegisterSucess();
+          setTimeout(() => {
+            navigate("/login", { replace: true });
+          }, 3000);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        RegisterError();
+      });
   };
 
   return (
@@ -81,6 +119,10 @@ export function UserProvider({ children }: IUserProviders) {
         viewPass,
         redirectToRegister,
         onSubmitLogin,
+        navigate,
+        redirectToRegister,
+        onSubmitLogin,
+        onSubmitRegister,
       }}
     >
       {children}
