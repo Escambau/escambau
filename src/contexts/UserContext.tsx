@@ -1,10 +1,16 @@
-import { createContext, ReactNode, useState, Dispatch, SetStateAction } from "react";
+import {
+  createContext,
+  ReactNode,
+  useState,
+  Dispatch,
+  SetStateAction,
+} from "react";
 //import { NavigateFunction, useNavigate } from 'react-router-dom';
 import api from "../services/api";
 import { LoginError } from "../ToastContainer";
 
 interface IUserProviders {
-  children: ReactNode
+  children: ReactNode;
 }
 interface IUserContext {
   user: null | IUser;
@@ -14,11 +20,11 @@ interface IUserContext {
   token: null | string;
   setToken: Dispatch<SetStateAction<null>>;
   isPasswordShow: boolean;
-  setIsPasswordShow: Dispatch<SetStateAction<boolean>>
+  setIsPasswordShow: Dispatch<SetStateAction<boolean>>;
   //navigate: NavigateFunction;
   viewPass: () => void;
   redirectToRegister: () => void;
-  onSubmitLogin: (data: ILogin) => void
+  onSubmitLogin: (data: ILogin) => void;
 }
 interface IUser {
   email: string;
@@ -26,7 +32,7 @@ interface IUser {
   avatarUrl: string;
   endereco: string;
   cpf: string;
-  idade: number
+  idade: number;
 }
 export interface ILogin {
   email: string;
@@ -35,8 +41,7 @@ export interface ILogin {
 
 export const UserContext = createContext<IUserContext>({} as IUserContext);
 
-export function UserProvider({children} : IUserProviders) {
-  
+export function UserProvider({ children }: IUserProviders) {
   const [user, setUser] = useState<null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [token, setToken] = useState<null>(null);
@@ -44,28 +49,41 @@ export function UserProvider({children} : IUserProviders) {
   //const navigate = useNavigate();
 
   const viewPass = () => {
-    setIsPasswordShow(!isPasswordShow)
+    setIsPasswordShow(!isPasswordShow);
   };
   const redirectToRegister = () => {
     //navigate('/users', {replace: true});
   };
   const onSubmitLogin = (data: ILogin) => {
-    api.post('/login', data)
-    .then(response => {
-      localStorage.setItem('@token', response.data.token);
-      localStorage.setItem('@id', response.data.user.id);
-      setUser(response.data.user);
-      setToken(response.data.token);
-      //navigate('/dashboard', {replace: true});
-    }).catch(() => LoginError())
+    api
+      .post("/login", data)
+      .then((response) => {
+        localStorage.setItem("@token", response.data.token);
+        localStorage.setItem("@id", response.data.user.id);
+        setUser(response.data.user);
+        setToken(response.data.token);
+        //navigate('/dashboard', {replace: true});
+      })
+      .catch(() => LoginError());
   };
 
   return (
-    <UserContext.Provider value={{
-      user, setUser, isLoading, setIsLoading, token, setToken, isPasswordShow, setIsPasswordShow,  viewPass,
-      redirectToRegister, onSubmitLogin
-    }}>
+    <UserContext.Provider
+      value={{
+        user,
+        setUser,
+        isLoading,
+        setIsLoading,
+        token,
+        setToken,
+        isPasswordShow,
+        setIsPasswordShow,
+        viewPass,
+        redirectToRegister,
+        onSubmitLogin,
+      }}
+    >
       {children}
     </UserContext.Provider>
-  )
+  );
 }
