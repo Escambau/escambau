@@ -15,7 +15,7 @@ const TradeModal = () => {
     isSelected,
     isTradeModal,
     setIsTradeModal,
-    isModalConfirmTrade,
+    setIsModalConfirmTrade
   } = useContext(ProductContext);
   const { user } = useContext(UserContext);
   useEffect(() => {
@@ -124,7 +124,7 @@ const TradeModal = () => {
 
             <button
               className="btnTrade"
-              onClick={() => isModalConfirmTrade(true)}
+              onClick={() => setIsModalConfirmTrade(true)}
             >
               Solicitar Troca
             </button>
