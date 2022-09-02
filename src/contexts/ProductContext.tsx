@@ -1,31 +1,107 @@
-import { createContext, ReactNode, useState, Dispatch, SetStateAction } from "react";
+import {
+  createContext,
+  ReactNode,
+  useState,
+  Dispatch,
+  SetStateAction,
+} from "react";
 
 interface IProductProvider {
-  children: ReactNode
+  children: ReactNode;
 }
 interface IProductContext {
-  products: any[];
-  setProducts: Dispatch<SetStateAction<any[]>>;
+  products: IProduct[];
+  setProducts: Dispatch<SetStateAction<IProduct[]>>;
   isModalLogin: boolean;
   setIsModalLogin: Dispatch<SetStateAction<boolean>>;
+  isTradeModal: boolean;
+  isModalConfirmTrade: boolean;
+  setIsModalConfirmTrade: Dispatch<SetStateAction<boolean>>;
+  setIsTradeModal: Dispatch<SetStateAction<boolean>>;
   currentProduct: boolean;
-  setCurrentProduct: Dispatch<SetStateAction<boolean>>
+  setCurrentProduct: Dispatch<SetStateAction<boolean>>;
+  userSelectedProducts: IProduct[];
+  setUserSelectedProducts: Dispatch<SetStateAction<IProduct[]>>;
+  userProductList: IProduct[];
+  setUserProductList: Dispatch<SetStateAction<IProduct[]>>;
+  filterProductsUser: (currentProduct: IProduct) => void;
+  isSelected: (currentProduct: IProduct) => boolean;
 }
 
-export const ProductContext = createContext<IProductContext>({} as IProductContext);
+export interface IProduct {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  userId: number;
+}
 
-export function ProductProvider({children}: IProductProvider) {
+export const ProductContext = createContext<IProductContext>(
+  {} as IProductContext
+);
 
-  const [products, setProducts] = useState<any[]>([])
+export function ProductProvider({ children }: IProductProvider) {
+  const [products, setProducts] = useState<IProduct[]>([]);
   const [isModalLogin, setIsModalLogin] = useState<boolean>(false);
+
   const [currentProduct, setCurrentProduct] = useState<boolean>(false)
 
+  const [isModalConfirmTrade, setIsModalConfirmTrade] = useState<boolean>(false);
+
+  const [userSelectedProducts, setUserSelectedProducts] = useState<IProduct[]>([] as IProduct[]);
+
+  const [userProductList, setUserProductList] = useState<IProduct[]>([] as IProduct[]);
+  
+  const [isTradeModal, setIsTradeModal] = useState<boolean>(false)
+
+  const filterProductsUser = (currentProduct: IProduct) => {
+    if (
+      userSelectedProducts.find((product) => product.id === currentProduct.id)
+    ) {
+      const newSelectedProducts = userSelectedProducts.filter(
+        (product) => product.id !== currentProduct.id
+      );
+      setUserSelectedProducts(newSelectedProducts);
+      console.log("retira");
+    } else {
+      setUserSelectedProducts([...userSelectedProducts, currentProduct]);
+      console.log("coloca");
+    }
+  };
+  const isSelected = (currentProduct: IProduct) => {
+    if (
+      userSelectedProducts.find((product) => product.id === currentProduct.id)
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  };
 
   return (
-    <ProductContext.Provider value={{
-      products, setProducts, isModalLogin, setIsModalLogin, currentProduct, setCurrentProduct
-    }}>
+    <ProductContext.Provider
+      value={{
+        products,
+        setProducts,
+        isModalLogin,
+        setIsModalLogin,
+        isTradeModal,
+        setIsTradeModal,
+        currentProduct,
+        setCurrentProduct,
+        userSelectedProducts,
+        setUserSelectedProducts,
+        userProductList,
+        setUserProductList,
+        filterProductsUser,
+        isSelected,
+        isModalConfirmTrade,
+        setIsModalConfirmTrade,
+      }}
+    >
       {children}
     </ProductContext.Provider>
-  )
+  );
 }

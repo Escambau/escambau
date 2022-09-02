@@ -1,8 +1,7 @@
 import { HeaderTag } from "./style";
-import { AiOutlineSearch } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
-const HeaderUnlogged = () => {
+const HeaderRegister = () => {
   //const navigate = useNavigate();
   return (
     <HeaderTag>
@@ -15,14 +14,14 @@ const HeaderUnlogged = () => {
         </button>
       </div>
 
-      <div className="searchBar">
+      {/* <div className="searchBar">
         <input type="text" placeholder="Busque por produtos aqui..." />
         <button>
           <AiOutlineSearch className="magnifyGlass" />
         </button>
-      </div>
+      </div> */}
     </HeaderTag>
   );
 };
 
-export default HeaderUnlogged;
+export default HeaderRegister;

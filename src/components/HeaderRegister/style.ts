@@ -4,11 +4,11 @@ export const HeaderTag = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 
   background: var(--blue);
 
   height: 110px;
-  width: 100vw;
 
   padding: 10px 0px;
 
@@ -19,46 +19,26 @@ export const HeaderTag = styled.header`
 
     width: 90%;
 
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 
     & > h1 {
       color: white;
       font-family: "Montserrat";
       font-size: 18px;
-      font-weight: 700;
+      font-weight: 900;
     }
-  }
 
-  .notification-perfil {
-    width: 75px;
-    display: flex;
-    justify-content: space-between;
-  }
-  .notification {
-    color: white;
-    font-size: 20px;
-
-    transition: 0.3s;
-    :hover {
-      font-size: 22px;
+    button {
+      background-color: var(--green);
+      padding: 8px 30px;
+      color: white;
+      font-family: "Montserrat";
+      font-size: 12px;
+      font-weight: 900;
     }
-  }
-  .perfil {
-    color: black;
-    font-size: 32px;
-    background: rgba(202, 255, 176, 1);
-    padding: 5px;
-    border-radius: 100%;
 
-    transition: 0.3s;
-    :hover {
-      padding: 6px;
-    }
-  }
-  .userName {
-    transition: 0.3s;
-    :hover {
-      color: var(--darkGrey);
+    button:hover {
+      opacity: 80%;
     }
   }
 
