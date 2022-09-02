@@ -4,7 +4,11 @@ import {
   useState,
   Dispatch,
   SetStateAction,
+  useContext,
 } from "react";
+import api from "../services/api";
+import { ProductAdd, ProductAddNegative } from "../ToastContainer";
+import { UserContext } from "./UserContext";
 
 interface IProductProvider {
   children: ReactNode;
@@ -26,6 +30,7 @@ interface IProductContext {
   setUserProductList: Dispatch<SetStateAction<IProduct[]>>;
   filterProductsUser: (currentProduct: IProduct) => void;
   isSelected: (currentProduct: IProduct) => boolean;
+  addNewProduct: (data: IProduct) => void;
 }
 
 export interface IProduct {
@@ -36,6 +41,7 @@ export interface IProduct {
   category: string;
   image: string;
   userId: number;
+  preferences?: string;
 }
 
 export const ProductContext = createContext<IProductContext>(
@@ -43,6 +49,9 @@ export const ProductContext = createContext<IProductContext>(
 );
 
 export function ProductProvider({ children }: IProductProvider) {
+
+  const {redirectToProfile} = useContext(UserContext)
+
   const [products, setProducts] = useState<IProduct[]>([]);
   const [isModalLogin, setIsModalLogin] = useState<boolean>(false);
 
@@ -79,6 +88,15 @@ export function ProductProvider({ children }: IProductProvider) {
       return true;
     }
   };
+  const addNewProduct = (data: IProduct) => {
+    api.post("/products", data)
+    .then(res => {
+      setUserProductList([...userProductList, res.data]);
+      ProductAdd();
+      redirectToProfile();
+    })
+    .catch(() => ProductAddNegative());
+  };
 
   return (
     <ProductContext.Provider
@@ -99,6 +117,7 @@ export function ProductProvider({ children }: IProductProvider) {
         isSelected,
         isModalConfirmTrade,
         setIsModalConfirmTrade,
+        addNewProduct
       }}
     >
       {children}
