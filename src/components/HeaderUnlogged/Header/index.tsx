@@ -1,5 +1,6 @@
-const Header = () => {
-  return;
+export const HeaderUnlogged = () => {
+  return (
+    <>
+    </>
+  )
 };
-
-export default Header;

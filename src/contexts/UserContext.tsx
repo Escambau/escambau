@@ -26,6 +26,7 @@ interface IUserContext {
   redirectToRegister: () => void;
   onSubmitLogin: (data: ILogin) => void;
   onSubmitRegister: (data: IRegister) => void;
+  redirectToProfile: () => void;
 }
 interface IUser {
   email: string;
@@ -106,6 +107,9 @@ export function UserProvider({ children }: IUserProviders) {
         RegisterError();
       });
   };
+  const redirectToProfile = () => {
+    navigate("/profile", { replace: true });
+  }
 
   return (
     <UserContext.Provider
@@ -123,6 +127,7 @@ export function UserProvider({ children }: IUserProviders) {
         onSubmitLogin,
         navigate,
         onSubmitRegister,
+        redirectToProfile
       }}
     >
       {children}
