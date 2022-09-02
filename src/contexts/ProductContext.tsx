@@ -31,6 +31,7 @@ interface IProductContext {
   filterProductsUser: (currentProduct: IProduct) => void;
   isSelected: (currentProduct: IProduct) => boolean;
   addNewProduct: (data: IProduct) => void;
+  categorysList: string[];
 }
 
 export interface IProduct {
@@ -54,17 +55,30 @@ export function ProductProvider({ children }: IProductProvider) {
 
   const [products, setProducts] = useState<IProduct[]>([]);
   const [isModalLogin, setIsModalLogin] = useState<boolean>(false);
-
-  const [currentProduct, setCurrentProduct] = useState<boolean>(false)
-
-  const [isModalConfirmTrade, setIsModalConfirmTrade] = useState<boolean>(false);
-
-  const [userSelectedProducts, setUserSelectedProducts] = useState<IProduct[]>([] as IProduct[]);
-
-  const [userProductList, setUserProductList] = useState<IProduct[]>([] as IProduct[]);
+  const [currentProduct, setCurrentProduct] = useState<boolean>(false);
+  const [isModalConfirmTrade, setIsModalConfirmTrade] =
+    useState<boolean>(false);
+  const [userSelectedProducts, setUserSelectedProducts] = useState<IProduct[]>(
+    [] as IProduct[]
+  );
+  const [userProductList, setUserProductList] = useState<IProduct[]>(
+    [] as IProduct[]
+  );
+  const [isTradeModal, setIsTradeModal] = useState<boolean>(false);
+  const categorysList = [
+    "Eletrônicos e Eletrodomésticos",
+    "Roupas",
+    "Brinquedos",
+    "Utensílios",
+    "Domésticos",
+    "Automotivos",
+    "Instrumentos",
+    "Musicais",
+    "Decoração",
+    "Entretenimento",
+    "Pets",
+  ];
   
-  const [isTradeModal, setIsTradeModal] = useState<boolean>(false)
-
   const filterProductsUser = (currentProduct: IProduct) => {
     if (
       userSelectedProducts.find((product) => product.id === currentProduct.id)
@@ -118,6 +132,7 @@ export function ProductProvider({ children }: IProductProvider) {
         isModalConfirmTrade,
         setIsModalConfirmTrade,
         addNewProduct
+        categorysList
       }}
     >
       {children}
