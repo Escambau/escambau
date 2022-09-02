@@ -1,12 +1,8 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { MdErrorOutline } from "react-icons/md";
-import { AiFillCheckCircle } from "react-icons/ai";
-
 export const creationError = () => {
   toast.error("Error", {
-    icon: <MdErrorOutline />,
     autoClose: 2000,
     closeOnClick: false,
     pauseOnHover: false,
@@ -16,7 +12,6 @@ export const creationError = () => {
 
 export const creationSucess = () => {
   toast.success("sucess", {
-    icon: <AiFillCheckCircle />,
     autoClose: 2000,
     closeOnClick: false,
     pauseOnHover: false,
@@ -25,14 +20,26 @@ export const creationSucess = () => {
 };
 
 export const LoginError = () => {
-  toast.error("E-mail e/ou senha incorretos!", {
-    icon: <MdErrorOutline />,
+  toast.error("Email ou senha incorretos!", {
+    position: "top-right",
+    hideProgressBar: false,
     autoClose: 2000,
-    closeOnClick: false,
+    closeOnClick: true,
     pauseOnHover: false,
     draggable: false,
   });
 };
+export const LoginSucess = () => {
+  toast.success("Login efetuado com sucesso!", {
+    position: "top-right",
+    hideProgressBar: false,
+    autoClose: 2000,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: false,
+  });
+};
+
 
 export const RegisterSucess = () => {
   toast.success("Conta criada com sucesso!", {
