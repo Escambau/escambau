@@ -117,8 +117,6 @@ export function UserProvider({ children }: IUserProviders) {
         redirectToRegister,
         onSubmitLogin,
         navigate,
-        redirectToRegister,
-        onSubmitLogin,
         onSubmitRegister,
       }}
     >
