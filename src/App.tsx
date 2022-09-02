@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import "./App.css";
-
 import HeaderUnlogged from "./components/HeaderUnlogged";
 import TradeModal from "./components/TradeModal";
 import { ProductContext } from "./contexts/ProductContext";

@@ -70,7 +70,6 @@ const GlobalStyle = createGlobalStyle`
 	}
 	body {
 		line-height: 1;
-
 	}
 	ul,ol {
 		list-style: none;
@@ -101,7 +100,6 @@ const GlobalStyle = createGlobalStyle`
 		body {
 			line-height: 1;
 			overflow-x: hidden;
-
 		}
 		ul,ol {
 			list-style: none;
