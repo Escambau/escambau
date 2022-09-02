@@ -25,7 +25,7 @@ interface IUserContext {
   viewPass: () => void;
   redirectToRegister: () => void;
   onSubmitLogin: (data: ILogin) => void;
-  onSubmitRegister: ((data: IRegister) => void)
+  onSubmitRegister: (data: IRegister) => void;
 }
 interface IUser {
   email: string;
