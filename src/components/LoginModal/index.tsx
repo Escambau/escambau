@@ -12,8 +12,8 @@ export function LoginModal() {
   const {isPasswordShow, viewPass, redirectToRegister, onSubmitLogin} = useContext(UserContext)
 
   const formSchema = yup.object().shape({
-    email:yup.string().required('Insira um e-mail!'),
-    password: yup.string().required('Insira uma senha!')
+    email:yup.string().required('Seu email é obrigatório'),
+    password: yup.string().required('Sua senha é obrigatória')
   }); 
 
   const { 

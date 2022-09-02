@@ -7,12 +7,16 @@ export const ModalLogin = styled.div`
   justify-content: center; 
   width: 100%; 
   height: 100vh; 
-  background-color: rgba(0,0,0,.25);
+  background-color: rgba(0,0,0,0.60);
 
   font-family: 'Montserrat';
 
   h2 {
     color: #4169E1;
+    font-family: "Montserrat";
+    font-weight: 700;
+
+    
   }
   
   .box-login {
@@ -21,8 +25,15 @@ export const ModalLogin = styled.div`
     max-height: 400px; 
     height: 100%; 
 
+    padding-top: 30px;
+
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+
     background-color: #ffffff;
-    border: 1px solid #4169E1;
+    border: none;
     border-radius: 10px;
 
     form {
@@ -30,6 +41,7 @@ export const ModalLogin = styled.div`
       flex-direction: column;
       align-items: center;
 
+      gap: 15px;
 
       width: 100%;
 
@@ -38,6 +50,7 @@ export const ModalLogin = styled.div`
         flex-direction: column;
         align-items: flex-start;
         width: 80%;
+        gap: 10px;
 
         line-height: 5px;
 
@@ -45,6 +58,7 @@ export const ModalLogin = styled.div`
           display: flex;
           align-items: center;
           flex-direction: row;
+          
           
           background-color: transparent;
 
@@ -61,9 +75,12 @@ export const ModalLogin = styled.div`
 
         label {
           color: #979797;
+          font-family: "Montserrat";
         }
 
         input {
+          font-family: "MontSerrat";
+
           width: 100%;
           
           padding: 8px 0 8px 8px;
@@ -84,20 +101,21 @@ export const ModalLogin = styled.div`
         button {
           border: none;
           background-color: transparent;
+          
         }
         span {
           font-size: 10px;
-          color: #00AF27;
+          color: red;
         }
       }
       
       .enter-btn {
         width: 80%;
 
+        margin-top: 20px;
         color: #ffffff;
         background-color: #83C067;
 
-        margin-top: 20px;
         padding: 12px 0;
 
         font-size: 16px;
@@ -105,6 +123,12 @@ export const ModalLogin = styled.div`
 
         border-radius: 5px;
         border: none;
+
+        font-family: "Montserrat";
+
+        :hover {
+          opacity: 80%;
+        }
       }
     }
 
@@ -116,11 +140,14 @@ export const ModalLogin = styled.div`
       width: 80%;
 
       margin: 0 auto;
-      margin-top: 10px;
+      padding-bottom: 20px;
 
       h3 {
         color: #4169e1;
         font-size: 14px;
+        font-family: "Montserrat";
+
+        padding-bottom: 20px;
       }
 
       button {
@@ -136,6 +163,11 @@ export const ModalLogin = styled.div`
 
         font-size: 16px;
         font-weight: 600;
+        font-family: "Montserrat";
+
+        :hover {
+          opacity: 80%;
+        }
       }
     }
   } 

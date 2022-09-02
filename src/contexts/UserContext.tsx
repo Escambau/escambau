@@ -5,9 +5,9 @@ import {
   Dispatch,
   SetStateAction,
 } from "react";
-import { NavigateFunction, useNavigate } from 'react-router-dom';
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import api from "../services/api";
-import { LoginError, RegisterSucess, RegisterError } from "../ToastContainer";
+import { LoginError, RegisterSucess, RegisterError, LoginSucess } from "../ToastContainer";
 
 interface IUserProviders {
   children: ReactNode;
@@ -25,6 +25,7 @@ interface IUserContext {
   viewPass: () => void;
   redirectToRegister: () => void;
   onSubmitLogin: (data: ILogin) => void;
+  onSubmitRegister: (data: IRegister) => void;
 }
 interface IUser {
   email: string;
@@ -39,7 +40,6 @@ export interface ILogin {
   email: string;
   password: string;
 }
-
 export interface IRegister {
   name: string;
   email: string;
@@ -51,7 +51,6 @@ export interface IRegister {
   cpf: string;
   idade: number;
 }
-
 interface IRegisterResponse {
   acessToken: string;
   user: IUser;
@@ -70,8 +69,7 @@ export function UserProvider({ children }: IUserProviders) {
     setIsPasswordShow(!isPasswordShow);
   };
   const redirectToRegister = () => {
-    navigate('/users', {replace: true});
-    navigate("/users", { replace: true });
+    navigate("/register", { replace: true });
   };
   const onSubmitLogin = (data: ILogin) => {
     api
@@ -81,13 +79,17 @@ export function UserProvider({ children }: IUserProviders) {
         localStorage.setItem("@id", response.data.user.id);
         setUser(response.data.user);
         setToken(response.data.token);
-        //navigate('/dashboard', {replace: true});
+        LoginSucess();
+        setTimeout(() => {
+          navigate("/dashboard", { replace: true });
+        }, 3000);
       })
-      .catch(() => LoginError());
-        navigate("/dashboard", { replace: true })
-      }
+      .catch((er) => {
+        console.log(er);
+        LoginError();
+        navigate("/home", { replace: true });
+      });
   };
-
   const onSubmitRegister = (data: IRegister) => {
     api
       .post<IRegisterResponse>("/users", data)
@@ -120,8 +122,6 @@ export function UserProvider({ children }: IUserProviders) {
         redirectToRegister,
         onSubmitLogin,
         navigate,
-        redirectToRegister,
-        onSubmitLogin,
         onSubmitRegister,
       }}
     >
