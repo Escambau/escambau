@@ -25,6 +25,7 @@ interface IUserContext {
   viewPass: () => void;
   redirectToRegister: () => void;
   onSubmitLogin: (data: ILogin) => void;
+  onSubmitRegister: ((data: IRegister) => void)
 }
 interface IUser {
   email: string;
@@ -117,8 +118,6 @@ export function UserProvider({ children }: IUserProviders) {
         redirectToRegister,
         onSubmitLogin,
         navigate,
-        redirectToRegister,
-        onSubmitLogin,
         onSubmitRegister,
       }}
     >

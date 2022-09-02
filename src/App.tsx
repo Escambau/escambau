@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
 import "./App.css";
+import React, { useContext } from "react";
 import HeaderUnlogged from "./components/HeaderUnlogged";
 import TradeModal from "./components/TradeModal";
 import { ProductContext } from "./contexts/ProductContext";
@@ -13,6 +13,7 @@ function App() {
     <div className="App">
       <TradeModal />
       <GlobalStyle />
+
       <HeaderUnlogged />
       <button onClick={() => setIsTradeModal(true)}>tradeModal</button>
       <ToastContainer />
