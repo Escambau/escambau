@@ -61,3 +61,24 @@ export const RegisterError = () => {
     draggable: false,
   });
 };
+
+export const ProductAdd = () => {
+  toast.success("Produto adicionado!", {
+    position: "top-right",
+    hideProgressBar: false,
+    autoClose: 2000,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: false,
+  });
+};
+export const ProductAddNegative = () => {
+  toast.error("Falha ao adicionar produto!", {
+    position: "top-right",
+    hideProgressBar: false,
+    autoClose: 2000,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: false,
+  });
+};

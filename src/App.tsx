@@ -1,13 +1,11 @@
 import "./App.css";
 import React, { useContext } from "react";
-import HeaderUnlogged from "./components/HeaderUnlogged";
-import TradeModal from "./components/TradeModal";
-import { ProductContext } from "./contexts/ProductContext";
 import GlobalStyle from "./styles/global";
 import MoreInfo from "./components/MoreInfo";
 import { ToastContainer } from "react-toastify";
 import { LoginModal } from "./components/LoginModal";
 import { Routes, Route, Link } from "react-router-dom";
+import { AddProduct } from "./pages/AddProduct";
 
 function App() {
   return (
@@ -17,9 +15,8 @@ function App() {
 
       <Routes>
         <Route path="/moreinfo" element={<MoreInfo />} />
+        <Route path="/addproduct" element={<AddProduct />} />
       </Routes>
-
-      <Link to="/moreinfo">MORE INFO</Link>
     </div>
   );
 }
