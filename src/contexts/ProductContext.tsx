@@ -45,15 +45,15 @@ export const ProductContext = createContext<IProductContext>(
 export function ProductProvider({ children }: IProductProvider) {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [isModalLogin, setIsModalLogin] = useState<boolean>(false);
-  const [isModalConfirmTrade, setIsModalConfirmTrade] =
-    useState<boolean>(false);
-  const [currentProduct, setCurrentProduct] = useState<boolean>(false);
-  const [userSelectedProducts, setUserSelectedProducts] = useState<IProduct[]>(
-    [] as IProduct[]
-  );
-  const [userProductList, setUserProductList] = useState<IProduct[]>(
-    [] as IProduct[]
-  );
+
+  const [currentProduct, setCurrentProduct] = useState<boolean>(false)
+
+  const [isModalConfirmTrade, setIsModalConfirmTrade] = useState<boolean>(false);
+
+  const [userSelectedProducts, setUserSelectedProducts] = useState<IProduct[]>([] as IProduct[]);
+
+  const [userProductList, setUserProductList] = useState<IProduct[]>([] as IProduct[]);
+  
   const [isTradeModal, setIsTradeModal] = useState<boolean>(false)
 
   const filterProductsUser = (currentProduct: IProduct) => {
@@ -70,7 +70,6 @@ export function ProductProvider({ children }: IProductProvider) {
       console.log("coloca");
     }
   };
-
   const isSelected = (currentProduct: IProduct) => {
     if (
       userSelectedProducts.find((product) => product.id === currentProduct.id)

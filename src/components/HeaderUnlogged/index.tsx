@@ -2,7 +2,7 @@ import { HeaderTag } from "./style";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+const HeaderUnlogged = () => {
   //const navigate = useNavigate();
   return (
     <HeaderTag>
@@ -25,4 +25,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderUnlogged;
