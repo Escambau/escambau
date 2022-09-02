@@ -40,7 +40,6 @@ export const LoginSucess = () => {
   });
 };
 
-
 export const RegisterSucess = () => {
   toast.success("Conta criada com sucesso!", {
     position: "top-right",
