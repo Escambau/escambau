@@ -1,23 +1,20 @@
 import { createGlobalStyle } from "styled-components";
-
 import MontserratWoff from "../fonts/montserrat-v25-latin-regular.woff";
 import MontserratWoff2 from "../fonts/montserrat-v25-latin-regular.woff2";
-
 import RobotoWoff from "../fonts/roboto-v30-latin-regular.woff";
 import RobotoWoff2 from "../fonts/roboto-v30-latin-regular.woff2";
-
 const GlobalStyle = createGlobalStyle`
 
-:root {
-			--lightGreyBackground: #D9D9D9 50%;
-			--lightGrey: #D9D9D9;
-			--grey: #979797;
-			--darkGrey: #2F2F2F;
-			--blue: #4169E1;
-			--green: #83C067;
-			--red: #FF2525;
-			--orange: #E84500;
-		}
+	:root {
+		--lightGreyBackground: #00000080;
+		--lightGrey: #D9D9D9;
+		--grey: #979797;
+		--darkGrey: #2F2F2F;
+		--blue: #4169E1;
+		--green: #83C067;
+		--red: #FF2525;
+		--orange: #E84500;
+	}
 
 	@font-face {
 	font-family: 'Montserrat';
@@ -73,7 +70,36 @@ const GlobalStyle = createGlobalStyle`
 	}
 	body {
 		line-height: 1;
+	}
+	ul,ol {
+		list-style: none;
+	}
+	blockquote, q {
+		quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+		button{
+        background-color: transparent;
+        border: none;
+        border-radius: 8px;
+    }
 
+		/* HTML5 display-role reset for older browsers */
+		article, aside, details, figcaption, figure, 
+		footer, header, hgroup, menu, nav, section {
+			display: block;
+		}
+		body {
+			line-height: 1;
+			overflow-x: hidden;
 		}
 		ul,ol {
 			list-style: none;

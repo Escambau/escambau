@@ -1,10 +1,16 @@
-import { createContext, ReactNode, useState, Dispatch, SetStateAction } from "react";
-import { NavigateFunction, useNavigate } from 'react-router-dom';
+import {
+  createContext,
+  ReactNode,
+  useState,
+  Dispatch,
+  SetStateAction,
+} from "react";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import api from "../services/api";
-import { LoginError } from "../ToastContainer";
+import { LoginError, RegisterSucess, RegisterError } from "../ToastContainer";
 
 interface IUserProviders {
-  children: ReactNode
+  children: ReactNode;
 }
 interface IUserContext {
   user: null | IUser;
@@ -14,29 +20,44 @@ interface IUserContext {
   token: null | string;
   setToken: Dispatch<SetStateAction<null>>;
   isPasswordShow: boolean;
-  setIsPasswordShow: Dispatch<SetStateAction<boolean>>
+  setIsPasswordShow: Dispatch<SetStateAction<boolean>>;
   navigate: NavigateFunction;
   viewPass: () => void;
   redirectToRegister: () => void;
-  onSubmitLogin: (data: ILogin) => void
+  onSubmitLogin: (data: ILogin) => void;
 }
 interface IUser {
   email: string;
   id: number;
   avatarUrl: string;
-  endereco: string;
+  cidade: string;
+  estado: string;
   cpf: string;
-  idade: number
+  idade: number;
 }
 export interface ILogin {
   email: string;
   password: string;
 }
+export interface IRegister {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  avatarUrl: string;
+  cidade: string;
+  estado: string;
+  cpf: string;
+  idade: number;
+}
+interface IRegisterResponse {
+  acessToken: string;
+  user: IUser;
+}
 
 export const UserContext = createContext<IUserContext>({} as IUserContext);
 
-export function UserProvider({children} : IUserProviders) {
-  
+export function UserProvider({ children }: IUserProviders) {
   const [user, setUser] = useState<null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [token, setToken] = useState<null>(null);
@@ -44,28 +65,64 @@ export function UserProvider({children} : IUserProviders) {
   const navigate = useNavigate();
 
   const viewPass = () => {
-    setIsPasswordShow(!isPasswordShow)
+    setIsPasswordShow(!isPasswordShow);
   };
   const redirectToRegister = () => {
-    navigate('/users', {replace: true});
+    navigate("/users", { replace: true });
+    navigate("/users", { replace: true });
   };
   const onSubmitLogin = (data: ILogin) => {
-    api.post('/login', data)
-    .then(response => {
-      localStorage.setItem('@token', response.data.token);
-      localStorage.setItem('@id', response.data.user.id);
-      setUser(response.data.user);
-      setToken(response.data.token);
-      navigate('/dashboard', {replace: true});
-    }).catch(() => LoginError())
+    api
+      .post("/login", data)
+      .then((response) => {
+        localStorage.setItem("@token", response.data.token);
+        localStorage.setItem("@id", response.data.user.id);
+        setUser(response.data.user);
+        setToken(response.data.token);
+      })
+      .catch(() => {
+        LoginError();
+        navigate("/dashboard", { replace: true });
+      });
+  };
+  const onSubmitRegister = (data: IRegister) => {
+    api
+      .post<IRegisterResponse>("/users", data)
+      .then((res) => {
+        if (res.data) {
+          RegisterSucess();
+          setTimeout(() => {
+            navigate("/login", { replace: true });
+          }, 3000);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        RegisterError();
+      });
   };
 
   return (
-    <UserContext.Provider value={{
-      user, setUser, isLoading, setIsLoading, token, setToken, isPasswordShow, setIsPasswordShow,  viewPass, navigate,
-      redirectToRegister, onSubmitLogin
-    }}>
+    <UserContext.Provider
+      value={{
+        user,
+        setUser,
+        isLoading,
+        setIsLoading,
+        token,
+        setToken,
+        isPasswordShow,
+        setIsPasswordShow,
+        viewPass,
+        redirectToRegister,
+        onSubmitLogin,
+        navigate,
+        redirectToRegister,
+        onSubmitLogin,
+        onSubmitRegister,
+      }}
+    >
       {children}
     </UserContext.Provider>
-  )
+  );
 }

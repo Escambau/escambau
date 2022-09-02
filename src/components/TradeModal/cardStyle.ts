@@ -69,44 +69,28 @@ export const Card = styled.button`
     }
   }
   .containerCheckbox {
-    display: block;
     position: relative;
-  }
-  .containerCheckbox input {
-    opacity: 0;
-  }
-  .containerCheckbox span::after {
-    content: "";
-    position: absolute;
-    display: none;
-    left: 9px;
-    top: 4px;
-    width: 3px;
-    height: 10px;
-    border: solid var(--green);
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-  .checkmark {
-    position: absolute;
-    height: 25px;
-    width: 25px;
-    background-color: white;
+    right: 20px;
+    border: 1px solid var(--lightGrey);
     border-radius: 100%;
-    top: 0;
-    right: 10px;
-    border: 1px solid grey;
+    width: 25px;
+    height: 25px;
   }
-  .containerCheckbox input:checked ~ .checkmark:after {
-  display: block;
-}
 
-@media (min-width: 768px){
-    .checkmark{
-        top: 0;
-        right: 30px;
+  .checkmarkTrue {
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    color: green;
+    font-size: 20px;
+  }
+  .checkmarkFalse {
+  }
+
+  @media (min-width: 768px) {
+    .checkmark {
+      top: 0;
+      right: 30px;
     }
-}
+  }
 `;
