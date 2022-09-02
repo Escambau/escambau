@@ -6,6 +6,7 @@ import { ProductContext } from "./contexts/ProductContext";
 import GlobalStyle from "./styles/global";
 import MoreInfo from "./components/MoreInfo";
 import { ToastContainer } from "react-toastify";
+import {LoginModal} from "./components/LoginModal";
 import { Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     <div className="App">
       <GlobalStyle />
       <ToastContainer />
+      <LoginModal/>
 
       <Routes>
         <Route path="/moreinfo" element={<MoreInfo />} />

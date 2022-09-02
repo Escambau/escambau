@@ -7,7 +7,7 @@ import {
 } from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import api from "../services/api";
-import { LoginError, RegisterSucess, RegisterError } from "../ToastContainer";
+import { LoginError, RegisterSucess, RegisterError, LoginSucess } from "../ToastContainer";
 
 interface IUserProviders {
   children: ReactNode;
@@ -69,8 +69,7 @@ export function UserProvider({ children }: IUserProviders) {
     setIsPasswordShow(!isPasswordShow);
   };
   const redirectToRegister = () => {
-    navigate("/users", { replace: true });
-    navigate("/users", { replace: true });
+    navigate("/register", { replace: true });
   };
   const onSubmitLogin = (data: ILogin) => {
     api
@@ -80,10 +79,15 @@ export function UserProvider({ children }: IUserProviders) {
         localStorage.setItem("@id", response.data.user.id);
         setUser(response.data.user);
         setToken(response.data.token);
+        LoginSucess();
+        setTimeout(() => {
+          navigate("/dashboard", { replace: true });
+        }, 3000);
       })
-      .catch(() => {
+      .catch((er) => {
+        console.log(er);
         LoginError();
-        navigate("/dashboard", { replace: true });
+        navigate("/home", { replace: true });
       });
   };
   const onSubmitRegister = (data: IRegister) => {
