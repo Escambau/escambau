@@ -8,6 +8,7 @@ import { ProductProvider } from "./contexts/ProductContext";
 import { BrowserRouter } from "react-router-dom";
 
 import GlobalStyle from "./styles/global";
+import { CurrentProvider } from "./contexts/CurrentContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -17,8 +18,10 @@ root.render(
     <BrowserRouter>
       <UserProvider>
         <ProductProvider>
-          <GlobalStyle />
-          <App />
+          <CurrentProvider>
+            <GlobalStyle />
+            <App />
+          </CurrentProvider>
         </ProductProvider>
       </UserProvider>
     </BrowserRouter>

@@ -6,10 +6,7 @@ import { useContext } from "react";
 import { CurrentContext } from "../../../contexts/CurrentContext";
 
 const List = () => {
-  const {
-    userProductList,
-    setProductToEdit,
-  } = useContext(ProductContext);
+  const { userProductList, setProductToEdit } = useContext(ProductContext);
   const { getCurrent } = useContext(CurrentContext);
   //const navigate = useNavigate();
 
@@ -38,7 +35,7 @@ const List = () => {
                   className="infoPlus"
                   onClick={() => {
                     console.log(product.id);
-                    getCurrent(product.id)
+                    getCurrent(product.id);
                   }}
                 >
                   <AiFillInfoCircle className="iconInfo" />
