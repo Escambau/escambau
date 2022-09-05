@@ -50,8 +50,7 @@ export const ProductContext = createContext<IProductContext>(
 );
 
 export function ProductProvider({ children }: IProductProvider) {
-
-  const {redirectToProfile} = useContext(UserContext)
+  const { redirectToProfile } = useContext(UserContext);
 
   const [products, setProducts] = useState<IProduct[]>([]);
   const [isModalLogin, setIsModalLogin] = useState<boolean>(false);
@@ -78,7 +77,7 @@ export function ProductProvider({ children }: IProductProvider) {
     "Entretenimento",
     "Pets",
   ];
-  
+
   const filterProductsUser = (currentProduct: IProduct) => {
     if (
       userSelectedProducts.find((product) => product.id === currentProduct.id)
@@ -103,13 +102,14 @@ export function ProductProvider({ children }: IProductProvider) {
     }
   };
   const addNewProduct = (data: IProduct) => {
-    api.post("/products", data)
-    .then(res => {
-      setUserProductList([...userProductList, res.data]);
-      ProductAdd();
-      redirectToProfile();
-    })
-    .catch(() => ProductAddNegative());
+    api
+      .post("/products", data)
+      .then((res) => {
+        setUserProductList([...userProductList, res.data]);
+        ProductAdd();
+        redirectToProfile();
+      })
+      .catch(() => ProductAddNegative());
   };
 
   return (
@@ -131,8 +131,8 @@ export function ProductProvider({ children }: IProductProvider) {
         isSelected,
         isModalConfirmTrade,
         setIsModalConfirmTrade,
-        addNewProduct
-        categorysList
+        addNewProduct,
+        categorysList,
       }}
     >
       {children}
