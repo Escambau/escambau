@@ -6,9 +6,12 @@ import { ModalLogin } from './style';
 import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5'
 import { useContext } from 'react';
 import { ILogin, UserContext } from '../../contexts/UserContext';
+import { ProductContext } from '../../contexts/ProductContext';
 
 export function LoginModal() { 
 
+  const {isPasswordShow, viewPass, navigate, onSubmitLogin} = useContext(UserContext)
+  const {setIsModalLogin} = useContext(ProductContext);
   const {isPasswordShow, viewPass, redirectToRegister, onSubmitLogin, isModalLogin} = useContext(UserContext)
 
   const formSchema = yup.object().shape({
@@ -25,43 +28,39 @@ export function LoginModal() {
   })
 
   return ( 
-    <>
-      {console.log(isModalLogin)}
-      
-      {isModalLogin &&
-        <ModalLogin>
-          <div className="box-login"> 
+    <ModalLogin>
+      <div className="box-login"> 
+        <div className='btn-exit'>
+          <button onClick={() => setIsModalLogin(false)}>x</button>
+        </div>
+        <h2>Login</h2> 
 
-            <h2>Login</h2> 
-
-            <form onSubmit={handleSubmit(onSubmitLogin)}> 
-              <div> 
-                <label htmlFor="email"><h3>E-mail:</h3></label> 
-                <input type="email" placeholder='Digite seu email aqui...' {...register('email')} /> 
-                <span>{errors?.email?.message}</span>
-              </div> 
-              <div> 
-                <label htmlFor="password"><h3>Senha:</h3></label> 
-                <div>
-                  <input type={isPasswordShow ? "text" : "password"} placeholder='Digite sua senha aqui...' {...register('password')} />
-                  {isPasswordShow ? 
-                  <button type='button' onClick={viewPass}><IoEyeOutline/></button> 
-                  :
-                  <button type='button' onClick={viewPass}><IoEyeOffOutline/></button>}
-                </div>
-                <span>{errors?.password?.message}</span>
-              </div> 
-              <button type='submit' className='enter-btn'>Entrar</button> 
-            </form> 
-
-            <div className='box-to-register'>
-              <h3>Ainda não tem uma conta?</h3>
-              <button onClick={redirectToRegister}>Cadastre-se</button> 
+        <form onSubmit={handleSubmit(onSubmitLogin)}> 
+          <div> 
+            <label htmlFor="email"><h3>E-mail:</h3></label> 
+            <input type="email" placeholder='Digite seu email aqui...' {...register('email')} /> 
+            <span>{errors?.email?.message}</span>
+          </div> 
+          <div> 
+            <label htmlFor="password"><h3>Senha:</h3></label> 
+            <div>
+              <input type={isPasswordShow ? "text" : "password"} placeholder='Digite sua senha aqui...' {...register('password')} />
+              {isPasswordShow ? 
+              <button onClick={viewPass}><IoEyeOutline/></button> 
+              :
+              <button onClick={viewPass}><IoEyeOffOutline/></button>}
             </div>
+            <span>{errors?.password?.message}</span>
+          </div> 
+          <button type='submit' className='enter-btn'>Entrar</button> 
+        </form> 
 
-          </div>
-        </ModalLogin> 
-      }
-    </>
+        <div className='box-to-register'>
+          <h3>Ainda não tem uma conta?</h3>
+          <button onClick={() => navigate("/register", {replace: true})}>Cadastre-se</button> 
+        </div>
+
+      </div>
+    </ModalLogin> 
   ) 
 }

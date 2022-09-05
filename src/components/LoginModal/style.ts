@@ -13,7 +13,34 @@ export const ModalLogin = styled.div`
   h2 {
     color: #4169e1;
     font-family: "Montserrat";
-    font-weight: 700;
+    font-weight: 700; 
+
+    margin-bottom: 20px;
+  }
+  .btn-exit {
+    width: 90%;
+    display: flex;
+    justify-content: end;
+
+    button {
+      width: 23px;
+      height: 23px;
+
+      font-size: 16px;
+      font-family: "Montserrat";
+      font-weight: 700;
+
+      background-color: var(--darkGrey);
+      color: #ffffff;
+
+      border-radius: 50%;
+
+      margin-top: 10px;
+
+      :hover {
+        opacity: 80%;
+      }
+    }
   }
 
   .box-login {
@@ -21,8 +48,6 @@ export const ModalLogin = styled.div`
     width: 100%;
     max-height: 400px;
     height: 100%;
-
-    padding-top: 30px;
 
     display: flex;
     justify-content: space-around;
@@ -100,7 +125,8 @@ export const ModalLogin = styled.div`
         }
         span {
           font-size: 10px;
-          color: var(--redSpan);
+          font-weight: 700;
+          color: red;
         }
       }
 
@@ -143,7 +169,7 @@ export const ModalLogin = styled.div`
         font-size: 14px;
         font-family: "Montserrat";
 
-        padding-bottom: 20px;
+        padding: 20px;
       }
 
       button {
