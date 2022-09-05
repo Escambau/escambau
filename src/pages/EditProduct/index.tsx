@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
+import HeaderUnlogged from "../../components/HeaderUnlogged";
+import DropdownModal from "../../components/DropdownModal";
 
 const EditProduct = () => {
   const navigate = useNavigate();
@@ -22,7 +24,8 @@ const EditProduct = () => {
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
         >
-          <Header />
+          {token ? <Header /> : <HeaderUnlogged />}
+          <DropdownModal />
           <Container>
             <section>
               <button

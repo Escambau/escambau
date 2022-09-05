@@ -11,7 +11,7 @@ export const EscambauRoutes = () => {
     <Routes>
       <Route path="/moreinfo" element={<MoreInfo />} />
       <Route path="/addproduct" element={<AddProduct/>} />
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/" element={<Dashboard />} />
       <Route path="/editproduct" element={<EditProduct />} />
       <Route path="/register" element={<Register />}/>
       <Route path="/profile" element={<User />}/>

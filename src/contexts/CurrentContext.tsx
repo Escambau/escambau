@@ -1,7 +1,9 @@
-import { createContext, useState, ReactNode } from "react";
+import { createContext, useState, ReactNode, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 
 import { IProduct } from "./ProductContext";
+import { UserContext } from "./UserContext";
 
 interface IProductProvider {
   children: ReactNode;
@@ -15,42 +17,57 @@ interface IUser {
 }
 
 interface IProductContext {
-  currentId: number | null;
-  setCurrentId:
-    | React.Dispatch<React.SetStateAction<number>>
-    | React.Dispatch<React.SetStateAction<null>>;
   currentProduct: IProduct;
   currentUser: IUser;
-  getCurrent: (id: number) => void;
+  getCurrent: (currentId: number) => void;
+  isLogged: boolean;
+  setIsLogged: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export const CurrentContext = createContext<IProductContext>(
   {} as IProductContext
 );
 
 export const CurrentProvider = ({ children }: IProductProvider) => {
-  const [currentId, setCurrentId] = useState(null);
+  const {token} = useContext(UserContext)
   const [currentProduct, setCurrentProduct] = useState<IProduct>(
     {} as IProduct
   );
   const [currentUser, setCurrentUser] = useState<IUser>({} as IUser);
+  const [isLogged, setIsLogged] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const getCurrent = (currentId: number) => {
-    api.get(`/products/${currentId}`).then((response) => {
-      setCurrentProduct(response.data);
-      api.get(`/users/${response.data.id}`).then((response) => {
-        setCurrentUser(response.data);
-      });
-    });
+    if(token){
+      setIsLogged(true)
+    }
+    else{
+      setIsLogged(false)
+    }
+    const teste = async () => {
+    try {
+      console.log(currentId);
+        const responseProduct = await api.get(`/products/${currentId}`);
+        setCurrentProduct(responseProduct.data);
+        const responseUser = await api.get(
+          `/users/${responseProduct.data.userId}`
+        );
+        setCurrentUser(responseUser.data);
+        navigate("/moreinfo")
+    } catch (error) {
+      console.error(error)
+    }
+    };
+    teste();
   };
 
   return (
     <CurrentContext.Provider
       value={{
-        currentId,
-        setCurrentId,
         currentProduct,
         currentUser,
         getCurrent,
+        isLogged, 
+        setIsLogged
       }}
     >
       {children}

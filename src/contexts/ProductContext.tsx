@@ -4,6 +4,7 @@ import {
   useState,
   Dispatch,
   SetStateAction,
+  useEffect,
   useContext,
 } from "react";
 import api from "../services/api";
@@ -39,8 +40,12 @@ interface IProductContext {
   addNewProduct: (data: IProduct) => void;
   editProduct: (data: IProduct) => void;
   categorysList: string[];
+  selectCategory: string;
+  setSelectCategory: Dispatch<SetStateAction<string>>;
   productToEdit: IProduct;
   setProductToEdit: Dispatch<SetStateAction<IProduct>>;
+  productMoreInfo: IProduct | null;
+  setProductMoreInfo: Dispatch<SetStateAction<IProduct | null>>;
 }
 
 export interface IProduct {
@@ -75,21 +80,54 @@ export function ProductProvider({ children }: IProductProvider) {
     [] as IProduct[]
   );
   const [isTradeModal, setIsTradeModal] = useState<boolean>(false);
+  const [selectCategory, setSelectCategory] = useState<string>("Todos");
   const [productToEdit, setProductToEdit] = useState<IProduct>(null!);
+  const [productMoreInfo, setProductMoreInfo] = useState<IProduct | null>(null)
 
   const categorysList = [
+    "Todos",
     "Eletrônicos e Eletrodomésticos",
     "Roupas",
     "Brinquedos",
-    "Utensílios",
-    "Domésticos",
+    "Utensílios domésticos",
     "Automotivos",
-    "Instrumentos",
-    "Musicais",
+    "Instrumentos musicais",
     "Decoração",
     "Entretenimento",
     "Pets",
   ];
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        api.get("/products").then((response) => {
+          setProducts(response.data);
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getProducts();
+  }, []);
+
+  useEffect(() => {
+    const filterProductCategory = async () => {
+      try {
+        if (selectCategory === "Todos") {
+          api.get(`/products`).then((response) => {
+            setProducts(response.data);
+          });
+        } else {
+          api.get(`/products/?category=${selectCategory}`).then((response) => {
+            setProducts(response.data);
+          });
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    filterProductCategory();
+  }, [selectCategory]);
 
   const filterProductsUser = (currentProduct: IProduct) => {
     if (
@@ -166,11 +204,15 @@ export function ProductProvider({ children }: IProductProvider) {
         isSelected,
         isModalConfirmTrade,
         setIsModalConfirmTrade,
+        categorysList,
+        selectCategory,
+        setSelectCategory,
         addNewProduct,
         editProduct,
-        categorysList,
         productToEdit,
         setProductToEdit,
+        productMoreInfo, 
+        setProductMoreInfo
       }}
     >
       {children}

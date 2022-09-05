@@ -3,12 +3,12 @@ import { ProductContext } from "../../contexts/ProductContext";
 import { Category } from "./style";
 
 const Categorys = () => {
-  const {categorysList} = useContext(ProductContext)
+  const {categorysList, setSelectCategory} = useContext(ProductContext)
   return (
     <Category>
       {window.innerWidth < 764 && <h3>Categorias:</h3>}
       {window.innerWidth < 764 ? (
-        <select name="" id="">
+        <select name="" id="" onChange={(event) => setSelectCategory(event.target.value)}>
           {categorysList.map((category, index) => {
             return (
               <option key={index} value={category}>
@@ -21,7 +21,7 @@ const Categorys = () => {
         <div>
           {categorysList.map((category, index) => {
             return (
-              <button className="btnsCategory" key={index}>
+              <button className="btnsCategory" key={index} onClick={() => setSelectCategory(category)}>
                 {category}
               </button>
             );
