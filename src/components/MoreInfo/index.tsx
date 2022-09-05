@@ -34,7 +34,7 @@ const MoreInfo = ({ currentProduct, currentUser }: Props) => {
   const { user } = useContext(UserContext);
   const [isLogged, setIsLogged] = useState<boolean>(false);
 
-  if (user) setIsLogged(true);
+  if (!!user) setIsLogged(true);
 
   return (
     <motion.div
