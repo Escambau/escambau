@@ -3,21 +3,23 @@ import { Container } from "./style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
-import { ProductContext } from "../../contexts/ProductContext";
+import { IProduct, ProductContext } from "../../contexts/ProductContext";
 
 const FormEditProduct = () => {
+  const { editProduct } = useContext(ProductContext);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: yupResolver(EditProductSchema) });
+  } = useForm<IProduct>({ resolver: yupResolver(EditProductSchema) });
 
   return (
     <Container>
       <form
         className="form-main"
         noValidate={true}
-        //onSubmit={handleSubmit(editProduct)}
+        onSubmit={handleSubmit(editProduct)}
       >
         <fieldset>
           <label htmlFor="image">URL da Imagem:</label>
@@ -28,7 +30,7 @@ const FormEditProduct = () => {
             placeholder="Envie sua imagem"
             {...register("image")}
           />
-          {/* <p>{errors.imageUrl?.message}</p> */}
+          {<p>{errors.image?.message}</p>}
         </fieldset>
 
         <fieldset>
@@ -40,7 +42,7 @@ const FormEditProduct = () => {
             placeholder="Nome do produto"
             {...register("name")}
           />
-          {/* <p>{errors.name?.message}</p> */}
+          {<p>{errors.name?.message}</p>}
         </fieldset>
 
         <div className="price-and-category">
@@ -57,7 +59,7 @@ const FormEditProduct = () => {
               ></input>
             </form>
 
-            {/* <p>{errors.price?.message}</p> */}
+            {<p>{errors.price?.message}</p>}
           </fieldset>
 
           <fieldset>
@@ -82,7 +84,7 @@ const FormEditProduct = () => {
               <option value="Entretenimento">Entretenimento</option>
               <option value="Pets">Pets</option>
             </select>
-            {/* <p>{errors.category?.message}</p> */}
+            {<p>{errors.category?.message}</p>}
           </fieldset>
         </div>
 
@@ -93,7 +95,7 @@ const FormEditProduct = () => {
             placeholder="Suas preferências de troca aqui"
             {...register("preferences")}
           />
-          {/* <p>{errors.preferences?.message}</p> */}
+          {<p>{errors.preferences?.message}</p>}
         </fieldset>
 
         <fieldset>
@@ -103,7 +105,7 @@ const FormEditProduct = () => {
             placeholder="Descreva seu item aqui"
             {...register("description")}
           />
-          {/* <p>{errors.description?.message}</p> */}
+          {<p>{errors.description?.message}</p>}
         </fieldset>
 
         <div className="buttons">

@@ -1,7 +1,10 @@
 import { AiFillInfoCircle } from "react-icons/ai";
 import Card, { ListTag } from "./style";
+import { useContext } from "react";
+import { ProductContext } from "../../../contexts/ProductContext";
 
 const List = () => {
+  const { setProductToEdit } = useContext(ProductContext);
   const cardList = [
     {
       image:
@@ -49,7 +52,7 @@ const List = () => {
                   <p>Preço estipulado:</p>
                   <span>{card.price}</span>
                 </section>
-              </div> 
+              </div>
             </div>
             {window.innerWidth > 768 && (
               <section className="container-buttons">
@@ -58,7 +61,12 @@ const List = () => {
                   Mais informações
                 </button>
                 <div>
-                  <button className="edit-delete edit">Editar</button>
+                  <button
+                    className="edit-delete edit"
+                    onClick={() => setProductToEdit(card)}
+                  >
+                    Editar
+                  </button>
                   <button className="edit-delete delete">Excluir</button>
                 </div>
               </section>

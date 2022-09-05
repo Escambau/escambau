@@ -82,3 +82,24 @@ export const ProductAddNegative = () => {
     draggable: false,
   });
 };
+
+export const EditProductSuccess = () => {
+  toast.success("Produto editado!", {
+    position: "top-right",
+    hideProgressBar: false,
+    autoClose: 2000,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: false,
+  });
+};
+export const EditProductError = () => {
+  toast.error("Falha ao editar produto!", {
+    position: "top-right",
+    hideProgressBar: false,
+    autoClose: 2000,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: false,
+  });
+};
