@@ -27,6 +27,7 @@ export const Category = styled.div`
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
+    justify-content: center;
   }
   .btnsCategory {
     border: 1px solid var(--blue);

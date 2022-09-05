@@ -135,6 +135,10 @@ export const HeaderTag = styled.header`
           font-size: 14px;
           color: white;
           font-weight: 400;
+
+          overflow: hidden;
+          white-space: nowrap;
+          max-width: 150px;
         }
 
         & > svg {

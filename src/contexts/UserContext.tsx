@@ -4,6 +4,7 @@ import {
   useState,
   Dispatch,
   SetStateAction,
+  useEffect,
 } from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import api from "../services/api";
@@ -23,8 +24,8 @@ interface IUserContext {
   setUser: Dispatch<SetStateAction<null>>;
   isLoading: boolean;
   setIsLoading: Dispatch<SetStateAction<boolean>>;
-  token: null | string;
-  setToken: Dispatch<SetStateAction<null>>;
+  token: string | null;
+  setToken: Dispatch<SetStateAction<string | null>>;
   isPasswordShow: boolean;
   setIsPasswordShow: Dispatch<SetStateAction<boolean>>;
   navigate: NavigateFunction;
@@ -32,11 +33,17 @@ interface IUserContext {
   redirectToRegister: () => void;
   onSubmitLogin: (data: ILogin) => void;
   onSubmitRegister: (data: IRegister) => void;
+  isModalLogin: boolean;
+  setIsModalLogin: Dispatch<SetStateAction<boolean>>;
   redirectToProfile: () => void;
+  isDropdownModal: boolean;
+  setIsDropdownModal: Dispatch<SetStateAction<boolean>>;
+  logOut: () => void
 }
 
-interface IUser {
+export interface IUser {
   email: string;
+  name: string;
   id: number;
   avatarUrl: string;
   cidade: string;
@@ -72,8 +79,10 @@ export const UserContext = createContext<IUserContext>({} as IUserContext);
 export function UserProvider({ children }: IUserProviders) {
   const [user, setUser] = useState<null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [token, setToken] = useState<null>(null);
+  const [token, setToken] = useState<string | null>(null);
   const [isPasswordShow, setIsPasswordShow] = useState<boolean>(false);
+  const [isModalLogin, setIsModalLogin] = useState<boolean>(false)
+  const [isDropdownModal, setIsDropdownModal] = useState<boolean>(false)
   const navigate = useNavigate();
 
   const viewPass = () => {
@@ -81,24 +90,26 @@ export function UserProvider({ children }: IUserProviders) {
   };
   const redirectToRegister = () => {
     navigate("/register", { replace: true });
+    setIsModalLogin(false)
   };
   const onSubmitLogin = (data: ILogin) => {
     api
       .post("/login", data)
       .then((response) => {
-        localStorage.setItem("@token", response.data.token);
+        localStorage.setItem("@token", response.data.accessToken);
         localStorage.setItem("@id", response.data.user.id);
         setUser(response.data.user);
-        setToken(response.data.token);
+        setToken(response.data.accessToken);
         LoginSucess();
         setTimeout(() => {
           navigate("/", { replace: true });
         }, 3000);
+        setIsModalLogin(false)
       })
       .catch((er) => {
         console.log(er);
         LoginError();
-        navigate("/home", { replace: true });
+        navigate("/", { replace: true });
       });
   };
   const onSubmitRegister = (data: IRegister) => {
@@ -108,7 +119,8 @@ export function UserProvider({ children }: IUserProviders) {
         if (res.data) {
           RegisterSucess();
           setTimeout(() => {
-            navigate("/login", { replace: true });
+            navigate("/", { replace: true });
+            setIsModalLogin(true)
           }, 3000);
         }
       })
@@ -120,6 +132,35 @@ export function UserProvider({ children }: IUserProviders) {
   const redirectToProfile = () => {
     navigate("/profile", { replace: true });
   };
+
+  useEffect(() => {
+    const loadUser = async () => {
+      const tokenResponse = localStorage.getItem("@token");
+      const idResponse = localStorage.getItem("@id");
+
+      if (tokenResponse) {
+        try {
+          api.defaults.headers.common.authorization = `Bearer ${tokenResponse}`;
+
+          const { data } = await api.get(`/users/${idResponse}`);
+          console.log(data);
+          
+          setUser(data);
+          setToken(tokenResponse)
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      setIsLoading(false);
+    };
+    loadUser();
+  }, [])
+
+  const logOut = () => {
+    localStorage.removeItem("@token")
+    navigate("/")
+    window.location.reload()
+  }
 
   return (
     <UserContext.Provider
@@ -137,7 +178,12 @@ export function UserProvider({ children }: IUserProviders) {
         onSubmitLogin,
         navigate,
         onSubmitRegister,
+        isModalLogin,
+        setIsModalLogin,
         redirectToProfile,
+        isDropdownModal, 
+        setIsDropdownModal,
+        logOut
       }}
     >
       {children}

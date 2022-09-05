@@ -8,8 +8,9 @@ import { addProductSchema } from "../../validations/AddProductSchema";
 import { IProduct, ProductContext } from "../../contexts/ProductContext";
 import { UserContext } from "../../contexts/UserContext";
 import { HeaderUnlogged } from "../../components/HeaderUnlogged/Header";
+import HeaderUnlogged from "../../components/HeaderUnlogged";
+import DropdownModal from "../../components/DropdownModal";
 
-//
 export function AddProduct() {
   const { addNewProduct } = useContext(ProductContext);
   const { token, redirectToProfile } = useContext(UserContext);
@@ -25,6 +26,7 @@ export function AddProduct() {
   return (
     <>
       {token ? <Header /> : <HeaderUnlogged />}
+      <DropdownModal />
       <ContainerAddProduct>
         <div className="box-header">
           <button onClick={() => redirectToProfile()}>Meu Perfil</button>
@@ -47,6 +49,10 @@ export function AddProduct() {
                 <label>Url da imagem:</label>
                 <input
                   className="input-standard"
+            <form onSubmit={handleSubmit(addNewProduct)}>
+              <div>
+                <label>Url da imagem</label>
+                <input
                   type="url"
                   placeholder="Digite a url da imagem aqui..."
                   {...register("image")}
@@ -57,13 +63,14 @@ export function AddProduct() {
                 <label>Nome:</label>
                 <input
                   className="input-standard"
+                <label>Nome</label>
+                <input
                   type="text"
                   placeholder="Digite o nome do produto aqui..."
                   {...register("name")}
                 />
                 <span>{errors.name?.message}</span>
               </div>
-
               <div className="box-price-category">
                 <fieldset>
                   <label>Preço:</label>
@@ -112,6 +119,7 @@ export function AddProduct() {
               </div>
               <div className="description">
                 <label>Descrição:</label>
+
                 <textarea
                   placeholder="Digite a descrição do produto aqui..."
                   {...register("description")}
