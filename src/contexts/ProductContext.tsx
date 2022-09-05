@@ -31,7 +31,7 @@ interface IProductContext {
   filterProductsUser: (currentProduct: IProduct) => void;
   isSelected: (currentProduct: IProduct) => boolean;
   addNewProduct: (data: IProduct) => void;
-  categorysList: string[];
+  // categorysList: string[];
 }
 
 export interface IProduct {
@@ -65,19 +65,19 @@ export function ProductProvider({ children }: IProductProvider) {
     [] as IProduct[]
   );
   const [isTradeModal, setIsTradeModal] = useState<boolean>(false);
-  const categorysList = [
-    "Eletrônicos e Eletrodomésticos",
-    "Roupas",
-    "Brinquedos",
-    "Utensílios",
-    "Domésticos",
-    "Automotivos",
-    "Instrumentos",
-    "Musicais",
-    "Decoração",
-    "Entretenimento",
-    "Pets",
-  ];
+  // const categorysList = [
+  //   "Eletrônicos e Eletrodomésticos",
+  //   "Roupas",
+  //   "Brinquedos",
+  //   "Utensílios",
+  //   "Domésticos",
+  //   "Automotivos",
+  //   "Instrumentos",
+  //   "Musicais",
+  //   "Decoração",
+  //   "Entretenimento",
+  //   "Pets",
+  // ];
   
   const filterProductsUser = (currentProduct: IProduct) => {
     if (
@@ -132,7 +132,7 @@ export function ProductProvider({ children }: IProductProvider) {
         isModalConfirmTrade,
         setIsModalConfirmTrade,
         addNewProduct
-        categorysList
+        // categorysList
       }}
     >
       {children}

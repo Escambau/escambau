@@ -6,10 +6,12 @@ import { ModalLogin } from './style';
 import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5'
 import { useContext } from 'react';
 import { ILogin, UserContext } from '../../contexts/UserContext';
+import { ProductContext } from '../../contexts/ProductContext';
 
 export function LoginModal() { 
 
-  const {isPasswordShow, viewPass, redirectToRegister, onSubmitLogin} = useContext(UserContext)
+  const {isPasswordShow, viewPass, redirectToRegister, onSubmitLogin} = useContext(UserContext);
+  const {setIsModalLogin} = useContext(ProductContext);
 
   const formSchema = yup.object().shape({
     email:yup.string().required('Seu email é obrigatório'),
@@ -27,8 +29,12 @@ export function LoginModal() {
   return ( 
     <ModalLogin>
       <div className="box-login"> 
-
-        <h2>Login</h2> 
+        <div className='header-login'>
+          <div>
+            <button onClick={() => setIsModalLogin(false)}>x</button>
+          </div>
+          <h2>Login</h2> 
+        </div>
 
         <form onSubmit={handleSubmit(onSubmitLogin)}> 
           <div> 
