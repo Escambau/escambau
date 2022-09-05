@@ -35,6 +35,11 @@ export const HeaderTag = styled.header`
       font-family: "Montserrat";
       font-size: 12px;
       font-weight: 900;
+
+      :hover {
+        background-color: var(--greenOpacity);
+        transition: 0.4s;
+      }
     }
   }
 

@@ -1,30 +1,26 @@
-import styled from "styled-components"; 
+import styled from "styled-components";
 
-export const ModalLogin = styled.div` 
-  position: fixed; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  width: 100%; 
-  height: 100vh; 
-  background-color: rgba(0,0,0,0.60);
-  z-index: 1;
-
-  font-family: 'Montserrat';
+export const ModalLogin = styled.div`
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-family: "Montserrat";
 
   h2 {
-    color: #4169E1;
+    color: #4169e1;
     font-family: "Montserrat";
     font-weight: 700;
-
-    
   }
-  
+
   .box-login {
-    max-width: 310px; 
-    width: 100%; 
-    max-height: 400px; 
-    height: 100%; 
+    max-width: 310px;
+    width: 100%;
+    max-height: 400px;
+    height: 100%;
 
     padding-top: 30px;
 
@@ -33,7 +29,7 @@ export const ModalLogin = styled.div`
     flex-direction: column;
     align-items: center;
 
-    background-color: #ffffff;
+    background-color: white;
     border: none;
     border-radius: 10px;
 
@@ -59,13 +55,12 @@ export const ModalLogin = styled.div`
           display: flex;
           align-items: center;
           flex-direction: row;
-          
-          
+
           background-color: transparent;
 
           width: 100%;
-          
-          border-bottom: 1px solid #D9D9D9;
+
+          border-bottom: 1px solid #d9d9d9;
 
           padding-right: 10px;
 
@@ -75,7 +70,7 @@ export const ModalLogin = styled.div`
         }
 
         label {
-          color: #979797;
+          color: var(--grey);
           font-family: "Montserrat";
         }
 
@@ -83,39 +78,38 @@ export const ModalLogin = styled.div`
           font-family: "MontSerrat";
 
           width: 100%;
-          
+
           padding: 8px 0 8px 8px;
 
           font-size: 14px;
 
           border: none;
-          border-bottom: 1px solid #D9D9D9;
+          border-bottom: 1px solid #d9d9d9;
 
           background-color: transparent;
 
           outline: 0;
-          
+
           ::placeholder {
-            color: #D9D9D9;
+            color: #d9d9d9;
           }
         }
         button {
           border: none;
           background-color: transparent;
-          
         }
         span {
           font-size: 10px;
-          color: red;
+          color: var(--redSpan);
         }
       }
-      
+
       .enter-btn {
         width: 80%;
 
         margin-top: 20px;
-        color: #ffffff;
-        background-color: #83C067;
+        color: white;
+        background-color: var(--green);
 
         padding: 12px 0;
 
@@ -128,7 +122,8 @@ export const ModalLogin = styled.div`
         font-family: "Montserrat";
 
         :hover {
-          opacity: 80%;
+          background-color: var(--greenOpacity);
+          transition: 0.4s;
         }
       }
     }
@@ -144,7 +139,7 @@ export const ModalLogin = styled.div`
       padding-bottom: 20px;
 
       h3 {
-        color: #4169e1;
+        color: var(--blue);
         font-size: 14px;
         font-family: "Montserrat";
 
@@ -154,9 +149,9 @@ export const ModalLogin = styled.div`
       button {
         width: 100%;
 
-        color: #ffffff;
-        background-color: #979797;
-        
+        color: white;
+        background-color: var(--grey);
+
         border-radius: 5px;
         border: none;
 
@@ -167,9 +162,10 @@ export const ModalLogin = styled.div`
         font-family: "Montserrat";
 
         :hover {
-          opacity: 80%;
+          background-color: var(--lightGrey);
+          transition: 0.4s;
         }
       }
     }
-  } 
-`
+  }
+`;

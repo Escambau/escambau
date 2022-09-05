@@ -30,7 +30,7 @@ const FormEditProduct = () => {
             placeholder="Envie sua imagem"
             {...register("image")}
           />
-          {<p>{errors.image?.message}</p>}
+          {<span>{errors.image?.message}</span>}
         </fieldset>
 
         <fieldset>
@@ -42,7 +42,7 @@ const FormEditProduct = () => {
             placeholder="Nome do produto"
             {...register("name")}
           />
-          {<p>{errors.name?.message}</p>}
+          {<span>{errors.name?.message}</span>}
         </fieldset>
 
         <div className="price-and-category">
@@ -59,7 +59,7 @@ const FormEditProduct = () => {
               ></input>
             </form>
 
-            {<p>{errors.price?.message}</p>}
+            {<span>{errors.price?.message}</span>}
           </fieldset>
 
           <fieldset>
@@ -84,7 +84,7 @@ const FormEditProduct = () => {
               <option value="Entretenimento">Entretenimento</option>
               <option value="Pets">Pets</option>
             </select>
-            {<p>{errors.category?.message}</p>}
+            {<span>{errors.category?.message}</span>}
           </fieldset>
         </div>
 
@@ -95,7 +95,7 @@ const FormEditProduct = () => {
             placeholder="Suas preferências de troca aqui"
             {...register("preferences")}
           />
-          {<p>{errors.preferences?.message}</p>}
+          {<span>{errors.preferences?.message}</span>}
         </fieldset>
 
         <fieldset>
@@ -105,7 +105,7 @@ const FormEditProduct = () => {
             placeholder="Descreva seu item aqui"
             {...register("description")}
           />
-          {<p>{errors.description?.message}</p>}
+          {<span>{errors.description?.message}</span>}
         </fieldset>
 
         <div className="buttons">

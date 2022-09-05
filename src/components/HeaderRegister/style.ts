@@ -38,7 +38,8 @@ export const HeaderTag = styled.header`
     }
 
     button:hover {
-      opacity: 80%;
+      background-color: var(--greenOpacity);
+      transition: 0.4s;
     }
   }
 

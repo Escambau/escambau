@@ -33,7 +33,7 @@ const RegisterForm = () => {
             <img src={RegisterImage} alt="imagem registro" />
           </div>
 
-          <Form onSubmit={handleSubmit(onSubmitRegister)}>
+          <Form noValidate={true} onSubmit={handleSubmit(onSubmitRegister)}>
             <h3>Cadastre-se</h3>
             <div className="form-field">
               <label>Nome completo:</label>

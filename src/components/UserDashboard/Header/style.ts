@@ -46,7 +46,7 @@ export const HeaderTag = styled.header`
   .perfil {
     color: black;
     font-size: 32px;
-    background: rgba(202, 255, 176, 1);
+    background: var(--lightGreen);
     padding: 5px;
     border-radius: 100%;
 

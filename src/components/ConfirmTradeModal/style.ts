@@ -38,7 +38,8 @@ export const Box = styled.div`
     align-items: center;
 
     &:hover {
-      opacity: 80%;
+      background-color: var(--darkGrey);
+      transition: 0.4s;
     }
   }
 
@@ -85,7 +86,8 @@ export const Box = styled.div`
       font-size: 16px;
 
       &:hover {
-        opacity: 80%;
+        background-color: var(--greenOpacity);
+        transition: 0.4s;
       }
     }
 
@@ -99,7 +101,8 @@ export const Box = styled.div`
       font-size: 16px;
 
       &:hover {
-        opacity: 80%;
+        background-color: var(--redOpacity);
+        transition: 0.4s;
       }
     }
   }

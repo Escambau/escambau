@@ -44,6 +44,7 @@ const List = () => {
                 <div>
                   <button
                     className="edit-delete edit"
+                    // onClick={() => setProductToEdit(card)}
                     onClick={() => setProductToEdit(product)}
                   >
                     Editar

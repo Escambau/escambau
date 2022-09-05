@@ -7,6 +7,7 @@ import mobile from "../../assets/mobileShop.png";
 import { addProductSchema } from "../../validations/AddProductSchema";
 import { IProduct, ProductContext } from "../../contexts/ProductContext";
 import { UserContext } from "../../contexts/UserContext";
+import { HeaderUnlogged } from "../../components/HeaderUnlogged/Header";
 import HeaderUnlogged from "../../components/HeaderUnlogged";
 import DropdownModal from "../../components/DropdownModal";
 
@@ -43,6 +44,11 @@ export function AddProduct() {
                 <img src={mobile} alt="LogoAdd" />
               </figure>
             </div>
+            <form className="main-form" onSubmit={handleSubmit(addNewProduct)}>
+              <div>
+                <label>Url da imagem:</label>
+                <input
+                  className="input-standard"
             <form onSubmit={handleSubmit(addNewProduct)}>
               <div>
                 <label>Url da imagem</label>
@@ -54,6 +60,9 @@ export function AddProduct() {
                 <span>{errors?.image?.message}</span>
               </div>
               <div>
+                <label>Nome:</label>
+                <input
+                  className="input-standard"
                 <label>Nome</label>
                 <input
                   type="text"
@@ -62,19 +71,23 @@ export function AddProduct() {
                 />
                 <span>{errors.name?.message}</span>
               </div>
-
               <div className="box-price-category">
-                <div className="input-on">
-                  <label>Preço</label>
-                  <input
-                    type="string"
-                    placeholder="Digite o preço..."
-                    {...register("price")}
-                  />
+                <fieldset>
+                  <label>Preço:</label>
+                  <form className="price">
+                    <p>R$</p>
+                    <input
+                      className="input-price"
+                      id="price"
+                      type="string"
+                      placeholder="Preço do produto"
+                      {...register("price")}
+                    ></input>
+                  </form>
                   <span>{errors.price?.message}</span>
-                </div>
+                </fieldset>
                 <div className="select-on">
-                  <label>Categoria</label>
+                  <label>Categoria:</label>
                   <select {...register("category")}>
                     <option value="Eletrônicos e Eletrodomésticos">
                       Eletrônicos e Eletrodomésticos
@@ -97,16 +110,16 @@ export function AddProduct() {
               </div>
 
               <div>
-                <label>Preferências</label>
-                <input
-                  type="text"
+                <label>Preferências de troca:</label>
+                <textarea
                   placeholder="Digite suas preferências de troca..."
                   {...register("preferences")}
                 />
                 <span>{errors.preferences?.message}</span>
               </div>
               <div className="description">
-                <label>Descrição</label>
+                <label>Descrição:</label>
+
                 <textarea
                   placeholder="Digite a descrição do produto aqui..."
                   {...register("description")}
