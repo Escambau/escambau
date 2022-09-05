@@ -2,7 +2,33 @@ import { Container } from "./style";
 import { motion } from "framer-motion";
 import Header from "../UserDashboard/Header";
 
-const MoreInfo = ({ product, user }) => {
+interface Props {
+  user: UserProps;
+  product: ProductProps;
+  isLogged: boolean;
+}
+
+interface ProductProps {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  image: string;
+  category: string;
+  preferences: string;
+}
+
+interface UserProps {
+  id: number;
+  name: string;
+  email: string;
+  password: string;
+  image: string;
+  cidade: string;
+  estado: string;
+}
+
+const MoreInfo = ({ product, user, isLogged }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -11,7 +37,7 @@ const MoreInfo = ({ product, user }) => {
       transition={{ duration: 0.5 }}
     >
       <Header />
-      <Container>
+      <Container isLogged={isLogged}>
         <div className="left-wrapper">
           <div className="product-info">
             <small>{product.category}</small>
@@ -40,9 +66,8 @@ const MoreInfo = ({ product, user }) => {
             </h3>
             <p className="preferences">Preferências: {product.preferences}</p>
           </div>
-          <button className="btn">
-            Crie sua conta para <br />
-            enviar propostas de troca
+          <button className="btn" disabled={isLogged}>
+            {isLogged ? "Solicitar troca" : "Criar minha conta"}
           </button>
         </div>
       </Container>
