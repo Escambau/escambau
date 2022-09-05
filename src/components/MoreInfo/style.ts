@@ -105,5 +105,3 @@ export const Container = styled.div`
     }
   }
 `;
-
-// ${(props) => (props.isLogged ? "var(--blue)" : "#ccc")};
