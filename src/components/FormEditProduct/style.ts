@@ -11,6 +11,12 @@ export const Container = styled.div`
     align-items: flex-start;
     gap: 5vh;
 
+    span {
+      color: var(--redSpan);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
     .price-and-category {
       width: 100%;
       display: flex;
@@ -31,6 +37,7 @@ export const Container = styled.div`
       label {
         color: var(--grey);
         font-size: 16px;
+        font-weight: 800;
       }
 
       textarea {
@@ -147,7 +154,7 @@ export const Container = styled.div`
 
     .form-main {
       fieldset {
-        gap: 1vh;
+        gap: 1.5vh;
 
         .input-standard,
         select {
@@ -183,12 +190,20 @@ export const Container = styled.div`
         gap: 3vw;
         padding: 0 1vw;
 
-        .save-button,
+        .save-button {
+          width: 100%;
+
+          :hover {
+            background-color: var(--greenOpacity);
+            transition: 0.4s;
+          }
+        }
         .cancel-button {
           width: 100%;
 
           :hover {
-            opacity: 80%;
+            background-color: var(--redOpacity);
+            transition: 0.4s;
           }
         }
       }

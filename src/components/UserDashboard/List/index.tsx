@@ -63,7 +63,7 @@ const List = () => {
                 <div>
                   <button
                     className="edit-delete edit"
-                    onClick={() => setProductToEdit(card)}
+                    // onClick={() => setProductToEdit(card)}
                   >
                     Editar
                   </button>

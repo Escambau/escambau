@@ -12,10 +12,10 @@ function App() {
       <GlobalStyle />
       <ToastContainer />
       <EscambauRoutes />
-      <Routes>
+      {/* <Routes>
         <Route path="/addproduct" element={<AddProduct />} />
         <Route path="/editproduct" element={<EditProduct />} />
-      </Routes>
+      </Routes> */}
     </div>
   );
 }

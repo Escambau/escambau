@@ -36,7 +36,8 @@ export const Modal = styled.div`
     color: white;
     transition: 0.3s;
     :hover {
-      opacity: 0.8;
+      background-color: var(--greenOpacity);
+      transition: 0.4s;
     }
   }
 

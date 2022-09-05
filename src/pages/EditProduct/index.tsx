@@ -7,15 +7,19 @@ import { useNavigate } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
+import { ProductContext } from "../../contexts/ProductContext";
 
 const EditProduct = () => {
   const navigate = useNavigate();
 
   const { token } = useContext(UserContext);
 
+  const { productToEdit } = useContext(ProductContext);
+
   return (
     <>
-      {token ? (
+      {
+        //token ? (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -35,16 +39,17 @@ const EditProduct = () => {
             </section>
             <main>
               <div>
-                <h3>Nome do produto</h3>
+                <h3>{productToEdit ? `${productToEdit.name}` : "Produto"}</h3>
                 <img src={shopping} alt="" />
               </div>
               <FormEditProduct />
             </main>
           </Container>
         </motion.div>
-      ) : (
-        <Navigate to="/dashboard" replace />
-      )}
+        // ) : (
+        // <Navigate to="/" replace />
+        //)
+      }
     </>
   );
 };

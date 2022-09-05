@@ -42,7 +42,7 @@ export const Category = styled.div`
     :hover {
       background-color: var(--blue);
       color: white;
+      transition: 0.4s;
     }
   }
-`
-
+`;

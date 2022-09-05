@@ -92,7 +92,7 @@ export function UserProvider({ children }: IUserProviders) {
         setToken(response.data.token);
         LoginSucess();
         setTimeout(() => {
-          navigate("/dashboard", { replace: true });
+          navigate("/", { replace: true });
         }, 3000);
       })
       .catch((er) => {
