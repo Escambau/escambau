@@ -3,36 +3,14 @@ import { motion } from "framer-motion";
 import Header from "../UserDashboard/Header";
 import { UserContext } from "./../../contexts/UserContext";
 import { useContext } from "react";
+import { CurrentContext } from "../../contexts/CurrentContext";
 import { useState } from "react";
-interface Props {
-  currentUser: UserProps;
-  currentProduct: currentProductProps;
-  isLogged: boolean;
-}
 
-interface currentProductProps {
-  id: number;
-  name: string;
-  price: number;
-  description: string;
-  image: string;
-  category: string;
-  preferences: string;
-}
-
-interface UserProps {
-  id: number;
-  name: string;
-  email: string;
-  password: string;
-  image: string;
-  cidade: string;
-  estado: string;
-}
-
-const MoreInfo = ({ currentProduct, currentUser }: Props) => {
+const MoreInfo = () => {
   const { user } = useContext(UserContext);
   const [isLogged, setIsLogged] = useState<boolean>(false);
+
+  const { currentUser, currentProduct } = useContext(CurrentContext);
 
   if (!!user) setIsLogged(true);
 
