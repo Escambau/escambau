@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-const EditProductSchema = yup.object().shape({
+export const addProductSchema = yup.object().shape({
   image: yup.string().required("URL obrigatória"),
   name: yup.string().required("Nome obrigatório"),
   price: yup.string().required("Preço obrigatório"),
@@ -8,4 +8,3 @@ const EditProductSchema = yup.object().shape({
   preferences: yup.string().required("Preferências obrigatórias"),
   description: yup.string().required("Descrição obrigatória"),
 });
-export default EditProductSchema;

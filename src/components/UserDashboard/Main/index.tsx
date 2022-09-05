@@ -12,7 +12,7 @@ const Main = () => {
       <div className="container">
         <div className="addProduct">
           <h2>Adicionar novo produto</h2>
-          <button onClick={() => navigate("/add-product")}>
+          <button onClick={() => navigate("/addproduct")}>
             <GoPlus />
           </button>
         </div>

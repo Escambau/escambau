@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+interface Props {
+  isLogged: boolean;
+}
+
+export const Container = styled.div<Props>`
   width: 70%;
   margin: 50px auto;
   display: flex;
@@ -43,7 +47,8 @@ export const Container = styled.div`
     justify-content: center;
 
     button {
-      background: var(--blue);
+      background: ${(props) =>
+        props.isLogged ? "var(--green)" : "var(--blue)"};
       display: flex;
       max-width: fit-content;
       margin: 20px auto;
@@ -105,5 +110,3 @@ export const Container = styled.div`
     }
   }
 `;
-
-// ${(props) => (props.isLogged ? "var(--blue)" : "#ccc")};

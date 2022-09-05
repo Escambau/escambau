@@ -1,37 +1,36 @@
-import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useContext } from 'react';
-import { UserContext } from '../../contexts/UserContext';
-import Header from '../UserDashboard/Header';
+import Header from '../../components/UserDashboard/Header';
 import { ContainerAddProduct } from './style';
 import  mobile from "../../assets/mobileShop.png"
-import { useNavigate } from 'react-router-dom';
+import { addProductSchema } from '../../validations/AddProductSchema';
+import { IProduct, ProductContext } from '../../contexts/ProductContext';
+import { UserContext } from '../../contexts/UserContext';
+import { HeaderUnlogged } from '../../components/HeaderUnlogged/Header';
 
-//
+
 export function AddProduct() {
-  const {} = useContext(UserContext);
-  const navigate = useNavigate()
 
-  const formSchema = yup.object().shape({
-
-  })
+  const {addNewProduct} = useContext(ProductContext);
+  const {token, redirectToProfile} = useContext(UserContext)
 
   const {
     register,
     handleSubmit,
     formState: {errors}
-  } = useForm ({
-    resolver: yupResolver(formSchema)
+  } = useForm<IProduct>({
+    resolver: yupResolver(addProductSchema)
   })
 
   return(
     <>
-      <Header />
+      
+      {token ? <Header /> : <HeaderUnlogged />}
       <ContainerAddProduct>
 
         <div className='box-header'>
-          <button onClick={() => navigate("/profile")}>Meu Perfil</button>
+          <button onClick={() => redirectToProfile()}>Meu Perfil</button>
           <h2>Adicionar Produto</h2>
         </div>
 
@@ -47,34 +46,45 @@ export function AddProduct() {
                 <img src={mobile} alt="LogoAdd" />
               </figure>
             </div>
-              <form>
+              <form onSubmit={handleSubmit(addNewProduct)}>
                 <div>
                   <label >Url da imagem</label>
                   <input type="url" 
                   placeholder='Digite a url da imagem aqui...'
+                  {...register('image')}
                   />
-                  <span></span>
+                  <span>{errors?.image?.message}</span>
                 </div>
                 <div>
                   <label >Nome</label>
                   <input type="text" 
                   placeholder='Digite o nome do produto aqui...'
+                  {...register('name')}
                   />
-                  <span></span>
+                  <span>{errors.name?.message}</span>
                 </div>
 
                 <div className='box-price-category'>
                   <div className='input-on'>
                     <label >Preço</label>
-                    <input type="text" 
+                    <input type="string" 
                     placeholder='Digite o preço...'
+                    {...register('price')}
                     />
-                    <span></span>
+                    <span>{errors.price?.message}</span>
                   </div>
                   <div className='select-on'>
                     <label >Categoria</label>
-                    <select >
-                      <option value="Eletrônicos">Eletrônicos</option>
+                    <select {...register('category')}>
+                      <option value="Eletrônicos e Eletrodomésticos">Eletrônicos e Eletrodomésticos</option>
+                      <option value="Roupas">Roupas</option>
+                      <option value="Brinquedos">Brinquedos</option>
+                      <option value="Utensílios Domésticos">Utensílios Domésticos</option>
+                      <option value="Automotivos">Automotivos</option>
+                      <option value="Instrumentos Musicais">Instrumentos Musicais</option>
+                      <option value="Decoração">Decoração</option>
+                      <option value="Entretenimento">Entretenimento</option>
+                      <option value="Pets">Pets</option>
                     </select>
                     <span></span>
                   </div>
@@ -84,22 +94,21 @@ export function AddProduct() {
                   <label >Preferências</label>
                   <input type="text" 
                   placeholder='Digite suas preferências de troca...'
+                  {...register('preferences')}
                   />
-                  <span></span>
+                  <span>{errors.preferences?.message}</span>
                 </div>
                 <div className='description'>
                   <label >Descrição</label>
                   <textarea 
                   placeholder='Digite a descrição do produto aqui...'
+                  {...register('description')}
                   />
-                  <span></span>
+                  <span>{errors.description?.message}</span>
                 </div>
 
                 <button type='submit'>Adicionar</button>
               </form>
-            <div>
-
-            </div>
           </section>
         </section>
       </ContainerAddProduct>

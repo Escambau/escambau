@@ -4,7 +4,7 @@ import Cards from "../Cards";
 import { List } from "./style";
 
 const ListDashboard = () => {
-  const { products, setProducts } = useContext(ProductContext);
+  const { products } = useContext(ProductContext);
 
   return (
     <List>

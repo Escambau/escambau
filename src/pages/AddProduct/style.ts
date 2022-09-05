@@ -63,6 +63,11 @@ export const ContainerAddProduct = styled.main`
 
         gap: 20px;
 
+        span {
+          color: red;
+          font-size: 10px;
+          margin-bottom: 20px;
+        }
         label {
           color: var(--grey);
           font-weight: 800;
@@ -223,6 +228,10 @@ export const ContainerAddProduct = styled.main`
         form {
           width: 50%;
 
+
+          span {
+            font-size: 14px;
+          }
           input {
             padding: 15px 0 10px 15px;
             border-radius: 8px;

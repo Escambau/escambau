@@ -7,11 +7,17 @@ import {
 } from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import api from "../services/api";
-import { LoginError, RegisterSucess, RegisterError, LoginSucess } from "../ToastContainer";
+import {
+  LoginError,
+  RegisterSucess,
+  RegisterError,
+  LoginSucess,
+} from "../ToastContainer";
 
 interface IUserProviders {
   children: ReactNode;
 }
+
 interface IUserContext {
   user: null | IUser;
   setUser: Dispatch<SetStateAction<null>>;
@@ -28,8 +34,10 @@ interface IUserContext {
   onSubmitRegister: (data: IRegister) => void;
   isModalLogin: boolean;
   setIsModalLogin: Dispatch<SetStateAction<boolean>>;
+  redirectToProfile: () => void;
 }
-interface IUser {
+
+export interface IUser {
   email: string;
   name: string;
   id: number;
@@ -39,10 +47,12 @@ interface IUser {
   cpf: string;
   idade: number;
 }
+
 export interface ILogin {
   email: string;
   password: string;
 }
+
 export interface IRegister {
   name: string;
   email: string;
@@ -54,6 +64,7 @@ export interface IRegister {
   cpf: string;
   idade: number;
 }
+
 interface IRegisterResponse {
   acessToken: string;
   user: IUser;
@@ -113,6 +124,9 @@ export function UserProvider({ children }: IUserProviders) {
         RegisterError();
       });
   };
+  const redirectToProfile = () => {
+    navigate("/profile", { replace: true });
+  };
 
   return (
     <UserContext.Provider
@@ -131,7 +145,8 @@ export function UserProvider({ children }: IUserProviders) {
         navigate,
         onSubmitRegister,
         isModalLogin,
-        setIsModalLogin
+        setIsModalLogin,
+        redirectToProfile,
       }}
     >
       {children}
