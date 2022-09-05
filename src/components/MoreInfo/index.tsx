@@ -1,23 +1,15 @@
 import { Container } from "./style";
 import { motion } from "framer-motion";
 import Header from "../UserDashboard/Header";
-import { IUser, UserContext } from "./../../contexts/UserContext";
-import { useContext, useEffect } from "react";
+import { CurrentContext } from "../../contexts/CurrentContext";
+import { UserContext } from "./../../contexts/UserContext";
+import { useContext } from "react";
 import { useState } from "react";
-import api from "../../services/api";
-import { ProductContext } from "../../contexts/ProductContext";
 
 const MoreInfo = () => {
-  const { productMoreInfo } = useContext(ProductContext);
   const { user } = useContext(UserContext);
-  const [productUser, setProductUser] = useState<IUser | null>(null);
   const [isLogged, setIsLogged] = useState<boolean>(false);
-
-  useEffect(() => {
-    api
-      .get(`/users/${productMoreInfo?.userId}`)
-      .then((response) => setProductUser(response.data));
-  }, [productMoreInfo]);
+  const { currentUser, currentProduct } = useContext(CurrentContext);
 
   if (!!user) setIsLogged(true);
 
@@ -32,32 +24,32 @@ const MoreInfo = () => {
       <Container isLogged={isLogged}>
         <div className="left-wrapper">
           <div className="currentProduct-info">
-            <small>{productMoreInfo?.category}</small>
-            <h3>{productMoreInfo?.name}</h3>
-            <img src={productMoreInfo?.image} alt={productMoreInfo?.name} />
+            <small>{currentProduct?.category}</small>
+            <h3>{currentProduct?.name}</h3>
+            <img src={currentProduct?.image} alt={currentProduct?.name} />
           </div>
           <div className="currentProduct-description">
             <h3>Descrição do produto:</h3>
-            <p>{productMoreInfo?.description}</p>
+            <p>{currentProduct?.description}</p>
           </div>
         </div>
         <div className="right-wrapper">
           <div className="currentUser-info">
             <div>
               <p>Postado por:</p>
-              <h3 className="currentUsername">{productUser?.name}</h3>
+              <h3 className="currentUsername">{currentUser?.name}</h3>
             </div>
             <p className="address">
-              {productUser?.cidade} - {productUser?.estado}
+              {currentUser?.cidade} - {currentUser?.estado}
             </p>
             <h3 className="price">
               Preço estipulado:{" "}
               <span className="currentProduct-value">
-                R$ {productMoreInfo?.price.toFixed(2)}
+                R$ {currentProduct?.price.toFixed(2)}
               </span>
             </h3>
             <p className="preferences">
-              Preferências: {productMoreInfo?.preferences}
+              Preferências: {currentProduct?.preferences}
             </p>
           </div>
           <button className="btn" disabled={isLogged}>
