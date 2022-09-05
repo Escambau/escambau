@@ -1,10 +1,14 @@
 import { useContext } from "react";
 import { AiFillInfoCircle } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+import { ProductContext } from "../../contexts/ProductContext";
 import { UserContext } from "../../contexts/UserContext";
 import { Card } from "./style";
 
-const Cards = ({key, card}: any) => {
-  const {user} = useContext(UserContext)
+const Cards = ({ key, card }: any) => {
+  const { user } = useContext(UserContext);
+  const { setIsTradeModal } = useContext(ProductContext);
+  const navigate = useNavigate();
   return (
     <Card key={key}>
       <div>
@@ -17,29 +21,33 @@ const Cards = ({key, card}: any) => {
           </div>
           <section>
             {window.innerWidth > 500 && <p>Preço estipulado:</p>}
-            <span>{card.price}</span>
+            <span>R$ {card.price.toFixed(2)}</span>
           </section>
         </div>
       </div>
 
       <label className="containerButtons">
-        {user ?
+        {user ? (
           <>
-            <button className="btnTrade">Trocar</button>
+            <button className="btnTrade" onClick={() => setIsTradeModal(true)}>
+              Trocar
+            </button>
+            <button className="infoPlus" onClick={() => navigate("/moreinfo")}>
+              <AiFillInfoCircle className="iconInfo" />
+              Mais informações
+            </button>
+          </>
+        ) : (
+          <>
+            <button onClick={() => navigate("/register")}>
+              Criar minha conta
+            </button>
             <button className="infoPlus">
               <AiFillInfoCircle className="iconInfo" />
               Mais informações
             </button>
           </>
-          :
-          <>
-            <button>Criar minha conta</button>
-            <button className="infoPlus">
-              <AiFillInfoCircle className="iconInfo" />
-              Mais informações
-            </button>
-          </>
-        }
+        )}
       </label>
     </Card>
   );

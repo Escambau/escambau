@@ -2,8 +2,11 @@ import { HeaderTag } from "./style";
 import { AiOutlineSearch } from "react-icons/ai";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { ImUser } from "react-icons/im";
+import { UserContext } from "../../../contexts/UserContext";
+import {useContext} from "react"
 
 const Header = () => {
+  const {user} = useContext(UserContext)
   return (
     <HeaderTag>
       <div className="container">
@@ -16,7 +19,7 @@ const Header = () => {
           <button>
             <ImUser className="perfil" />
             {window.innerWidth > 764 && (
-              <h3 className="userName">Allan Salatino</h3>
+              <h3 className="userName">{user?.name}</h3>
             )}
           </button>
         </section>

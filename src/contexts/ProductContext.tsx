@@ -4,7 +4,9 @@ import {
   useState,
   Dispatch,
   SetStateAction,
+  useEffect,
 } from "react";
+import api from "../services/api";
 
 interface IProductProvider {
   children: ReactNode;
@@ -27,6 +29,8 @@ interface IProductContext {
   filterProductsUser: (currentProduct: IProduct) => void;
   isSelected: (currentProduct: IProduct) => boolean;
   categorysList: string[];
+  selectCategory: string;
+  setSelectCategory: Dispatch<SetStateAction<string>>;
 }
 
 export interface IProduct {
@@ -56,20 +60,52 @@ export function ProductProvider({ children }: IProductProvider) {
     [] as IProduct[]
   );
   const [isTradeModal, setIsTradeModal] = useState<boolean>(false);
+  const [selectCategory, setSelectCategory] = useState<string>("Todos");
   const categorysList = [
+    "Todos",
     "Eletrônicos e Eletrodomésticos",
     "Roupas",
     "Brinquedos",
-    "Utensílios",
-    "Domésticos",
+    "Utensílios domésticos",
     "Automotivos",
-    "Instrumentos",
-    "Musicais",
+    "Instrumentos musicais",
     "Decoração",
     "Entretenimento",
     "Pets",
   ];
-  
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        api.get("/products").then((response) => {
+          setProducts(response.data);
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getProducts();
+  }, []);
+
+  useEffect(() => {
+    const filterProductCategory = async () => {
+      try {
+        if (selectCategory === "Todos") {
+          api.get(`/products`).then((response) => {
+            setProducts(response.data);
+          });
+        } else {
+          api.get(`/products/?category=${selectCategory}`).then((response) => {
+            setProducts(response.data);
+          });
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    filterProductCategory();
+  }, [selectCategory]);
+
   const filterProductsUser = (currentProduct: IProduct) => {
     if (
       userSelectedProducts.find((product) => product.id === currentProduct.id)
@@ -113,7 +149,9 @@ export function ProductProvider({ children }: IProductProvider) {
         isSelected,
         isModalConfirmTrade,
         setIsModalConfirmTrade,
-        categorysList
+        categorysList,
+        selectCategory,
+        setSelectCategory,
       }}
     >
       {children}

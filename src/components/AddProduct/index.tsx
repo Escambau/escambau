@@ -6,10 +6,12 @@ import { UserContext } from '../../contexts/UserContext';
 import Header from '../UserDashboard/Header';
 import { ContainerAddProduct } from './style';
 import  mobile from "../../assets/mobileShop.png"
+import { useNavigate } from 'react-router-dom';
 
 //
 export function AddProduct() {
   const {} = useContext(UserContext);
+  const navigate = useNavigate()
 
   const formSchema = yup.object().shape({
 
@@ -29,7 +31,7 @@ export function AddProduct() {
       <ContainerAddProduct>
 
         <div className='box-header'>
-          <button>Meu Perfil</button>
+          <button onClick={() => navigate("/profile")}>Meu Perfil</button>
           <h2>Adicionar Produto</h2>
         </div>
 

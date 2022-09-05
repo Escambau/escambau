@@ -26,9 +26,12 @@ interface IUserContext {
   redirectToRegister: () => void;
   onSubmitLogin: (data: ILogin) => void;
   onSubmitRegister: (data: IRegister) => void;
+  isModalLogin: boolean;
+  setIsModalLogin: Dispatch<SetStateAction<boolean>>;
 }
 interface IUser {
   email: string;
+  name: string;
   id: number;
   avatarUrl: string;
   cidade: string;
@@ -63,6 +66,7 @@ export function UserProvider({ children }: IUserProviders) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [token, setToken] = useState<null>(null);
   const [isPasswordShow, setIsPasswordShow] = useState<boolean>(false);
+  const [isModalLogin, setIsModalLogin] = useState<boolean>(false)
   const navigate = useNavigate();
 
   const viewPass = () => {
@@ -70,6 +74,7 @@ export function UserProvider({ children }: IUserProviders) {
   };
   const redirectToRegister = () => {
     navigate("/register", { replace: true });
+    setIsModalLogin(false)
   };
   const onSubmitLogin = (data: ILogin) => {
     api
@@ -81,13 +86,14 @@ export function UserProvider({ children }: IUserProviders) {
         setToken(response.data.token);
         LoginSucess();
         setTimeout(() => {
-          navigate("/dashboard", { replace: true });
+          navigate("/", { replace: true });
         }, 3000);
+        setIsModalLogin(false)
       })
       .catch((er) => {
         console.log(er);
         LoginError();
-        navigate("/home", { replace: true });
+        navigate("/", { replace: true });
       });
   };
   const onSubmitRegister = (data: IRegister) => {
@@ -97,7 +103,8 @@ export function UserProvider({ children }: IUserProviders) {
         if (res.data) {
           RegisterSucess();
           setTimeout(() => {
-            navigate("/login", { replace: true });
+            navigate("/", { replace: true });
+            setIsModalLogin(true)
           }, 3000);
         }
       })
@@ -123,6 +130,8 @@ export function UserProvider({ children }: IUserProviders) {
         onSubmitLogin,
         navigate,
         onSubmitRegister,
+        isModalLogin,
+        setIsModalLogin
       }}
     >
       {children}
