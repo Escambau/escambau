@@ -7,8 +7,14 @@ import {
   useContext,
 } from "react";
 import api from "../services/api";
-import { ProductAdd, ProductAddNegative } from "../ToastContainer";
+import {
+  ProductAdd,
+  ProductAddNegative,
+  EditProductError,
+  EditProductSuccess,
+} from "../ToastContainer";
 import { UserContext } from "./UserContext";
+import { useNavigate } from "react-router-dom";
 
 interface IProductProvider {
   children: ReactNode;
@@ -31,7 +37,10 @@ interface IProductContext {
   filterProductsUser: (currentProduct: IProduct) => void;
   isSelected: (currentProduct: IProduct) => boolean;
   addNewProduct: (data: IProduct) => void;
+  editProduct: (data: IProduct) => void;
   categorysList: string[];
+  productToEdit: IProduct;
+  setProductToEdit: Dispatch<SetStateAction<IProduct>>;
 }
 
 export interface IProduct {
@@ -50,8 +59,9 @@ export const ProductContext = createContext<IProductContext>(
 );
 
 export function ProductProvider({ children }: IProductProvider) {
+  const { redirectToProfile } = useContext(UserContext);
 
-  const {redirectToProfile} = useContext(UserContext)
+  const navigate = useNavigate();
 
   const [products, setProducts] = useState<IProduct[]>([]);
   const [isModalLogin, setIsModalLogin] = useState<boolean>(false);
@@ -65,6 +75,8 @@ export function ProductProvider({ children }: IProductProvider) {
     [] as IProduct[]
   );
   const [isTradeModal, setIsTradeModal] = useState<boolean>(false);
+  const [productToEdit, setProductToEdit] = useState<IProduct>(null!);
+
   const categorysList = [
     "Eletrônicos e Eletrodomésticos",
     "Roupas",
@@ -78,7 +90,7 @@ export function ProductProvider({ children }: IProductProvider) {
     "Entretenimento",
     "Pets",
   ];
-  
+
   const filterProductsUser = (currentProduct: IProduct) => {
     if (
       userSelectedProducts.find((product) => product.id === currentProduct.id)
@@ -102,14 +114,37 @@ export function ProductProvider({ children }: IProductProvider) {
       return true;
     }
   };
+
   const addNewProduct = (data: IProduct) => {
-    api.post("/products", data)
-    .then(res => {
-      setUserProductList([...userProductList, res.data]);
-      ProductAdd();
-      redirectToProfile();
-    })
-    .catch(() => ProductAddNegative());
+    api
+      .post("/products", data)
+      .then((res) => {
+        setUserProductList([...userProductList, res.data]);
+        ProductAdd();
+        redirectToProfile();
+      })
+      .catch(() => ProductAddNegative());
+  };
+
+  const editProduct = (data: IProduct) => {
+    const id = productToEdit.id;
+    api
+      .put(`/products/${id}`, data)
+      .then((res) => {
+        const editedProducts = userProductList.map((product) => {
+          if (product.id === res.data.id) {
+            return res.data;
+          } else {
+            return product;
+          }
+        }) as IProduct[];
+        setUserProductList(editedProducts);
+        EditProductSuccess();
+        navigate("/profile", { replace: true });
+      })
+      .catch(() => {
+        EditProductError();
+      });
   };
 
   return (
@@ -131,8 +166,11 @@ export function ProductProvider({ children }: IProductProvider) {
         isSelected,
         isModalConfirmTrade,
         setIsModalConfirmTrade,
-        addNewProduct
-        categorysList
+        addNewProduct,
+        editProduct,
+        categorysList,
+        productToEdit,
+        setProductToEdit,
       }}
     >
       {children}

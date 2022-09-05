@@ -7,11 +7,17 @@ import {
 } from "react";
 import { NavigateFunction, useNavigate } from "react-router-dom";
 import api from "../services/api";
-import { LoginError, RegisterSucess, RegisterError, LoginSucess } from "../ToastContainer";
+import {
+  LoginError,
+  RegisterSucess,
+  RegisterError,
+  LoginSucess,
+} from "../ToastContainer";
 
 interface IUserProviders {
   children: ReactNode;
 }
+
 interface IUserContext {
   user: null | IUser;
   setUser: Dispatch<SetStateAction<null>>;
@@ -28,6 +34,7 @@ interface IUserContext {
   onSubmitRegister: (data: IRegister) => void;
   redirectToProfile: () => void;
 }
+
 interface IUser {
   email: string;
   id: number;
@@ -37,10 +44,12 @@ interface IUser {
   cpf: string;
   idade: number;
 }
+
 export interface ILogin {
   email: string;
   password: string;
 }
+
 export interface IRegister {
   name: string;
   email: string;
@@ -52,6 +61,7 @@ export interface IRegister {
   cpf: string;
   idade: number;
 }
+
 interface IRegisterResponse {
   acessToken: string;
   user: IUser;
@@ -109,7 +119,7 @@ export function UserProvider({ children }: IUserProviders) {
   };
   const redirectToProfile = () => {
     navigate("/profile", { replace: true });
-  }
+  };
 
   return (
     <UserContext.Provider
@@ -127,7 +137,7 @@ export function UserProvider({ children }: IUserProviders) {
         onSubmitLogin,
         navigate,
         onSubmitRegister,
-        redirectToProfile
+        redirectToProfile,
       }}
     >
       {children}
