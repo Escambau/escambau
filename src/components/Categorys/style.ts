@@ -27,6 +27,7 @@ export const Category = styled.div`
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
+    justify-content: center;
   }
   .btnsCategory {
     border: 1px solid var(--blue);
@@ -42,7 +43,7 @@ export const Category = styled.div`
     :hover {
       background-color: var(--blue);
       color: white;
+      transition: 0.4s;
     }
   }
-`
-
+`;

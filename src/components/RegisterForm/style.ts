@@ -18,7 +18,7 @@ export const Section = styled.section`
     font-family: "Montserrat";
     font-size: 19px;
     font-weight: 700;
-    color: #4169e1;
+    color: var(--blue);
   }
   .infoInicial {
     display: none;
@@ -103,7 +103,7 @@ export const Section = styled.section`
 
     @media (min-width: 600px) {
       width: 73%;
-      background-color: #f7f7f7;
+      background-color: var(--lightGreyBackground);
       flex-direction: row;
       align-items: center;
       gap: 5rem;
@@ -170,6 +170,7 @@ export const Form = styled.form`
     border-bottom: 1px solid var(--lightGrey);
     color: var(--grey);
     outline: 0;
+    padding: 0 1vh;
 
     @media (min-width: 600px) {
       border: none;
@@ -230,7 +231,7 @@ export const Form = styled.form`
   }
 
   button:hover {
-    opacity: 80%;
+    background-color: var(--greenOpacity);
     transition: 0.4s;
   }
 
@@ -243,6 +244,6 @@ export const Form = styled.form`
     padding-left: 0.1rem;
     font-size: 0.7rem;
     font-weight: 600;
-    color: var(--red);
+    color: var(--redSpan);
   }
 `;

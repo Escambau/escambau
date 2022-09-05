@@ -46,7 +46,7 @@ export const HeaderTag = styled.header`
   .perfil {
     color: black;
     font-size: 32px;
-    background: rgba(202, 255, 176, 1);
+    background: var(--lightGreen);
     padding: 5px;
     border-radius: 100%;
 
@@ -135,6 +135,10 @@ export const HeaderTag = styled.header`
           font-size: 14px;
           color: white;
           font-weight: 400;
+
+          overflow: hidden;
+          white-space: nowrap;
+          max-width: 150px;
         }
 
         & > svg {

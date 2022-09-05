@@ -10,21 +10,19 @@ export const ContainerAddProduct = styled.main`
 
     margin-top: 20px;
     gap: 20px;
-    
+
     width: 100%;
 
     button {
-      color: var(--blue);
-      border: 2px solid var(--blue);
-      background-color: #fff;
-
-      font-size: 16px;
+      background-color: white;
+      width: 150px;
+      height: 35px;
+      align-self: center;
       font-family: "Montserrat";
-      font-weight: 700;
-
-      padding: 10px 0;
-
-      width: 200px;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 900;
+      border: 2px solid var(--blue);
 
       :hover {
         opacity: 80%;
@@ -32,10 +30,9 @@ export const ContainerAddProduct = styled.main`
     }
     h2 {
       font-family: "Montserrat";
-      font-size: 20px;
-      font-weight: 1000;
-      
       color: var(--blue);
+      font-size: 18px;
+      font-weight: 900;
     }
   }
   section {
@@ -46,13 +43,51 @@ export const ContainerAddProduct = styled.main`
       display: none;
     }
 
-    form {
+    .main-form {
       display: flex;
       flex-direction: column;
       margin: 0 auto;
       margin-top: 40px;
 
       width: 90%;
+
+      fieldset {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1vh;
+
+        .price {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 2vw;
+          height: 6vh;
+          border-bottom: 1px solid var(--lightGrey);
+          outline: 0;
+          color: var(--grey);
+          font-size: 16px;
+
+          .input-price {
+            border: none;
+            width: 100%;
+            height: 6vh;
+            outline: 0;
+            color: var(--grey);
+            font-size: 16px;
+
+            ::placeholder {
+              color: var(--lightGrey);
+              font-size: 16px;
+              font-weight: 400;
+            }
+          }
+        }
+      }
 
       div {
         width: 100%;
@@ -64,54 +99,51 @@ export const ContainerAddProduct = styled.main`
         gap: 20px;
 
         span {
-          color: red;
-          font-size: 10px;
-          margin-bottom: 20px;
+          color: var(--redSpan);
+          font-size: 14px;
+          font-weight: 500;
         }
         label {
           color: var(--grey);
+          font-size: 16px;
           font-weight: 800;
         }
-        input {
-          width: 100%;
-          border-bottom: 1px solid var(--grey);
-          color: var(--grey);
-
-          padding-left: 10px;
-          outline: 0;
-
-          ::placeholder {
-            color: var(--lightGrey);
-          }
-        }
-        textarea {
-          width: 100%;
-          height: 70px;
-          border-bottom: 1px solid var(--grey);
-          color: var(--grey);
-
-          font-family: "Montserrat";
-          font-size: 16px;
-
-          resize: none;
-          border: none;
-          border-bottom: 1px solid var(--grey);
-
-          padding-left: 10px;
-          outline: 0;
-          
-
-          ::placeholder {
-            color: var(--lightGrey);
-          }
-        }
+        .input-standard,
         select {
           width: 100%;
-          border-bottom: 1px solid var(--grey);
+          height: 6vh;
+          border-bottom: 1px solid var(--lightGrey);
+          outline: 0;
           color: var(--grey);
+          font-size: 16px;
+          font-weight: 400;
+          font-family: "Roboto";
 
           ::placeholder {
             color: var(--lightGrey);
+            font-size: 16px;
+            font-weight: 400;
+          }
+        }
+
+        textarea {
+          width: 100%;
+          height: 15vh;
+          border: none;
+          border-bottom: 1px solid var(--lightGrey);
+          outline: 0;
+          color: var(--grey);
+          font-size: 16px;
+          font-weight: 400;
+          font-family: "Roboto";
+          resize: none;
+
+          ::placeholder {
+            align-self: flex-start;
+            color: var(--lightGrey);
+            font-size: 16px;
+            font-weight: 400;
+            font-family: "Roboto";
           }
         }
       }
@@ -132,13 +164,15 @@ export const ContainerAddProduct = styled.main`
         font-family: "Montserrat";
 
         :hover {
-          opacity: 80%;
+          background-color: var(--greenOpacity);
+          transition: 0.4s;
         }
       }
     }
   }
 
-  @media screen and (min-width: 700px){
+  //Desktop
+  @media (min-width: 768px) {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -152,9 +186,7 @@ export const ContainerAddProduct = styled.main`
       width: 60%;
 
       button {
-        width: 100px;
-
-        font-size: 10px;
+        font-size: 12px;
         font-weight: 700;
 
         color: #fff;
@@ -164,13 +196,16 @@ export const ContainerAddProduct = styled.main`
         padding-right: 20px;
         padding-left: 20px;
       }
+
+      h2 {
+        font-size: 24px;
+      }
     }
 
     section {
-
       display: flex;
       flex-direction: row;
-      background-color: #f7f7f7;
+      background-color: var(--lightGreyBackground);
       border-radius: 8px;
 
       margin-top: 20px;
@@ -204,49 +239,44 @@ export const ContainerAddProduct = styled.main`
             color: var(--green);
             padding-top: 20px;
           }
-          
+
           figure {
-            
             width: 100%;
 
             margin-top: 0 auto;
             padding-top: 50px;
 
             img {
-              
               display: flex;
               justify-content: center;
               align-items: center;
 
               margin-right: 20px;
 
-              width: 100%;
+              max-width: 80%;
             }
           }
         }
 
-        form {
+        .main-form {
           width: 50%;
 
-
-          span {
-            font-size: 14px;
-          }
-          input {
-            padding: 15px 0 10px 15px;
-            border-radius: 8px;
-            border: none;
-          }
+          .input-standard,
           select {
-            padding: 15px 0 10px 15px;
-            border-radius: 8px;
+            height: 7vh;
             border: none;
+            border-radius: 8px;
+            outline: 0;
+            color: var(--grey);
+            font-size: 16px;
+            padding: 0 1vw;
           }
-          textarea {
-            height: 100px;
 
+          textarea {
+            width: 100%;
+            border-bottom: none;
             border-radius: 8px;
-            border: none;
+            padding: 1vw;
 
             ::-webkit-scrollbar {
               width: 12px;
@@ -262,8 +292,26 @@ export const ContainerAddProduct = styled.main`
               border: 3px solid var(--blue);
             }
           }
+
+          fieldset {
+            gap: 1.5vh;
+
+            .price {
+              background-color: white;
+              border-radius: 8px;
+              border: none;
+              gap: 1vw;
+              padding: 0 1vw;
+              height: 7vh;
+            }
+
+            span {
+              font-size: 14px;
+              color: var(--redSpan);
+            }
+          }
         }
       }
     }
   }
-`
+`;

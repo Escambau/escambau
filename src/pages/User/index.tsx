@@ -1,8 +1,12 @@
+import DropdownModal from "../../components/DropdownModal";
 import UserDashboard from "../../components/UserDashboard"
 
 const User = () => {
     return (
-        <UserDashboard />
+        <>
+            <DropdownModal />
+            <UserDashboard />
+        </>
     )
 }
 

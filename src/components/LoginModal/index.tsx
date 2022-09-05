@@ -12,6 +12,7 @@ export function LoginModal() {
 
   const {isPasswordShow, viewPass, navigate, onSubmitLogin} = useContext(UserContext)
   const {setIsModalLogin} = useContext(ProductContext);
+  const {isPasswordShow, viewPass, redirectToRegister, onSubmitLogin, isModalLogin} = useContext(UserContext)
 
   const formSchema = yup.object().shape({
     email:yup.string().required('Seu email é obrigatório'),

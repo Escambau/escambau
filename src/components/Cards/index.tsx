@@ -1,45 +1,60 @@
 import { useContext } from "react";
 import { AiFillInfoCircle } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+import { CurrentContext } from "../../contexts/CurrentContext";
+import { IProduct, ProductContext } from "../../contexts/ProductContext";
 import { UserContext } from "../../contexts/UserContext";
 import { Card } from "./style";
 
-const Cards = ({key, card}: any) => {
-  const {user} = useContext(UserContext)
+interface ICardsContext{
+  key: number;
+  product: IProduct;
+}
+
+const Cards = ({ key, product }: ICardsContext) => {
+  const { token } = useContext(UserContext);
+  const { setIsTradeModal } = useContext(ProductContext);
+  const { getCurrent } = useContext(CurrentContext);
+  const navigate = useNavigate();
   return (
     <Card key={key}>
       <div>
-        <img src={card.image} alt="" />
+        <img src={product.image} alt="" />
 
         <div>
           <div>
-            <h4>{card.category}</h4>
-            <h3>{card.name}</h3>
+            <h4>{product.category}</h4>
+            <h3>{product.name}</h3>
           </div>
           <section>
             {window.innerWidth > 500 && <p>Preço estipulado:</p>}
-            <span>{card.price}</span>
+            <span>R$ {product.price.toFixed(2)}</span>
           </section>
         </div>
       </div>
 
       <label className="containerButtons">
-        {user ?
+        {token ? (
           <>
-            <button className="btnTrade">Trocar</button>
-            <button className="infoPlus">
+            <button className="btnTrade" onClick={() => setIsTradeModal(true)}>
+              Trocar
+            </button>
+            <button className="infoPlus" onClick={() => getCurrent(product.id)}>
               <AiFillInfoCircle className="iconInfo" />
               Mais informações
             </button>
           </>
-          :
+        ) : (
           <>
-            <button>Criar minha conta</button>
-            <button className="infoPlus">
+            <button onClick={() => navigate("/register")}>
+              Criar minha conta
+            </button>
+            <button className="infoPlus" onClick={() => getCurrent(product.id)}>
               <AiFillInfoCircle className="iconInfo" />
               Mais informações
             </button>
           </>
-        }
+        )}
       </label>
     </Card>
   );

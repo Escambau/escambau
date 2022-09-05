@@ -26,7 +26,7 @@ export const Card = styled.button`
       justify-content: space-between;
     }
   }
-  .containerButtons{
+  .containerButtons {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -34,18 +34,18 @@ export const Card = styled.button`
     height: 70px;
     margin-right: 10px;
 
-    .btnTrade{
+    .btnTrade {
       background-color: var(--green);
       padding: 10px;
       color: white;
       width: 100%;
 
-      @media (min-width: 768px){
+      @media (min-width: 768px) {
         width: 150%;
       }
     }
 
-    & > button{
+    & > button {
       color: var(--blue);
       font-weight: 700;
     }
@@ -64,6 +64,7 @@ export const Card = styled.button`
 
       :hover {
         color: var(--darkGrey);
+        transition: 0.4s;
       }
     }
   }
@@ -113,7 +114,7 @@ export const Card = styled.button`
   @media (min-width: 768px) {
     padding: 30px;
   }
-  @media (max-width: 360px){
+  @media (max-width: 360px) {
     padding: 5px;
   }
 `;
