@@ -5,109 +5,216 @@ interface Props {
 }
 
 export const Container = styled.div<Props>`
-  width: 70%;
-  margin: 50px auto;
+  width: 100%;
   display: flex;
-  gap: 100px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 3vh;
+  gap: 5vh;
 
   .left-wrapper {
-    img {
-      width: 600px;
-      height: 600px;
-      border-radius: 10px;
-    }
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4vh;
+
     .product-info {
-      text-align: left;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 2vh;
+
       small {
-        position: relative;
-        top: -20px;
         color: var(--blue);
+        font-size: 14px;
+        font-weight: 600;
       }
+
       h3 {
-        font-size: 30px;
+        font-size: 16px;
         font-family: "Montserrat";
+        color: var(--darkGrey);
+        font-weight: 900;
+      }
+
+      img {
+        max-width: 100vw;
+        max-height: 230px;
+        align-self: center;
+        object-fit: contain;
       }
     }
 
-    .product-description {
-      width: 500px;
-      margin: 0 auto;
-      text-align: left;
+    .user-info {
+      width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 30px;
-      h3 {
-        font-size: 30px;
-        color: var(--blue);
+      justify-content: center;
+      align-items: center;
+      gap: 2vh;
+
+      .user-info-name-address {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5vh;
+
+        .user-info-name {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 1vh;
+        }
+
+        h3 {
+          font-size: 16px;
+          color: var(--blue);
+          font-weight: 900;
+        }
+
+        p {
+          font-size: 14px;
+          color: var(--grey);
+          font-weight: 600;
+        }
+      }
+
+      .user-info-price-preferences {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1vh;
+        .price {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 1vh;
+        }
+        p {
+          font-size: 14px;
+          color: var(--darkGrey);
+        }
+        span {
+          font-size: 16px;
+          color: var(--blue);
+          font-weight: 900;
+        }
       }
     }
   }
 
   .right-wrapper {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 4vh;
 
-    button {
-      background: ${(props) =>
-        props.isLogged ? "var(--green)" : "var(--blue)"};
-      display: flex;
-      max-width: fit-content;
-      margin: 20px auto;
-      padding: 10px 20px;
-      color: white;
-    }
-
-    .user-info {
-      background: rgba(217, 217, 217, 0.2);
-      padding: 80px;
-      border-radius: 5px;
-      border: 1px solid var(--lightGrey);
+    .product-description {
+      width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      color: rgba(0, 0, 0, 0.7);
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 1vh;
 
-      .username {
-        font-size: 20px;
+      h3 {
+        font-size: 16px;
         color: var(--blue);
+        font-weight: 900;
       }
-      .price {
-        color: rgba(0, 0, 0, 1);
+
+      p {
+        text-align: left;
+        font-size: 14px;
+        color: var(--darkGrey);
+      }
+    }
+
+    .btn-wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+
+      button {
+        width: 70%;
+        background-color: var(--blue);
+        font-size: 18px;
+        font-family: "Montserrat";
+        color: white;
+        font-weight: 900;
+        height: 40px;
+
+        :hover {
+          opacity: 80%;
+        }
       }
     }
   }
 
-  @media (max-width: 1200px) {
-    flex-direction: column;
-    gap: 20px;
+  //Desktop
+  @media (min-width: 768px) {
+    padding: 3vh 15vw;
+    gap: 4vh;
 
     .left-wrapper {
+      flex-direction: row;
+      justify-content: space-between;
+      max-height: 50vw;
+
       .product-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        small {
+        flex: 6;
+
+        img {
           width: 100%;
+          max-height: 350px;
         }
       }
-      img {
-        width: 100%;
-      }
-      .product-description {
-        width: 100%;
-        text-align: left;
-        h3 {
-          text-align: center;
+
+      .user-info {
+        flex: 4;
+        gap: 3vh;
+        background-color: var(--lightGreyBackground);
+        border: 0.1px solid var(--lightGrey);
+        border-radius: 5px;
+        padding: 6vh 0;
+        max-height: 230px;
+
+        .user-info-name-address {
+          .user-info-name {
+            flex-direction: column;
+          }
         }
       }
     }
 
     .right-wrapper {
-      .user-info {
-        gap: 5px;
-        padding: 20px;
+      flex-direction: row;
+
+      .product-description {
+        flex: 6;
+      }
+
+      .btn-wrapper {
+        align-self: flex-start;
+        flex: 4;
       }
     }
   }
