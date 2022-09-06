@@ -120,13 +120,10 @@ export const ContainerAddProduct = styled.main`
             padding-top: 50px;
 
             img {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-
-              margin-right: 20px;
-
-              max-width: 80%;
+              display: block;
+              max-width: 100%;
+              border-radius: 8px;
+              box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
             }
           }
         }

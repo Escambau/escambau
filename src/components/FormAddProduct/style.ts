@@ -54,17 +54,20 @@ export const FormAdd = styled.form`
     flex-direction: column;
     align-items: flex-start;
 
-    gap: 20px;
-
     span {
       color: var(--redSpan);
       font-size: 14px;
       font-weight: 500;
+
+      margin-top: 5px;
     }
     label {
       color: var(--grey);
       font-size: 16px;
       font-weight: 800;
+
+      margin-bottom: 20px;
+      margin-top: 20px;
     }
     .input-standard,
     select {
@@ -128,54 +131,64 @@ export const FormAdd = styled.form`
   }
   @media (min-width: 768px){
     width: 50%;
-
-    .input-standard,
-    select {
-      height: 7vh;
-      border: none;
-      border-radius: 8px;
-      outline: 0;
-      color: var(--grey);
-      font-size: 16px;
-      padding: 0 1vw;
-    }
-
-    textarea {
-      width: 100%;
-      border-bottom: none;
-      border-radius: 8px;
-      padding: 1vw;
-
-      ::-webkit-scrollbar {
-        width: 12px;
-      }
-
-      ::-webkit-scrollbar-track {
-        background: transparent;
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background-color: var(--blue);
-        border-radius: 20px;
-        border: 3px solid var(--blue);
-      }
-    }
-
-    fieldset {
-      gap: 1.5vh;
-
-      .price {
-        background-color: white;
-        border-radius: 8px;
-        border: none;
-        gap: 1vw;
-        padding: 0 1vw;
-        height: 7vh;
-      }
+    
+    div {
 
       span {
-        font-size: 14px;
-        color: var(--redSpan);
+          font-size: 14px;
+          color: var(--redSpan);
+      }
+      
+      .input-standard,
+      select {
+        height: 7vh;
+        border-radius: 8px;
+        outline: 0;
+        color: var(--grey);
+        font-size: 16px;
+        padding: 0 1vw;
+        border-bottom: none;
+        border: none;
+      }
+
+      textarea {
+        width: 100%;
+        border-bottom: none;
+        border: none;
+        border-radius: 8px;
+        padding: 1vw;
+
+        ::-webkit-scrollbar {
+          width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background-color: var(--blue);
+          border-radius: 20px;
+          border: 3px solid var(--blue);
+        }
+      }
+
+      fieldset {
+        gap: 1.5vh;
+
+        .price {
+          background-color: white;
+          border-radius: 8px;
+          border: none;
+          gap: 1vw;
+          padding: 0 1vw;
+          height: 7vh;
+        }
+
+        span {
+          font-size: 14px;
+          color: var(--redSpan);
+        }
       }
     }
   }
