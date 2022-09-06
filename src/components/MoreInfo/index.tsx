@@ -24,7 +24,6 @@ const MoreInfo = () => {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
-
         {user ? <Header /> : <HeaderUnlogged />}
         <ConfirmTradeModal />
         <TradeModal />
