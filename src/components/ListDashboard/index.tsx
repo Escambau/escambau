@@ -9,8 +9,8 @@ const ListDashboard = () => {
   return (
     <List>
       {products.length > 0 ?
-      products.map((product) => {
-        return <Cards key={product.id} product={product}></Cards>;
+      products.map((card) => {
+        return <Cards key={card.id} card={card}></Cards>;
       })
       :
       <h2>Ainda não foi adicionado nenhum produto nessa categoria</h2>

@@ -6,7 +6,7 @@ import { UserContext } from "../../../contexts/UserContext";
 import {useContext} from "react"
 
 const Header = () => {
-  const {user, setIsDropdownModal} = useContext(UserContext)
+  const {user} = useContext(UserContext)
   return (
     <HeaderTag>
       <div className="container">
@@ -16,7 +16,7 @@ const Header = () => {
           <button>
             <IoMdNotificationsOutline className="notification" />
           </button>
-          <button onClick={() => setIsDropdownModal(true)}>
+          <button>
             <ImUser className="perfil" />
             {window.innerWidth > 764 && (
               <h3 className="userName">{user?.name}</h3>
