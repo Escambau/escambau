@@ -14,7 +14,7 @@ export const ModalLogin = styled.div`
   h2 {
     color: #4169e1;
     font-family: "Montserrat";
-    font-weight: 700; 
+    font-weight: 700;
 
     margin-bottom: 20px;
   }
@@ -127,7 +127,7 @@ export const ModalLogin = styled.div`
         span {
           font-size: 10px;
           font-weight: 700;
-          color: red;
+          color: var(--redSpan);
         }
       }
 

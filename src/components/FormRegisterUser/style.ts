@@ -130,7 +130,7 @@ export const Form = styled.form`
     gap: 2px;
 
     @media (min-width: 600px) {
-      gap: 4px;
+      gap: 10px;
     }
   }
 
@@ -160,29 +160,34 @@ export const Form = styled.form`
 
   label {
     color: var(--grey);
-    font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 16px;
+    font-weight: 800;
   }
 
   input {
     width: 100%;
-    height: 2rem;
+    height: 6vh;
     border-bottom: 1px solid var(--lightGrey);
     color: var(--grey);
     outline: 0;
     padding: 0 1vh;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "Roboto";
 
     @media (min-width: 600px) {
       border: none;
-      height: 2.5rem;
+      height: 7vh;
       border-radius: 8px;
     }
   }
 
   input::placeholder {
-    color: var(--lightGrayBackground);
+    align-self: flex-start;
+    color: var(--lightGrey);
+    font-size: 16px;
     font-weight: 400;
-    font-size: 0.75rem;
+    font-family: "Roboto";
 
     @media (min-width: 600px) {
       padding: 0 0.5rem;
@@ -197,12 +202,14 @@ export const Form = styled.form`
 
   select {
     font-family: "Roboto";
-    font-size: 0.8rem;
-    color: var(--grey);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--lightGrey);
     border-bottom: 1px solid var(--lightGrey);
     height: 2rem;
     width: 100%;
     cursor: pointer;
+    outline: 0;
 
     @media (min-width: 600px) {
       border: none;
