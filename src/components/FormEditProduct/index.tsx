@@ -4,9 +4,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import { IProduct, ProductContext } from "../../contexts/ProductContext";
+import { CurrentContext } from "../../contexts/CurrentContext";
 
 const FormEditProduct = () => {
   const { editProduct } = useContext(ProductContext);
+  const { productToEdit } = useContext(ProductContext);
+
+  const { setEditProductUrl } = useContext(CurrentContext);
 
   const {
     register,
@@ -27,8 +31,10 @@ const FormEditProduct = () => {
             className="input-standard"
             id="image"
             type="url"
+            defaultValue={productToEdit ? `${productToEdit.image}` : ""}
             placeholder="Envie sua imagem"
             {...register("image")}
+            onChange={(e) => setEditProductUrl(e.target.value)}
           />
           {<span>{errors.image?.message}</span>}
         </fieldset>
@@ -39,6 +45,7 @@ const FormEditProduct = () => {
             className="input-standard"
             id="name"
             type="string"
+            defaultValue={productToEdit ? `${productToEdit.name}` : ""}
             placeholder="Nome do produto"
             {...register("name")}
           />
@@ -54,6 +61,7 @@ const FormEditProduct = () => {
                 className="input-price"
                 id="price"
                 type="string"
+                defaultValue={productToEdit ? `${productToEdit.price}` : ""}
                 placeholder="Preço do produto"
                 {...register("price")}
               ></input>
@@ -64,7 +72,11 @@ const FormEditProduct = () => {
 
           <fieldset>
             <label htmlFor="category">Categoria</label>
-            <select id="category" {...register("category")}>
+            <select
+              id="category"
+              {...register("category")}
+              defaultValue={productToEdit ? `${productToEdit.category}` : ""}
+            >
               <option selected disabled>
                 Selecione uma categoria
               </option>
@@ -92,6 +104,7 @@ const FormEditProduct = () => {
           <label htmlFor="preferences">Preferências de troca:</label>
           <textarea
             id="preferences"
+            defaultValue={productToEdit ? `${productToEdit.preferences}` : ""}
             placeholder="Suas preferências de troca aqui"
             {...register("preferences")}
           />
@@ -102,6 +115,7 @@ const FormEditProduct = () => {
           <label htmlFor="description">Descrição do produto:</label>
           <textarea
             id="description"
+            defaultValue={productToEdit ? `${productToEdit.description}` : ""}
             placeholder="Descreva seu item aqui"
             {...register("description")}
           />
