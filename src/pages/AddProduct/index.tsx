@@ -7,7 +7,6 @@ import mobile from "../../assets/mobileShop.png";
 import { addProductSchema } from "../../validations/AddProductSchema";
 import { IProduct, ProductContext } from "../../contexts/ProductContext";
 import { UserContext } from "../../contexts/UserContext";
-import { HeaderUnlogged } from "../../components/HeaderUnlogged/Header";
 import HeaderUnlogged from "../../components/HeaderUnlogged";
 import DropdownModal from "../../components/DropdownModal";
 
@@ -46,11 +45,6 @@ export function AddProduct() {
             </div>
             <form className="main-form" onSubmit={handleSubmit(addNewProduct)}>
               <div>
-                <label>Url da imagem:</label>
-                <input
-                  className="input-standard"
-            <form onSubmit={handleSubmit(addNewProduct)}>
-              <div>
                 <label>Url da imagem</label>
                 <input
                   type="url"
@@ -61,9 +55,6 @@ export function AddProduct() {
               </div>
               <div>
                 <label>Nome:</label>
-                <input
-                  className="input-standard"
-                <label>Nome</label>
                 <input
                   type="text"
                   placeholder="Digite o nome do produto aqui..."

@@ -2,13 +2,11 @@ import { AiFillInfoCircle } from "react-icons/ai";
 import { ProductContext } from "../../../contexts/ProductContext";
 import Card, { ListTag } from "./style";
 import { useContext } from "react";
-//import { useNavigate } from "react-router-dom";
 import { CurrentContext } from "../../../contexts/CurrentContext";
 
 const List = () => {
   const { userProductList, setProductToEdit } = useContext(ProductContext);
   const { getCurrent } = useContext(CurrentContext);
-  //const navigate = useNavigate();
 
   return (
     <ListTag>

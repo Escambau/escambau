@@ -12,7 +12,6 @@ export function LoginModal() {
 
   const {isPasswordShow, viewPass, navigate, onSubmitLogin} = useContext(UserContext)
   const {setIsModalLogin} = useContext(ProductContext);
-  const {isPasswordShow, viewPass, redirectToRegister, onSubmitLogin, isModalLogin} = useContext(UserContext)
 
   const formSchema = yup.object().shape({
     email:yup.string().required('Seu email é obrigatório'),
@@ -46,9 +45,9 @@ export function LoginModal() {
             <div>
               <input type={isPasswordShow ? "text" : "password"} placeholder='Digite sua senha aqui...' {...register('password')} />
               {isPasswordShow ? 
-              <button onClick={viewPass}><IoEyeOutline/></button> 
+              <button type='button' onClick={viewPass}><IoEyeOutline/></button> 
               :
-              <button onClick={viewPass}><IoEyeOffOutline/></button>}
+              <button type='button' onClick={viewPass}><IoEyeOffOutline/></button>}
             </div>
             <span>{errors?.password?.message}</span>
           </div> 
@@ -57,7 +56,10 @@ export function LoginModal() {
 
         <div className='box-to-register'>
           <h3>Ainda não tem uma conta?</h3>
-          <button onClick={() => navigate("/register", {replace: true})}>Cadastre-se</button> 
+          <button onClick={() => {
+            setIsModalLogin(false)
+            navigate("/register", {replace: true})
+            }}>Cadastre-se</button> 
         </div>
 
       </div>
