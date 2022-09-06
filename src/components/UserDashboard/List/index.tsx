@@ -3,10 +3,12 @@ import { ProductContext } from "../../../contexts/ProductContext";
 import Card, { ListTag } from "./style";
 import { useContext } from "react";
 import { CurrentContext } from "../../../contexts/CurrentContext";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const List = () => {
-  const { userProductList, setProductToEdit } = useContext(ProductContext);
+  const { userProductList, setProductToEdit, deleteProduct } = useContext(ProductContext);
   const { getCurrent } = useContext(CurrentContext);
+  const navigate = useNavigate()
 
   return (
     <ListTag>
@@ -23,7 +25,7 @@ const List = () => {
                 </div>
                 <section>
                   <p>Preço estipulado:</p>
-                  <span>{product.price}</span>
+                  <span>R$ {product.price.toFixed(2)}</span>
                 </section>
               </div>
             </div>
@@ -43,11 +45,14 @@ const List = () => {
                   <button
                     className="edit-delete edit"
                     // onClick={() => setProductToEdit(card)}
-                    onClick={() => setProductToEdit(product)}
+                    onClick={() => {
+                      setProductToEdit(product)
+                      navigate("/editproduct")
+                    }}
                   >
                     Editar
                   </button>
-                  <button className="edit-delete delete">Excluir</button>
+                  <button className="edit-delete delete" onClick={() => deleteProduct(product.id)}>Excluir</button>
                 </div>
               </section>
             )}

@@ -14,7 +14,7 @@ const Dashboard = () => {
   return (
     <>
       <DropdownModal />
-      {isModalLogin && <LoginModal />}
+      <LoginModal />
       <TradeModal />
       {token ? <Header /> : <HeaderUnlogged />}
       <MainTag>
