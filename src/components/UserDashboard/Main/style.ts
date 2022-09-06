@@ -13,23 +13,27 @@ export const MainTag = styled.main`
 
   .addProduct {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
 
-    & > h2 {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--blue);
-      font-family: "Montserrat";
-    }
     & > button {
-      background-color: var(--lightGrey);
+      background-color: var(--blue);
       padding: 5px 6px 2px 6px;
-
+      color: white;
+      margin-bottom: 20px;
+      
       transition: 0.3s;
       :hover {
-        background-color: grey;
+        opacity: .8;
+      }
+      
+      & > h2 {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--blue);
+        font-family: "Montserrat";
       }
 
       & > svg {
@@ -102,8 +106,8 @@ export const MainTag = styled.main`
         font-family: "Montserrat";
       }
       & > button {
-        background-color: var(--lightGrey);
-        padding: 7px 8px 4px 8px;
+        background-color: var(--blue);
+        padding: 10px;
 
         & > svg {
           font-size: 18px;
