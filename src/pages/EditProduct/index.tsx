@@ -9,6 +9,7 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { ProductContext } from "../../contexts/ProductContext";
 import DropdownModal from "../../components/DropdownModal";
+import { CurrentContext } from "./../../contexts/CurrentContext";
 
 const EditProduct = () => {
   const navigate = useNavigate();
@@ -16,18 +17,18 @@ const EditProduct = () => {
   const { token } = useContext(UserContext);
 
   const { productToEdit } = useContext(ProductContext);
+  const { editProductUrl } = useContext(CurrentContext);
 
   return (
     <>
-      {
-        token ? (
+      {token ? (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
         >
-          <Header/>
+          <Header />
           <DropdownModal />
           <Container>
             <section>
@@ -42,16 +43,28 @@ const EditProduct = () => {
             <main>
               <div>
                 <h3>{productToEdit ? `${productToEdit.name}` : "Produto"}</h3>
-                <img src={shopping} alt="" />
+                <figure>
+                  {editProductUrl ? (
+                    <img
+                      src={editProductUrl}
+                      alt="url produto"
+                      onError={({ currentTarget }) => {
+                        currentTarget.src = shopping;
+                        currentTarget.onerror = null;
+                      }}
+                    />
+                  ) : (
+                    <img src={productToEdit.image} alt="LogoAdd" />
+                  )}
+                </figure>
               </div>
               <FormEditProduct />
             </main>
           </Container>
         </motion.div>
-        ) : (
+      ) : (
         <Navigate to="/" replace />
-        )
-      }
+      )}
     </>
   );
 };
