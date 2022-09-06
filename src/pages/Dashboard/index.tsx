@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import Categorys from "../../components/Categorys";
+import ConfirmTradeModal from "../../components/ConfirmTradeModal";
 import DropdownModal from "../../components/DropdownModal";
 import HeaderUnlogged from "../../components/HeaderUnlogged";
 import ListDashboard from "../../components/ListDashboard";
@@ -15,6 +16,7 @@ const Dashboard = () => {
     <>
       <DropdownModal />
       <LoginModal />
+      <ConfirmTradeModal />
       <TradeModal />
       {token ? <Header /> : <HeaderUnlogged />}
       <MainTag>
