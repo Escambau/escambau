@@ -9,7 +9,6 @@ import User from "../pages/User";
 export const EscambauRoutes = () => {
   return (
     <Routes>
-
       <Route path="/moreinfo" element={<MoreInfo />} />
       <Route path="/addproduct" element={<AddProduct/>} />
       <Route path="/" element={<Dashboard />} />

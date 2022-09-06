@@ -8,7 +8,6 @@ import { Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { ProductContext } from "../../contexts/ProductContext";
-import HeaderUnlogged from "../../components/HeaderUnlogged";
 import DropdownModal from "../../components/DropdownModal";
 
 const EditProduct = () => {
@@ -21,14 +20,14 @@ const EditProduct = () => {
   return (
     <>
       {
-        //token ? (
+        token ? (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
         >
-          {token ? <Header /> : <HeaderUnlogged />}
+          <Header/>
           <DropdownModal />
           <Container>
             <section>
@@ -49,9 +48,9 @@ const EditProduct = () => {
             </main>
           </Container>
         </motion.div>
-        // ) : (
-        // <Navigate to="/" replace />
-        //)
+        ) : (
+        <Navigate to="/" replace />
+        )
       }
     </>
   );
