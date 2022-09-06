@@ -221,6 +221,7 @@ export function ProductProvider({ children }: IProductProvider) {
 
   const deleteProduct = async (id: number) => {
     const token = localStorage.getItem("@token");
+
     try {
       await api.delete(`/products/${id}`, {
         headers: {
