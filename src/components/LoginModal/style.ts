@@ -9,6 +9,7 @@ export const ModalLogin = styled.div`
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
   font-family: "Montserrat";
+  z-index: 10;
 
   h2 {
     color: #4169e1;

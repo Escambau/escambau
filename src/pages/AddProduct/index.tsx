@@ -3,6 +3,7 @@ import Header from "../../components/UserDashboard/Header";
 import { ContainerAddProduct } from "./style";
 import mobile from "../../assets/mobileShop.png";
 import { UserContext } from "../../contexts/UserContext";
+import HeaderUnlogged from "../../components/HeaderUnlogged";
 import DropdownModal from "../../components/DropdownModal";
 import { FormAddProduct } from "../../components/FormAddProduct";
 

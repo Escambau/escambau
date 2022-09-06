@@ -103,3 +103,13 @@ export const EditProductError = () => {
     draggable: false,
   });
 };
+export const deleteProductSuccess = () => {
+  toast.success("Produto excluido!", {
+    position: "top-right",
+    hideProgressBar: false,
+    autoClose: 2000,
+    closeOnClick: false,
+    pauseOnHover: true,
+    draggable: false,
+  });
+};

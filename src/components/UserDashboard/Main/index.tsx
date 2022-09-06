@@ -5,7 +5,7 @@ import { ProductContext } from "../../../contexts/ProductContext";
 import {useContext} from "react"
 import { useNavigate } from "react-router-dom";
 const Main = () => {
-  const {categorysList} = useContext(ProductContext)
+  const {categorysList, setSelectCategory} = useContext(ProductContext)
   const navigate = useNavigate()
   return (
     <MainTag>
@@ -34,7 +34,7 @@ const Main = () => {
               <div>
                 {categorysList.map((category, index) => {
                   return (
-                    <button className="btnsCategory" key={index}>
+                    <button className="btnsCategory" key={index} onClick={() => setSelectCategory(category)}>
                       {category}
                     </button>
                   );
