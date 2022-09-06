@@ -8,6 +8,7 @@ export const Container = styled.div`
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.25);
+  z-index: 15;
 
   @media (min-width: 600px) {
   }

@@ -107,7 +107,7 @@ export function ProductProvider({ children }: IProductProvider) {
       }
     };
     getProducts();
-  }, []);
+  }, [products]);
 
   useEffect(() => {
     const getProductsUser = async () => {
@@ -121,7 +121,7 @@ export function ProductProvider({ children }: IProductProvider) {
       }
     };
     getProductsUser();
-  }, []);
+  }, [userProductList]);
 
   useEffect(() => {
     const filterProductCategory = async () => {
