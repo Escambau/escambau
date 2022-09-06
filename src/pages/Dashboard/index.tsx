@@ -21,6 +21,7 @@ const Dashboard = () => {
       {user ? <Header /> : <HeaderUnlogged />}
       <MainTag>
         <div className="container">
+          <h2>Todos os anúncios</h2>
           <Categorys />
           <ListDashboard />
         </div>

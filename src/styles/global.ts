@@ -94,6 +94,7 @@ const GlobalStyle = createGlobalStyle`
         background-color: transparent;
         border: none;
         border-radius: 8px;
+		font-family: "Montserrat";
     }
 
 		/* HTML5 display-role reset for older browsers */
