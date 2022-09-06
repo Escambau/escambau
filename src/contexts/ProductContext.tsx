@@ -98,34 +98,9 @@ export function ProductProvider({ children }: IProductProvider) {
   ];
 
   useEffect(() => {
-    const getProducts = async () => {
-      try {
-        api.get("/products").then((response) => {
-          setProducts(response.data);
-        });
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getProducts();
-  }, [products]);
-
-  useEffect(() => {
-    const getProductsUser = async () => {
-      try {
-        const response = await api.get(
-          `/products?userId=${localStorage.getItem("@id")}`
-        );
-        setUserProductList(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getProductsUser();
-  }, [userProductList]);
-
-  useEffect(() => {
     const filterProductCategory = async () => {
+      console.log(selectCategory);
+
       try {
         if (selectCategory === "Todos") {
           api.get(`/products`).then((response) => {
@@ -136,6 +111,7 @@ export function ProductProvider({ children }: IProductProvider) {
             .get(`/products`, { params: { category: selectCategory } })
             .then((response) => {
               setProducts(response.data);
+              console.log(response.data);
             });
         }
       } catch (error) {
@@ -244,6 +220,7 @@ export function ProductProvider({ children }: IProductProvider) {
 
   const deleteProduct = async (id: number) => {
     const token = localStorage.getItem("@token");
+
     try {
       await api.delete(`/products/${id}`, {
         headers: {

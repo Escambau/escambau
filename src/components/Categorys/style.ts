@@ -29,6 +29,17 @@ export const Category = styled.div`
     flex-wrap: wrap;
     justify-content: center;
   }
+  .btnAll{
+    border: 1px solid var(--blue);
+    border-radius: 8px;
+    padding: 7px 30px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    margin: 5px 5px;
+    background-color: var(--blue);
+    color: white;
+  }
   .btnsCategory {
     border: 1px solid var(--blue);
     border-radius: 8px;

@@ -4,6 +4,23 @@ export const ListTag = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: scroll;
+  padding: 10px 10px;
+  height: 100vh;
+
+  ::-webkit-scrollbar-track {
+    border: 5px solid white;
+    background-color: #b2bec3;
+    opacity: 0.5;
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+    background-color: #dfe6e9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--blue);
+    border-radius: 5px;
+  }
 
   width: 100%;
 `;
