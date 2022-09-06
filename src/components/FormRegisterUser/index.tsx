@@ -7,7 +7,7 @@ import { registerUserSchema } from "../../validations/registerUser";
 import { useContext } from "react";
 import HeaderRegister from "../HeaderRegister";
 
-const RegisterForm = () => {
+const FormRegisterUser = () => {
   const { onSubmitRegister } = useContext(UserContext);
   const {
     register,
@@ -19,7 +19,6 @@ const RegisterForm = () => {
 
   return (
     <>
-      {/* Teste de Commit */}
       <HeaderRegister />
       <Section>
         <div className="background">
@@ -158,4 +157,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default FormRegisterUser;
