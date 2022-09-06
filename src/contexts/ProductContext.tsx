@@ -64,9 +64,10 @@ export const ProductContext = createContext<IProductContext>(
 );
 
 export function ProductProvider({ children }: IProductProvider) {
-  const { redirectToProfile, user } = useContext(UserContext);
+  const { redirectToProfile } = useContext(UserContext);
 
   const navigate = useNavigate();
+  // const token = `Bearer ${localStorage.getItem("@token")}`;
 
   const [products, setProducts] = useState<IProduct[]>([]);
   const [currentProduct, setCurrentProduct] = useState<boolean>(false);
@@ -192,20 +193,38 @@ export function ProductProvider({ children }: IProductProvider) {
   };
 
   const addNewProduct = (data: IProduct) => {
+    const userId = localStorage.getItem("@id");
+    const token = localStorage.getItem("@token");
     api
-      .post("/products", data)
+      .post(
+        "/products",
+        { ...data, userId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((res) => {
         setUserProductList([...userProductList, res.data]);
         ProductAdd();
         redirectToProfile();
       })
-      .catch(() => ProductAddNegative());
+      .catch((error) => {
+        console.log(error);
+        ProductAddNegative();
+      });
   };
 
   const editProduct = (data: IProduct) => {
     const id = productToEdit.id;
+    const token = localStorage.getItem("@token");
     api
-      .put(`/products/${id}`, data)
+      .put(`/products/${id}`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((res) => {
         const editedProducts = userProductList.map((product) => {
           if (product.id === res.data.id) {
@@ -224,8 +243,14 @@ export function ProductProvider({ children }: IProductProvider) {
   };
 
   const deleteProduct = async (id: number) => {
+    const token = localStorage.getItem("@token");
     try {
-      await api.delete(`/products/${id}`);
+      await api.delete(`/products/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
       deleteProductSuccess();
     } catch (error) {
       console.error(error);

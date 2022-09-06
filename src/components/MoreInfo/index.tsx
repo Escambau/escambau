@@ -11,10 +11,10 @@ import TradeModal from "../TradeModal";
 import ConfirmTradeModal from "../ConfirmTradeModal";
 
 const MoreInfo = () => {
-  const { token } = useContext(UserContext);
-  const { setIsTradeModal } = useContext(ProductContext)
+  const { user } = useContext(UserContext);
+  const { setIsTradeModal } = useContext(ProductContext);
   const { currentUser, currentProduct, isLogged } = useContext(CurrentContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <>
@@ -24,7 +24,8 @@ const MoreInfo = () => {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
-        {token ? <Header /> : <HeaderUnlogged />}
+
+        {user ? <Header /> : <HeaderUnlogged />}
         <ConfirmTradeModal />
         <TradeModal />
         <Container isLogged={isLogged}>
@@ -51,17 +52,21 @@ const MoreInfo = () => {
               <h3 className="price">
                 Preço estipulado:{" "}
                 <span className="product-value">
-                  <>
-                    R$ {currentProduct?.price}
-                  </>
+                  R$ {Number(currentProduct?.price).toFixed(2)}
                 </span>
               </h3>
               <p className="preferences">
                 Preferências: {currentProduct?.preferences}
               </p>
             </div>
-            <button className="btn" disabled={isLogged} onClick={() => {token ? setIsTradeModal(true) : navigate("/register")}}>
-              {token ? "Solicitar troca" : "Criar minha conta"}
+            <button
+              className="btn"
+              disabled={isLogged}
+              onClick={() => {
+                user ? setIsTradeModal(true) : navigate("/register");
+              }}
+            >
+              {user ? "Solicitar troca" : "Criar minha conta"}
             </button>
           </div>
         </Container>

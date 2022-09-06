@@ -32,7 +32,6 @@ export const CurrentContext = createContext<IProductContext>(
 );
 
 export const CurrentProvider = ({ children }: IProductProvider) => {
-  const { token } = useContext(UserContext);
   const [currentProduct, setCurrentProduct] = useState<IProduct>(
     {} as IProduct
   );
@@ -43,6 +42,7 @@ export const CurrentProvider = ({ children }: IProductProvider) => {
   const navigate = useNavigate();
 
   const getCurrent = (currentId: number) => {
+    const token = localStorage.getItem("@token");
     if (token) {
       setIsLogged(true);
     } else {

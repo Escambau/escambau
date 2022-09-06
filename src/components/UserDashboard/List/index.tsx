@@ -26,7 +26,7 @@ const List = () => {
                 </div>
                 <section>
                   <p>Preço estipulado:</p>
-                  <span>R$ {product.price}</span>
+                  <span>R$ {Number(product.price).toFixed(2)}</span>
                 </section>
               </div>
             </div>

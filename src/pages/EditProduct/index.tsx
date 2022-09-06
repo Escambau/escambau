@@ -14,14 +14,15 @@ import { CurrentContext } from "./../../contexts/CurrentContext";
 const EditProduct = () => {
   const navigate = useNavigate();
 
-  const { token } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   const { productToEdit } = useContext(ProductContext);
   const { editProductUrl } = useContext(CurrentContext);
 
   return (
     <>
-      {token ? (
+      {user ? (
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
