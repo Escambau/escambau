@@ -30,8 +30,8 @@ const List = () => {
                 </section>
               </div>
             </div>
-            {window.innerWidth > 768 && (
               <section className="container-buttons">
+                {window.innerWidth > 768 && (
                 <button
                   className="infoPlus"
                   onClick={() => {
@@ -41,6 +41,7 @@ const List = () => {
                   <AiFillInfoCircle className="iconInfo" />
                   Mais informações
                 </button>
+                )}
                 <div>
                   <button
                     className="edit-delete edit"
@@ -60,7 +61,6 @@ const List = () => {
                   </button>
                 </div>
               </section>
-            )}
           </Card>
         );
       })}
