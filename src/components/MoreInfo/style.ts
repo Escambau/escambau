@@ -13,6 +13,8 @@ export const Container = styled.div<Props>`
   .left-wrapper {
     img {
       width: 600px;
+      height: 600px;
+      border-radius: 10px;
     }
     .product-info {
       text-align: left;
