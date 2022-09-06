@@ -100,7 +100,7 @@ export function ProductProvider({ children }: IProductProvider) {
   useEffect(() => {
     const filterProductCategory = async () => {
       console.log(selectCategory);
-      
+
       try {
         if (selectCategory === "Todos") {
           api.get(`/products`).then((response) => {
@@ -112,7 +112,6 @@ export function ProductProvider({ children }: IProductProvider) {
             .then((response) => {
               setProducts(response.data);
               console.log(response.data);
-              
             });
         }
       } catch (error) {
