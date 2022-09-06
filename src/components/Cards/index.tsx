@@ -17,7 +17,7 @@ const Cards = ({ product }: ICardsContext) => {
   const { getCurrent } = useContext(CurrentContext);
   const navigate = useNavigate();
   return (
-    <Card>
+    <Card onClick={() => navigate("/moreinfo")}>
       <div>
         <img src={product.image} alt="" />
 

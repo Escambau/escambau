@@ -1,15 +1,15 @@
 import { Routes, Route } from "react-router-dom";
-import MoreInfo from "../pages/Moreinfo";
 import { AddProduct } from "../pages/AddProduct";
 import Dashboard from "../pages/Dashboard";
 import EditProduct from "../pages/EditProduct";
+import PageMoreInfo from "../pages/MoreInfo";
 import Register from "../pages/Register";
 import User from "../pages/User";
 
 export const EscambauRoutes = () => {
   return (
     <Routes>
-      <Route path="/moreinfo" element={<MoreInfo />} />
+      <Route path="/moreinfo" element={<PageMoreInfo />} />
       <Route path="/addproduct" element={<AddProduct/>} />
       <Route path="/" element={<Dashboard />} />
       <Route path="/editproduct" element={<EditProduct />} />

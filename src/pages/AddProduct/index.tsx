@@ -8,7 +8,6 @@ import { FormAddProduct } from "../../components/FormAddProduct";
 import { Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { CurrentContext } from "./../../contexts/CurrentContext";
-import { ImGift } from "react-icons/im";
 
 export function AddProduct() {
   const { navigate } = useContext(UserContext);

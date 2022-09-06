@@ -7,6 +7,8 @@ import { Container } from "./style";
 import HeaderUnlogged from "../HeaderUnlogged";
 import { ProductContext } from "../../contexts/ProductContext";
 import { useNavigate } from "react-router-dom";
+import TradeModal from "../TradeModal";
+import ConfirmTradeModal from "../ConfirmTradeModal";
 
 const MoreInfo = () => {
   const { token } = useContext(UserContext);
@@ -23,6 +25,8 @@ const MoreInfo = () => {
         transition={{ duration: 0.5 }}
       >
         {token ? <Header /> : <HeaderUnlogged />}
+        <ConfirmTradeModal />
+        <TradeModal />
         <Container isLogged={isLogged}>
           <div className="left-wrapper">
             <div className="product-info">
@@ -47,7 +51,9 @@ const MoreInfo = () => {
               <h3 className="price">
                 Preço estipulado:{" "}
                 <span className="product-value">
-                  R$ {currentProduct?.price.toFixed(2)}
+                  <>
+                    R$ {currentProduct?.price.toFixed(2)}
+                  </>
                 </span>
               </h3>
               <p className="preferences">

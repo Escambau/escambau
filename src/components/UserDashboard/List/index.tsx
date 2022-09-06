@@ -15,7 +15,7 @@ const List = () => {
     <ListTag>
       {userProductList?.map((product, index) => {
         return (
-          <Card key={index}>
+          <Card key={index} onClick={() => navigate("/moreinfo")}>
             <div>
               <img src={product.image} alt="" />
 
