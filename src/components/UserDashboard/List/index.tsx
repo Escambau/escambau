@@ -6,9 +6,10 @@ import { CurrentContext } from "../../../contexts/CurrentContext";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const List = () => {
-  const { userProductList, setProductToEdit, deleteProduct } = useContext(ProductContext);
+  const { userProductList, setProductToEdit, deleteProduct } =
+    useContext(ProductContext);
   const { getCurrent } = useContext(CurrentContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <ListTag>
@@ -34,7 +35,6 @@ const List = () => {
                 <button
                   className="infoPlus"
                   onClick={() => {
-                    console.log(product.id);
                     getCurrent(product.id);
                   }}
                 >
@@ -46,13 +46,18 @@ const List = () => {
                     className="edit-delete edit"
                     // onClick={() => setProductToEdit(card)}
                     onClick={() => {
-                      setProductToEdit(product)
-                      navigate("/editproduct")
+                      setProductToEdit(product);
+                      navigate("/editproduct");
                     }}
                   >
                     Editar
                   </button>
-                  <button className="edit-delete delete" onClick={() => deleteProduct(product.id)}>Excluir</button>
+                  <button
+                    className="edit-delete delete"
+                    onClick={() => deleteProduct(product.id)}
+                  >
+                    Excluir
+                  </button>
                 </div>
               </section>
             )}
