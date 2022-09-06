@@ -17,7 +17,7 @@ const Cards = ({ product }: ICardsContext) => {
   const { getCurrent } = useContext(CurrentContext);
   const navigate = useNavigate();
   return (
-    <Card>
+    <Card onClick={() => navigate("/moreinfo")}>
       <div>
         <img src={product.image} alt="" />
 
@@ -29,6 +29,7 @@ const Cards = ({ product }: ICardsContext) => {
           <section>
             {window.innerWidth > 500 && <p>Preço estipulado:</p>}
             <span>R$ {Number(product.price).toFixed(2)}</span>
+
           </section>
         </div>
       </div>

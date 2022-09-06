@@ -3,7 +3,7 @@ import { ProductContext } from "../../../contexts/ProductContext";
 import Card, { ListTag } from "./style";
 import { useContext } from "react";
 import { CurrentContext } from "../../../contexts/CurrentContext";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const List = () => {
   const { userProductList, setProductToEdit, deleteProduct } =
@@ -15,7 +15,7 @@ const List = () => {
     <ListTag>
       {userProductList?.map((product, index) => {
         return (
-          <Card key={index}>
+          <Card key={index} onClick={() => navigate("/moreinfo")}>
             <div>
               <img src={product.image} alt="" />
 
