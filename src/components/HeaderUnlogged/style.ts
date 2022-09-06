@@ -20,15 +20,16 @@ export const HeaderTag = styled.header`
     width: 90%;
 
     margin-bottom: 0px;
-
-    & > h1 {
-      color: white;
-      font-family: "Montserrat";
-      font-size: 18px;
-      font-weight: 900;
+    & > button{
+      & > h1 {
+        color: white;
+        font-family: "Montserrat";
+        font-size: 18px;
+        font-weight: 900;
+      }
     }
 
-    button {
+    .btnLogin {
       background-color: var(--green);
       padding: 8px 30px;
       color: white;
