@@ -3,7 +3,7 @@ import { ProductContext } from "../../contexts/ProductContext";
 import { Category } from "./style";
 
 const Categorys = () => {
-  const {categorysList, setSelectCategory} = useContext(ProductContext)
+  const {categorysList, selectCategory, setSelectCategory} = useContext(ProductContext)
   return (
     <Category>
       {window.innerWidth < 764 && <h3>Categorias:</h3>}
@@ -21,7 +21,7 @@ const Categorys = () => {
         <div>
           {categorysList.map((category, index) => {
             return (
-              <button className="btnsCategory" key={index} onClick={() => setSelectCategory(category)}>
+              <button className={selectCategory === "Todos" && index === 0 ? "btnAll" : "btnsCategory"} key={index} onClick={() => setSelectCategory(category)}>
                 {category}
               </button>
             );
