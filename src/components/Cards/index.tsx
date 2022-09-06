@@ -6,7 +6,7 @@ import { IProduct, ProductContext } from "../../contexts/ProductContext";
 import { UserContext } from "../../contexts/UserContext";
 import { Card } from "./style";
 
-interface ICardsContext{
+interface ICardsContext {
   key: number;
   product: IProduct;
 }
