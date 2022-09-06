@@ -52,7 +52,7 @@ const MoreInfo = () => {
                 Preço estipulado:{" "}
                 <span className="product-value">
                   <>
-                    R$ {currentProduct?.price.toFixed(2)}
+                    R$ {currentProduct?.price}
                   </>
                 </span>
               </h3>

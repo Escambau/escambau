@@ -28,7 +28,7 @@ const Cards = ({ product }: ICardsContext) => {
           </div>
           <section>
             {window.innerWidth > 500 && <p>Preço estipulado:</p>}
-            <span>R$ {product.price.toFixed(2)}</span>
+            <span>R$ {product.price}</span>
           </section>
         </div>
       </div>

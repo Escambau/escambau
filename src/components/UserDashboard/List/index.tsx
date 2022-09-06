@@ -3,7 +3,7 @@ import { ProductContext } from "../../../contexts/ProductContext";
 import Card, { ListTag } from "./style";
 import { useContext } from "react";
 import { CurrentContext } from "../../../contexts/CurrentContext";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const List = () => {
   const { userProductList, setProductToEdit, deleteProduct } =
@@ -26,7 +26,7 @@ const List = () => {
                 </div>
                 <section>
                   <p>Preço estipulado:</p>
-                  <span>R$ {product.price.toFixed(2)}</span>
+                  <span>R$ {product.price}</span>
                 </section>
               </div>
             </div>
