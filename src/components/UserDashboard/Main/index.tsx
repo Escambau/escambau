@@ -1,5 +1,4 @@
 import { MainTag } from "./style";
-import { GoPlus } from "react-icons/go";
 import List from "../List";
 import { ProductContext } from "../../../contexts/ProductContext";
 import {useContext} from "react"
@@ -11,10 +10,10 @@ const Main = () => {
     <MainTag>
       <div className="container">
         <div className="addProduct">
-          <h2>Adicionar novo produto</h2>
           <button onClick={() => navigate("/addproduct")}>
-            <GoPlus />
+            Adicionar novo produto
           </button>
+          <h2>Lista de produtos</h2>
         </div>
 
         <section className="listContainer">
