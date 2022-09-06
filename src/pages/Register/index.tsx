@@ -8,7 +8,7 @@ const Register = () => {
       <LoginModal />
       <RegisterForm />
     </>
-  )
+  );
 };
 
 export default Register;

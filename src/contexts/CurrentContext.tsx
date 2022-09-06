@@ -28,7 +28,7 @@ export const CurrentContext = createContext<IProductContext>(
 );
 
 export const CurrentProvider = ({ children }: IProductProvider) => {
-  const {token} = useContext(UserContext)
+  const { token } = useContext(UserContext);
   const [currentProduct, setCurrentProduct] = useState<IProduct>(
     {} as IProduct
   );
@@ -37,25 +37,23 @@ export const CurrentProvider = ({ children }: IProductProvider) => {
   const navigate = useNavigate();
 
   const getCurrent = (currentId: number) => {
-    if(token){
-      setIsLogged(true)
-    }
-    else{
-      setIsLogged(false)
+    if (token) {
+      setIsLogged(true);
+    } else {
+      setIsLogged(false);
     }
     const teste = async () => {
-    try {
-      console.log(currentId);
+      try {
         const responseProduct = await api.get(`/products/${currentId}`);
         setCurrentProduct(responseProduct.data);
         const responseUser = await api.get(
           `/users/${responseProduct.data.userId}`
         );
         setCurrentUser(responseUser.data);
-        navigate("/moreinfo")
-    } catch (error) {
-      console.error(error)
-    }
+        navigate("/moreinfo");
+      } catch (error) {
+        console.error(error);
+      }
     };
     teste();
   };
@@ -66,8 +64,8 @@ export const CurrentProvider = ({ children }: IProductProvider) => {
         currentProduct,
         currentUser,
         getCurrent,
-        isLogged, 
-        setIsLogged
+        isLogged,
+        setIsLogged,
       }}
     >
       {children}

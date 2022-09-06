@@ -38,7 +38,7 @@ interface IUserContext {
   redirectToProfile: () => void;
   isDropdownModal: boolean;
   setIsDropdownModal: Dispatch<SetStateAction<boolean>>;
-  logOut: () => void
+  logOut: () => void;
 }
 
 export interface IUser {
@@ -81,8 +81,8 @@ export function UserProvider({ children }: IUserProviders) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [token, setToken] = useState<string | null>(null);
   const [isPasswordShow, setIsPasswordShow] = useState<boolean>(false);
-  const [isModalLogin, setIsModalLogin] = useState<boolean>(false)
-  const [isDropdownModal, setIsDropdownModal] = useState<boolean>(false)
+  const [isModalLogin, setIsModalLogin] = useState<boolean>(false);
+  const [isDropdownModal, setIsDropdownModal] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const viewPass = () => {
@@ -90,7 +90,7 @@ export function UserProvider({ children }: IUserProviders) {
   };
   const redirectToRegister = () => {
     navigate("/register", { replace: true });
-    setIsModalLogin(false)
+    setIsModalLogin(false);
   };
   const onSubmitLogin = (data: ILogin) => {
     api
@@ -104,10 +104,9 @@ export function UserProvider({ children }: IUserProviders) {
         setTimeout(() => {
           navigate("/", { replace: true });
         }, 3000);
-        setIsModalLogin(false)
+        setIsModalLogin(false);
       })
       .catch((er) => {
-        console.log(er);
         LoginError();
         navigate("/", { replace: true });
       });
@@ -120,12 +119,11 @@ export function UserProvider({ children }: IUserProviders) {
           RegisterSucess();
           setTimeout(() => {
             navigate("/", { replace: true });
-            setIsModalLogin(true)
+            setIsModalLogin(true);
           }, 3000);
         }
       })
       .catch((err) => {
-        console.log(err);
         RegisterError();
       });
   };
@@ -143,10 +141,9 @@ export function UserProvider({ children }: IUserProviders) {
           api.defaults.headers.common.authorization = `Bearer ${tokenResponse}`;
 
           const { data } = await api.get(`/users/${idResponse}`);
-          console.log(data);
-          
+
           setUser(data);
-          setToken(tokenResponse)
+          setToken(tokenResponse);
         } catch (error) {
           console.error(error);
         }
@@ -154,13 +151,13 @@ export function UserProvider({ children }: IUserProviders) {
       setIsLoading(false);
     };
     loadUser();
-  }, [])
+  }, []);
 
   const logOut = () => {
-    localStorage.removeItem("@token")
-    navigate("/")
-    window.location.reload()
-  }
+    localStorage.removeItem("@token");
+    navigate("/");
+    window.location.reload();
+  };
 
   return (
     <UserContext.Provider
@@ -181,9 +178,9 @@ export function UserProvider({ children }: IUserProviders) {
         isModalLogin,
         setIsModalLogin,
         redirectToProfile,
-        isDropdownModal, 
+        isDropdownModal,
         setIsDropdownModal,
-        logOut
+        logOut,
       }}
     >
       {children}

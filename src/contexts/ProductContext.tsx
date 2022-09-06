@@ -115,8 +115,6 @@ export function ProductProvider({ children }: IProductProvider) {
         const response = await api.get(
           `/products?userId=${localStorage.getItem("@id")}`
         );
-        console.log(response.data);
-
         setUserProductList(response.data);
       } catch (error) {
         console.error(error);
@@ -133,9 +131,11 @@ export function ProductProvider({ children }: IProductProvider) {
             setProducts(response.data);
           });
         } else {
-          api.get(`/products`,{params: {category: selectCategory}}).then((response) => {
-            setProducts(response.data);
-          });
+          api
+            .get(`/products`, { params: { category: selectCategory } })
+            .then((response) => {
+              setProducts(response.data);
+            });
         }
       } catch (error) {
         console.error(error);
@@ -148,13 +148,19 @@ export function ProductProvider({ children }: IProductProvider) {
     const filterProductUserCategory = async () => {
       try {
         if (selectCategory === "Todos") {
-          api.get(`/products?userId=${localStorage.getItem("@id")}`).then((response) => {
-            setUserProductList(response.data);
-          });
+          api
+            .get(`/products?userId=${localStorage.getItem("@id")}`)
+            .then((response) => {
+              setUserProductList(response.data);
+            });
         } else {
-          api.get(`/products?userId=${localStorage.getItem("@id")}`,{params: {category: selectCategory}}).then((response) => {
-            setUserProductList(response.data);
-          });
+          api
+            .get(`/products?userId=${localStorage.getItem("@id")}`, {
+              params: { category: selectCategory },
+            })
+            .then((response) => {
+              setUserProductList(response.data);
+            });
         }
       } catch (error) {
         console.error(error);
@@ -171,10 +177,8 @@ export function ProductProvider({ children }: IProductProvider) {
         (product) => product.id !== currentProduct.id
       );
       setUserSelectedProducts(newSelectedProducts);
-      console.log("retira");
     } else {
       setUserSelectedProducts([...userSelectedProducts, currentProduct]);
-      console.log("coloca");
     }
   };
   const isSelected = (currentProduct: IProduct) => {

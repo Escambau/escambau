@@ -8,10 +8,7 @@ import DropdownModal from "../../components/DropdownModal";
 import { FormAddProduct } from "../../components/FormAddProduct";
 
 export function AddProduct() {
-
   const { token, navigate } = useContext(UserContext);
-
-
 
   return (
     <>
@@ -19,7 +16,9 @@ export function AddProduct() {
       <DropdownModal />
       <ContainerAddProduct>
         <div className="box-header">
-          <button onClick={() => navigate("/profile", {replace: true})}>Meu Perfil</button>
+          <button onClick={() => navigate("/profile", { replace: true })}>
+            Meu Perfil
+          </button>
           <h2>Adicionar Produto</h2>
         </div>
 
@@ -34,7 +33,7 @@ export function AddProduct() {
                 <img src={mobile} alt="LogoAdd" />
               </figure>
             </div>
-            <FormAddProduct/>
+            <FormAddProduct />
           </section>
         </section>
       </ContainerAddProduct>
