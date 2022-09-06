@@ -4,17 +4,13 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { ImUser } from "react-icons/im";
 import { UserContext } from "../../../contexts/UserContext";
 import {useContext} from "react"
-import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const {user, setIsDropdownModal} = useContext(UserContext)
-  const navigate = useNavigate()
   return (
     <HeaderTag>
       <div className="container">
-        <button onClick={() => navigate("/")}>
-          <h1>Escambau</h1>
-        </button>
+        <h1>Escambau</h1>
 
         <section className="notification-perfil">
           <button>

@@ -20,27 +20,26 @@ export const HeaderTag = styled.header`
     width: 90%;
 
     margin-bottom: 0px;
-    & > button{
-      & > h1 {
-        color: white;
-        font-family: "Montserrat";
-        font-size: 18px;
-        font-weight: 900;
-      }
+
+    & > h1 {
+      color: white;
+      font-family: "Montserrat";
+      font-size: 18px;
+      font-weight: 900;
     }
 
-    .btnLogin {
+    button {
       background-color: var(--green);
       padding: 8px 30px;
       color: white;
       font-family: "Montserrat";
       font-size: 12px;
       font-weight: 900;
-      
-      :hover {
-        background-color: var(--greenOpacity);
-        transition: 0.4s;
-      }
+    }
+
+    button:hover {
+      background-color: var(--greenOpacity);
+      transition: 0.4s;
     }
   }
 

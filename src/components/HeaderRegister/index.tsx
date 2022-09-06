@@ -5,14 +5,11 @@ import { useContext } from "react"
 
 const HeaderRegister = () => {
   const {setIsModalLogin} = useContext(UserContext)
-  const navigate = useNavigate()
   return (
     <HeaderTag>
       <div className="container">
-        <button onClick={() => navigate("/")}>
-          <h1>Escambau</h1>
-        </button>
-        <button className="btnLogin"
+        <h1>Escambau</h1>
+        <button
         onClick={() => setIsModalLogin(true)}
         >
           Login

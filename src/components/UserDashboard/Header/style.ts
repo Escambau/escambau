@@ -20,13 +20,12 @@ export const HeaderTag = styled.header`
     width: 90%;
 
     margin-bottom: 10px;
-    & > button{
-      & > h1 {
-        color: white;
-        font-family: "Montserrat";
-        font-size: 18px;
-        font-weight: 700;
-      }
+
+    & > h1 {
+      color: white;
+      font-family: "Montserrat";
+      font-size: 18px;
+      font-weight: 700;
     }
   }
 

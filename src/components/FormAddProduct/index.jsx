@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { addProductSchema } from "../../validations/AddProductSchema";
 import { ProductContext} from "../../contexts/ProductContext";
-import {IProduct} from "../../contexts/ProductContext"
 
 export const FormAddProduct = () => {
 
