@@ -2,18 +2,19 @@ import { MainTag } from "./style";
 import { GoPlus } from "react-icons/go";
 import List from "../List";
 import { ProductContext } from "../../../contexts/ProductContext";
-import {useContext} from "react"
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 const Main = () => {
-  const {categorysList, setSelectCategory} = useContext(ProductContext)
-  const navigate = useNavigate()
+  const { categorysList, setSelectCategory } = useContext(ProductContext);
+  const navigate = useNavigate();
   return (
     <MainTag>
       <div className="container">
         <div className="addProduct">
-          <h2>Adicionar novo produto</h2>
+          <h2>Minha lista de produtos</h2>
           <button onClick={() => navigate("/addproduct")}>
-            <GoPlus />
+            Adicionar produto
+            {/* <GoPlus /> */}
           </button>
         </div>
 
@@ -34,7 +35,11 @@ const Main = () => {
               <div>
                 {categorysList.map((category, index) => {
                   return (
-                    <button className="btnsCategory" key={index} onClick={() => setSelectCategory(category)}>
+                    <button
+                      className="btnsCategory"
+                      key={index}
+                      onClick={() => setSelectCategory(category)}
+                    >
                       {category}
                     </button>
                   );

@@ -85,20 +85,28 @@ const Card = styled.button`
   & > div {
     display: flex;
     align-items: center;
+    gap: 10px;
 
     & > img {
-      height: 50px;
-      margin-right: 10px;
+      object-fit: cover;
+      width: 100px;
+      height: 100px;
+      border-radius: 20px;
     }
 
     & > div {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 70px;
+      /* height: 70px; */
+      gap: 15px;
       text-align: start;
 
       & > div {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
         & > h4 {
           font-size: 12px;
           font-weight: 400;
@@ -126,7 +134,7 @@ const Card = styled.button`
   }
 
   @media (min-width: 768px) {
-    padding: 30px;
+    padding: 15px;
   }
 `;
 

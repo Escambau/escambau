@@ -24,12 +24,15 @@ export const MainTag = styled.main`
       font-family: "Montserrat";
     }
     & > button {
-      background-color: var(--lightGrey);
+      background-color: var(--blue);
       padding: 5px 6px 2px 6px;
+      font-size: 14px;
+      font-weight: 400;
+      color: white;
 
       transition: 0.3s;
       :hover {
-        background-color: grey;
+        background-color: var(--greenOpacity);
       }
 
       & > svg {
@@ -102,8 +105,12 @@ export const MainTag = styled.main`
         font-family: "Montserrat";
       }
       & > button {
-        background-color: var(--lightGrey);
-        padding: 7px 8px 4px 8px;
+        background-color: var(--green);
+        padding: 10px;
+        /* padding: 7px 8px 4px 8px; */
+        font-size: 13px;
+        font-weight: 700;
+        color: white;
 
         & > svg {
           font-size: 18px;
