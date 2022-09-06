@@ -22,21 +22,27 @@ interface IProductContext {
   getCurrent: (currentId: number) => void;
   isLogged: boolean;
   setIsLogged: React.Dispatch<React.SetStateAction<boolean>>;
+  productUrl: string;
+  setProductUrl: React.Dispatch<React.SetStateAction<string>>;
+  editProductUrl: string;
+  setEditProductUrl: React.Dispatch<React.SetStateAction<string>>;
 }
 export const CurrentContext = createContext<IProductContext>(
   {} as IProductContext
 );
 
 export const CurrentProvider = ({ children }: IProductProvider) => {
-  const { token } = useContext(UserContext);
   const [currentProduct, setCurrentProduct] = useState<IProduct>(
     {} as IProduct
   );
   const [currentUser, setCurrentUser] = useState<IUser>({} as IUser);
   const [isLogged, setIsLogged] = useState<boolean>(false);
+  const [productUrl, setProductUrl] = useState<string>("");
+  const [editProductUrl, setEditProductUrl] = useState<string>("");
   const navigate = useNavigate();
 
   const getCurrent = (currentId: number) => {
+    const token = localStorage.getItem("@token");
     if (token) {
       setIsLogged(true);
     } else {
@@ -46,6 +52,7 @@ export const CurrentProvider = ({ children }: IProductProvider) => {
       try {
         const responseProduct = await api.get(`/products/${currentId}`);
         setCurrentProduct(responseProduct.data);
+        
         const responseUser = await api.get(
           `/users/${responseProduct.data.userId}`
         );
@@ -66,6 +73,10 @@ export const CurrentProvider = ({ children }: IProductProvider) => {
         getCurrent,
         isLogged,
         setIsLogged,
+        productUrl,
+        setProductUrl,
+        editProductUrl,
+        setEditProductUrl,
       }}
     >
       {children}

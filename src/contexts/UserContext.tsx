@@ -21,11 +21,9 @@ interface IUserProviders {
 
 interface IUserContext {
   user: null | IUser;
-  setUser: Dispatch<SetStateAction<null>>;
+  setUser: Dispatch<SetStateAction<null | IUser>>;
   isLoading: boolean;
   setIsLoading: Dispatch<SetStateAction<boolean>>;
-  token: string | null;
-  setToken: Dispatch<SetStateAction<string | null>>;
   isPasswordShow: boolean;
   setIsPasswordShow: Dispatch<SetStateAction<boolean>>;
   navigate: NavigateFunction;
@@ -77,9 +75,8 @@ interface IRegisterResponse {
 export const UserContext = createContext<IUserContext>({} as IUserContext);
 
 export function UserProvider({ children }: IUserProviders) {
-  const [user, setUser] = useState<null>(null);
+  const [user, setUser] = useState<null | IUser>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [token, setToken] = useState<string | null>(null);
   const [isPasswordShow, setIsPasswordShow] = useState<boolean>(false);
   const [isModalLogin, setIsModalLogin] = useState<boolean>(false);
   const [isDropdownModal, setIsDropdownModal] = useState<boolean>(false);
@@ -99,12 +96,12 @@ export function UserProvider({ children }: IUserProviders) {
         localStorage.setItem("@token", response.data.accessToken);
         localStorage.setItem("@id", response.data.user.id);
         setUser(response.data.user);
-        setToken(response.data.accessToken);
         LoginSucess();
         setTimeout(() => {
           navigate("/", { replace: true });
         }, 3000);
         setIsModalLogin(false);
+        console.log(response.data.accessToken);
       })
       .catch((er) => {
         LoginError();
@@ -138,12 +135,11 @@ export function UserProvider({ children }: IUserProviders) {
 
       if (tokenResponse) {
         try {
-          api.defaults.headers.common.authorization = `Bearer ${tokenResponse}`;
+          // api.defaults.headers.common.authorization = `Bearer ${tokenResponse}`;
 
           const { data } = await api.get(`/users/${idResponse}`);
 
           setUser(data);
-          setToken(tokenResponse);
         } catch (error) {
           console.error(error);
         }
@@ -166,8 +162,6 @@ export function UserProvider({ children }: IUserProviders) {
         setUser,
         isLoading,
         setIsLoading,
-        token,
-        setToken,
         isPasswordShow,
         setIsPasswordShow,
         viewPass,

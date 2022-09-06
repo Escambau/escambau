@@ -7,10 +7,12 @@ import DropdownModal from "../../components/DropdownModal";
 import { FormAddProduct } from "../../components/FormAddProduct";
 import { Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { CurrentContext } from "./../../contexts/CurrentContext";
 
 export function AddProduct() {
   const { navigate } = useContext(UserContext);
   const tokenItem = localStorage.getItem("@token");
+  const { productUrl } = useContext(CurrentContext);
 
   return (
     <>
@@ -41,7 +43,18 @@ export function AddProduct() {
                     <p>A gente faz o escambo por você.</p>
                   </article>
                   <figure>
-                    <img src={mobile} alt="LogoAdd" />
+                    {productUrl ? (
+                      <img
+                        src={productUrl}
+                        alt="url produto"
+                        onError={({ currentTarget }) => {
+                          currentTarget.src = mobile;
+                          currentTarget.onerror = null;
+                        }}
+                      />
+                    ) : (
+                      <img src={mobile} alt="LogoAdd" />
+                    )}
                   </figure>
                 </div>
                 <FormAddProduct />

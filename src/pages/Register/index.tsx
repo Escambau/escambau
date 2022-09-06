@@ -1,12 +1,11 @@
-import { ModalLogin } from "../../components/LoginModal/style";
-import RegisterForm from "../../components/RegisterForm";
+import FormRegisterUser from "../../components/FormRegisterUser";
 import { LoginModal } from "../../components/LoginModal";
 
 const Register = () => {
   return (
     <>
       <LoginModal />
-      <RegisterForm />
+      <FormRegisterUser />
     </>
   );
 };

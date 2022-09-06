@@ -6,18 +6,18 @@ import { IProduct, ProductContext } from "../../contexts/ProductContext";
 import { UserContext } from "../../contexts/UserContext";
 import { Card } from "./style";
 
-interface ICardsContext{
+interface ICardsContext {
   key: number;
   product: IProduct;
 }
 
 const Cards = ({ product }: ICardsContext) => {
-  const { token } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const { setIsTradeModal } = useContext(ProductContext);
   const { getCurrent } = useContext(CurrentContext);
   const navigate = useNavigate();
   return (
-    <Card>
+    <Card onClick={() => navigate("/moreinfo")}>
       <div>
         <img src={product.image} alt="" />
 
@@ -28,13 +28,14 @@ const Cards = ({ product }: ICardsContext) => {
           </div>
           <section>
             {window.innerWidth > 500 && <p>Preço estipulado:</p>}
-            <span>R$ {product.price.toFixed(2)}</span>
+            <span>R$ {Number(product.price).toFixed(2)}</span>
+
           </section>
         </div>
       </div>
 
       <label className="containerButtons">
-        {token ? (
+        {user ? (
           <>
             <button className="btnTrade" onClick={() => setIsTradeModal(true)}>
               Trocar
