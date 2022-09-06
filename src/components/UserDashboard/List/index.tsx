@@ -15,14 +15,14 @@ const List = () => {
     <ListTag>
       {userProductList?.map((product, index) => {
         return (
-          <Card key={index} onClick={() => navigate("/moreinfo")}>
+          <Card key={index}>
             <div>
               <img src={product.image} alt="" />
 
               <div>
                 <div>
                   <h4>{product.category}</h4>
-                  <h3>{product.name}</h3>
+                  <h3 onClick={() => navigate("/moreinfo")}>{product.name}</h3>
                 </div>
                 <section>
                   <p>Preço estipulado:</p>

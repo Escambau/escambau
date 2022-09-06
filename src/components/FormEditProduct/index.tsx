@@ -5,11 +5,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext } from "react";
 import { IProduct, ProductContext } from "../../contexts/ProductContext";
 import { CurrentContext } from "../../contexts/CurrentContext";
+import { useNavigate } from "react-router-dom";
 
 const FormEditProduct = () => {
   const { editProduct } = useContext(ProductContext);
   const { productToEdit } = useContext(ProductContext);
-
+  const navigate = useNavigate()
   const { setEditProductUrl } = useContext(CurrentContext);
 
   const {
@@ -126,7 +127,7 @@ const FormEditProduct = () => {
           <button type="submit" className="save-button">
             Salvar
           </button>
-          <button type="submit" className="cancel-button">
+          <button type="submit" className="cancel-button" onClick={() => navigate("/profile")}>
             Cancelar
           </button>
         </div>
