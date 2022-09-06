@@ -1,13 +1,15 @@
 import DropdownModal from "../../components/DropdownModal";
-import UserDashboard from "../../components/UserDashboard"
+import { LoginModal } from "../../components/LoginModal";
+import UserDashboard from "../../components/UserDashboard";
 
 const User = () => {
-    return (
-        <>
-            <DropdownModal />
-            <UserDashboard />
-        </>
-    )
-}
+  return (
+    <>
+      <DropdownModal />
+      <LoginModal />
+      <UserDashboard />
+    </>
+  );
+};
 
 export default User;

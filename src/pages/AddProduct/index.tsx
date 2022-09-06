@@ -50,7 +50,7 @@ export function AddProduct() {
         ) : (
           <Navigate to='/' replace />
         )
-      }
+      };
     </>
   );
 }

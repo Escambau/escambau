@@ -3,7 +3,6 @@ import Header from "../UserDashboard/Header";
 import { CurrentContext } from "../../contexts/CurrentContext";
 import { UserContext } from "./../../contexts/UserContext";
 import { useContext } from "react";
-import { useState } from "react";
 import { Container } from "./style";
 import HeaderUnlogged from "../HeaderUnlogged";
 

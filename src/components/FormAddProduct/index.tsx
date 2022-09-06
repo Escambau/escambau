@@ -2,23 +2,24 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { addProductSchema } from "../../validations/AddProductSchema";
-import { IProduct, ProductContext} from "../../contexts/ProductContext";
+import { ProductContext } from "../../contexts/ProductContext";
+import { IProduct } from "../../contexts/ProductContext";
 import { FormAdd } from "./style";
 
 export const FormAddProduct = () => {
-
   const { addNewProduct } = useContext(ProductContext);
 
   const {
     register,
     handleSubmit,
+
     formState: { errors }
   } = useForm<IProduct>({
     resolver: yupResolver(addProductSchema)
   });
 
   return (
-    <FormAdd 
+    <FormAdd
     noValidate={true}
     onSubmit={handleSubmit(addNewProduct)}
     >
@@ -72,6 +73,9 @@ export const FormAddProduct = () => {
             <option value="Instrumentos Musicais">
               Instrumentos Musicais
             </option>
+            <option value="Utensílios Domésticos">Utensílios Domésticos</option>
+            <option value="Automotivos">Automotivos</option>
+            <option value="Instrumentos Musicais">Instrumentos Musicais</option>
             <option value="Decoração">Decoração</option>
             <option value="Entretenimento">Entretenimento</option>
             <option value="Pets">Pets</option>

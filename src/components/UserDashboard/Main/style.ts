@@ -65,6 +65,7 @@ export const MainTag = styled.main`
 
       & > div {
         display: flex;
+        justify-content: center;
         align-items: flex-start;
         flex-wrap: wrap;
       }
