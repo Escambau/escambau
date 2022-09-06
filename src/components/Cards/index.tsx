@@ -11,13 +11,13 @@ interface ICardsContext{
   product: IProduct;
 }
 
-const Cards = ({ key, product }: ICardsContext) => {
+const Cards = ({ product }: ICardsContext) => {
   const { token } = useContext(UserContext);
   const { setIsTradeModal } = useContext(ProductContext);
   const { getCurrent } = useContext(CurrentContext);
   const navigate = useNavigate();
   return (
-    <Card key={key}>
+    <Card>
       <div>
         <img src={product.image} alt="" />
 

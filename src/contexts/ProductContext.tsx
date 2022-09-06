@@ -13,6 +13,7 @@ import {
   ProductAddNegative,
   EditProductError,
   EditProductSuccess,
+  deleteProductSuccess,
 } from "../ToastContainer";
 import { UserContext } from "./UserContext";
 import { useNavigate } from "react-router-dom";
@@ -23,8 +24,6 @@ interface IProductProvider {
 interface IProductContext {
   products: IProduct[];
   setProducts: Dispatch<SetStateAction<IProduct[]>>;
-  isModalLogin: boolean;
-  setIsModalLogin: Dispatch<SetStateAction<boolean>>;
   isTradeModal: boolean;
   isModalConfirmTrade: boolean;
   setIsModalConfirmTrade: Dispatch<SetStateAction<boolean>>;
@@ -46,6 +45,7 @@ interface IProductContext {
   setProductToEdit: Dispatch<SetStateAction<IProduct>>;
   productMoreInfo: IProduct | null;
   setProductMoreInfo: Dispatch<SetStateAction<IProduct | null>>;
+  deleteProduct: (id: number) => void;
 }
 
 export interface IProduct {
@@ -64,12 +64,11 @@ export const ProductContext = createContext<IProductContext>(
 );
 
 export function ProductProvider({ children }: IProductProvider) {
-  const { redirectToProfile } = useContext(UserContext);
+  const { redirectToProfile, user } = useContext(UserContext);
 
   const navigate = useNavigate();
 
   const [products, setProducts] = useState<IProduct[]>([]);
-  const [isModalLogin, setIsModalLogin] = useState<boolean>(false);
   const [currentProduct, setCurrentProduct] = useState<boolean>(false);
   const [isModalConfirmTrade, setIsModalConfirmTrade] =
     useState<boolean>(false);
@@ -82,7 +81,7 @@ export function ProductProvider({ children }: IProductProvider) {
   const [isTradeModal, setIsTradeModal] = useState<boolean>(false);
   const [selectCategory, setSelectCategory] = useState<string>("Todos");
   const [productToEdit, setProductToEdit] = useState<IProduct>(null!);
-  const [productMoreInfo, setProductMoreInfo] = useState<IProduct | null>(null)
+  const [productMoreInfo, setProductMoreInfo] = useState<IProduct | null>(null);
 
   const categorysList = [
     "Todos",
@@ -111,6 +110,22 @@ export function ProductProvider({ children }: IProductProvider) {
   }, []);
 
   useEffect(() => {
+    const getProductsUser = async () => {
+      try {
+        const response = await api.get(
+          `/products?userId=${localStorage.getItem("@id")}`
+        );
+        console.log(response.data);
+
+        setUserProductList(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getProductsUser();
+  }, []);
+
+  useEffect(() => {
     const filterProductCategory = async () => {
       try {
         if (selectCategory === "Todos") {
@@ -118,7 +133,7 @@ export function ProductProvider({ children }: IProductProvider) {
             setProducts(response.data);
           });
         } else {
-          api.get(`/products/?category=${selectCategory}`).then((response) => {
+          api.get(`/products`,{params: {category: selectCategory}}).then((response) => {
             setProducts(response.data);
           });
         }
@@ -127,6 +142,25 @@ export function ProductProvider({ children }: IProductProvider) {
       }
     };
     filterProductCategory();
+  }, [selectCategory]);
+
+  useEffect(() => {
+    const filterProductUserCategory = async () => {
+      try {
+        if (selectCategory === "Todos") {
+          api.get(`/products?userId=${localStorage.getItem("@id")}`).then((response) => {
+            setUserProductList(response.data);
+          });
+        } else {
+          api.get(`/products?userId=${localStorage.getItem("@id")}`,{params: {category: selectCategory}}).then((response) => {
+            setUserProductList(response.data);
+          });
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    filterProductUserCategory();
   }, [selectCategory]);
 
   const filterProductsUser = (currentProduct: IProduct) => {
@@ -185,13 +219,20 @@ export function ProductProvider({ children }: IProductProvider) {
       });
   };
 
+  const deleteProduct = async (id: number) => {
+    try {
+      await api.delete(`/products/${id}`);
+      deleteProductSuccess();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <ProductContext.Provider
       value={{
         products,
         setProducts,
-        isModalLogin,
-        setIsModalLogin,
         isTradeModal,
         setIsTradeModal,
         currentProduct,
@@ -211,8 +252,9 @@ export function ProductProvider({ children }: IProductProvider) {
         editProduct,
         productToEdit,
         setProductToEdit,
-        productMoreInfo, 
-        setProductMoreInfo
+        productMoreInfo,
+        setProductMoreInfo,
+        deleteProduct,
       }}
     >
       {children}

@@ -10,7 +10,7 @@ import { MainTag } from "../../components/UserDashboard/Main/style";
 import { UserContext } from "../../contexts/UserContext";
 
 const Dashboard = () => {
-  const { token } = useContext(UserContext);
+  const { token, isModalLogin } = useContext(UserContext);
   return (
     <>
       <DropdownModal />
