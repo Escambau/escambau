@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Overlay = styled.button`
+export const Overlay = styled.div`
   position: fixed;
   top: 0;
   bottom: 0;
