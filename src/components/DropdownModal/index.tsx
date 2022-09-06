@@ -14,8 +14,8 @@ const DropdownModal = () => {
       {isDropdownModal ? (
         <Overlay onClick={() => setIsDropdownModal(false)}>
           <motion.div
-            initial={{ opacity: 0, x: 0, y: -500 }}
-            animate={{ opacity: 1, x: -70, y: -370 }}
+            initial={{ opacity: 0, x: 0, y: -100 }}
+            animate={{ opacity: 1, x: -70, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
