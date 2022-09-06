@@ -5,6 +5,7 @@ export const ListTag = styled.ul`
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
+  padding: 10px 10px;
   height: 100vh;
 
   ::-webkit-scrollbar-track {
