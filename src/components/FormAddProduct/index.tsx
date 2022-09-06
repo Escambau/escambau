@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { addProductSchema } from "../../validations/AddProductSchema";
 import { ProductContext } from "../../contexts/ProductContext";
 import { IProduct } from "../../contexts/ProductContext";
+import { FormAdd } from "./style";
 
 export const FormAddProduct = () => {
   const { addNewProduct } = useContext(ProductContext);
@@ -11,11 +12,17 @@ export const FormAddProduct = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<IProduct>({ resolver: yupResolver(addProductSchema) });
+
+    formState: { errors }
+  } = useForm<IProduct>({
+    resolver: yupResolver(addProductSchema)
+  });
 
   return (
-    <form className="main-form" onSubmit={handleSubmit(addNewProduct)}>
+    <FormAdd
+    noValidate={true}
+    onSubmit={handleSubmit(addNewProduct)}
+    >
       <div>
         <label>Url da imagem:</label>
         <input
@@ -59,6 +66,13 @@ export const FormAddProduct = () => {
             </option>
             <option value="Roupas">Roupas</option>
             <option value="Brinquedos">Brinquedos</option>
+            <option value="Utensílios Domésticos">
+              Utensílios Domésticos
+            </option>
+            <option value="Automotivos">Automotivos</option>
+            <option value="Instrumentos Musicais">
+              Instrumentos Musicais
+            </option>
             <option value="Utensílios Domésticos">Utensílios Domésticos</option>
             <option value="Automotivos">Automotivos</option>
             <option value="Instrumentos Musicais">Instrumentos Musicais</option>
@@ -89,6 +103,6 @@ export const FormAddProduct = () => {
       </div>
 
       <button type="submit">Adicionar</button>
-    </form>
-  );
-};
+    </FormAdd>
+  )
+}
