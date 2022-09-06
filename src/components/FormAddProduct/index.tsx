@@ -45,7 +45,7 @@ export const FormAddProduct = () => {
       <div className="box-price-category">
         <fieldset>
           <label>Preço:</label>
-          <form className="price">
+          <div className="price">
             <p>R$</p>
             <input
               className="input-price"
@@ -54,7 +54,7 @@ export const FormAddProduct = () => {
               placeholder="Preço do produto"
               {...register("price")}
             ></input>
-          </form>
+          </div>
           <span>{errors.price?.message}</span>
         </fieldset>
         <div className="select-on">
