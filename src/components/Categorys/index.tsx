@@ -8,21 +8,24 @@ const Categorys = () => {
   return (
     <>
       <Category>
-        {window.innerWidth < 764 && <h3>Categorias:</h3>}
+        
         {window.innerWidth < 764 ? (
-          <select
-            name=""
-            id=""
-            onChange={(event) => setSelectCategory(event.target.value)}
-          >
-            {categorysList.map((category, index) => {
-              return (
-                <option key={index} value={category}>
-                  {category}
-                </option>
-              );
-            })}
-          </select>
+          <div>
+            {window.innerWidth < 764 && <h3>Categorias:</h3>}
+            <select
+              name=""
+              id=""
+              onChange={(event) => setSelectCategory(event.target.value)}
+            >
+              {categorysList.map((category, index) => {
+                return (
+                  <option key={index} value={category}>
+                    {category}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
         ) : (
           <div>
             {categorysList.map((category, index) => {

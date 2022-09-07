@@ -13,7 +13,7 @@ import Header from "../Header";
 
 const MoreInfo = () => {
   const { user } = useContext(UserContext);
-  const { setIsTradeModal } = useContext(ProductContext);
+  const { setIsTradeModal, setProductToEdit, deleteProduct } = useContext(ProductContext);
   const { currentUser, currentProduct, isLogged } = useContext(CurrentContext);
   const navigate = useNavigate();
 
@@ -70,15 +70,37 @@ const MoreInfo = () => {
               <p>{currentProduct?.description}</p>
             </div>
             <div className="btn-wrapper">
-              <button
-                className="btn"
-                disabled={isLogged}
-                onClick={() => {
-                  user ? setIsTradeModal(true) : navigate("/register");
-                }}
-              >
-                {user ? "Solicitar troca" : "Criar minha conta"}
-              </button>
+              {user?.id === Number(currentProduct.userId) ? 
+                (
+                  <>
+                    <button 
+                    className="edit-delete edit"
+                    onClick={() => {
+                      setProductToEdit(currentProduct)
+                      navigate("/editproduct")
+                    }}>
+                      Editar
+                    </button>
+
+                    <button 
+                    className="edit-delete delete"
+                    onClick={() => deleteProduct(currentProduct.id)}>
+                      Excluir
+                    </button>
+                  </>
+                ):(
+                  <button
+                    className="btn"
+                    disabled={isLogged}
+                    onClick={() => {
+                      user ? setIsTradeModal(true) : navigate("/register");
+                    }}
+                  >
+                    {user ? "Solicitar troca" : "Criar minha conta"}
+                  </button>
+                )
+              }
+              
             </div>
           </section>
         </Container>
