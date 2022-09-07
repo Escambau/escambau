@@ -42,12 +42,14 @@ const Categorys = () => {
             })}
           </div>
         )}
+        <div className="searchResults">
+          {search.length > 0 ? (
+            <h1>Exibindo resultados para: {search}</h1>
+          ) : (
+            <h1 style={{ visibility: "hidden" }}> sem busca</h1>
+          )}
+        </div>
       </Category>
-      <h1
-        style={{ textAlign: "left", fontSize: "1.5rem", color: "var(--blue)" }}
-      >
-        Exibindo resultados para: {search}
-      </h1>
     </>
   );
 };
