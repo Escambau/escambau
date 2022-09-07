@@ -38,10 +38,10 @@ export const MainTag = styled.main`
       text-align: start;
     }
     & > button {
-      background-color: var(--blue);
-      padding: 5px 6px 2px 6px;
-      font-size: 14px;
-      font-weight: 400;
+      background-color: var(--green);
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 700;
       color: white;
       transition: 0.3s;
       :hover {
@@ -59,13 +59,12 @@ export const MainTag = styled.main`
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
-      
+
       & > h3 {
         color: var(--blue);
         font-size: 14px;
         font-family: "Montserrat";
         font-weight: 600;
-        
       }
       & > select {
         border: 1px solid var(--blue);
@@ -104,7 +103,6 @@ export const MainTag = styled.main`
       width: 70%;
     }
     .addProduct {
-
       flex-direction: row;
       gap: 0;
 
