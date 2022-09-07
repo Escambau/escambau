@@ -1,12 +1,9 @@
 import { MainTag } from "./style";
-import { ProductContext } from "../../contexts/ProductContext";
-import {useContext} from "react"
 import { useNavigate } from "react-router-dom";
 import Categorys from "../Categorys";
 import List from "../ListUserDashboard";
 const Main = () => {
-  const {categorysList, setSelectCategory} = useContext(ProductContext)
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <MainTag>
       <div className="container">
