@@ -48,7 +48,7 @@ export const MainTag = styled.main`
         background-color: var(--greenOpacity);
       }
       & > svg {
-        font-size: 18px;
+        font-size: 17px;
       }
     }
   }
