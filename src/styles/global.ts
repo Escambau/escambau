@@ -45,7 +45,6 @@ const GlobalStyle = createGlobalStyle`
 	body {
 		height: 100vh;
 		width: 100vw;
-		background-color: var(--color-background);
 	}
 
 	html, body, div, span, applet, object, iframe,
@@ -104,7 +103,7 @@ const GlobalStyle = createGlobalStyle`
         background-color: transparent;
         border: none;
         border-radius: 8px;
-		font-family: "Montserrat";
+				font-family: "Montserrat";
     }
 
 		/* HTML5 display-role reset for older browsers */
