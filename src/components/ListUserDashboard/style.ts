@@ -8,12 +8,12 @@ export const ListTag = styled.ul`
   height: 100vh;
   ::-webkit-scrollbar-track {
     border: 5px solid white;
-    background-color: #B2BEC3;
+    background-color: #b2bec3;
     opacity: 0.5;
   }
   ::-webkit-scrollbar {
     width: 5px;
-    background-color: #DFE6E9;
+    background-color: #dfe6e9;
   }
   ::-webkit-scrollbar-thumb {
     background-color: var(--blue);
@@ -114,9 +114,9 @@ const Card = styled.div`
           font-size: 14px;
           font-family: "Montserrat";
           cursor: pointer;
-          transition: .5s;
+          transition: 0.5s;
 
-          :hover{
+          :hover {
             color: var(--blue);
           }
         }

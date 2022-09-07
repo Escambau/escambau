@@ -7,14 +7,14 @@ export const MainTag = styled.main`
   padding-top: 20px;
   .container {
     width: 90%;
-    
-    & > h2{
+
+    & > h2 {
       font-size: 18px;
-        font-weight: 700;
-        color: var(--blue);
-        font-family: "Montserrat";
-        text-align: start;
-        margin-bottom: 20px;
+      font-weight: 700;
+      color: var(--blue);
+      font-family: "Montserrat";
+      text-align: start;
+      margin-bottom: 20px;
     }
   }
   .addProduct {
