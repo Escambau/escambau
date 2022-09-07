@@ -6,20 +6,20 @@ import { Container } from "./style";
 import HeaderUnlogged from "../HeaderUnlogged";
 import { ProductContext } from "../../contexts/ProductContext";
 import { useNavigate } from "react-router-dom";
-import TradeModal from "../TradeModal";
 import ConfirmTradeModal from "../ConfirmTradeModal";
 import Header from "../Header";
 import DropdownModal from "../DropdownModal";
 
 const MoreInfo = () => {
   const { user } = useContext(UserContext);
-  const { setIsTradeModal, setProductToEdit, deleteProduct } = useContext(ProductContext);
+  const { setIsTradeModal, isTradeModal, setProductToEdit, deleteProduct } = useContext(ProductContext);
   const { isLogged, currentProduct, currentUser } = useContext(CurrentContext)
   const navigate = useNavigate();
-
+  console.log(isTradeModal);
+  console.log(setIsTradeModal);
+  
   return (
     <>
-      <TradeModal />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -71,7 +71,6 @@ const MoreInfo = () => {
               {user?.id !== currentProduct.userId ? (
                 <button
                   className="btn"
-                  disabled={isLogged}
                   onClick={() =>
                     user ? setIsTradeModal(true) : navigate("/register")
                   }
