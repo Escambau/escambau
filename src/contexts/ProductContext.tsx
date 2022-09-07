@@ -199,7 +199,7 @@ export function ProductProvider({ children }: IProductProvider) {
         redirectToProfile();
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
         ProductAddNegative();
       });
   };
