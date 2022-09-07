@@ -38,27 +38,31 @@ const Cards = ({ product }: ICardsContext) => {
       </div>
 
       <label className="containerButtons">
-        {user ? (
+        {window.innerWidth > 768 &&
           <>
-            <button className="btnTrade" onClick={() => setIsTradeModal(true)}>
-              Trocar
-            </button>
-            <button className="infoPlus" onClick={() => getCurrent(product.id)}>
-              <AiFillInfoCircle className="iconInfo" />
-              Mais informações
-            </button>
+            {user ? (
+              <>
+                <button className="btnTrade" onClick={() => setIsTradeModal(true)}>
+                  Trocar
+                </button>
+                <button className="infoPlus" onClick={() => getCurrent(product.id)}>
+                  <AiFillInfoCircle className="iconInfo" />
+                  Mais informações
+                </button>
+              </>
+            ) : (
+              <>
+                <button onClick={() => navigate("/register")}>
+                  Criar minha conta
+                </button>
+                <button className="infoPlus" onClick={() => getCurrent(product.id)}>
+                  <AiFillInfoCircle className="iconInfo" />
+                  Mais informações
+                </button>
+              </>
+            )}
           </>
-        ) : (
-          <>
-            <button onClick={() => navigate("/register")}>
-              Criar minha conta
-            </button>
-            <button className="infoPlus" onClick={() => getCurrent(product.id)}>
-              <AiFillInfoCircle className="iconInfo" />
-              Mais informações
-            </button>
-          </>
-        )}
+        }
       </label>
     </Card>
   );

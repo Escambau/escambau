@@ -32,33 +32,35 @@ const List = () => {
             </div>
             <section className="container-buttons">
               {window.innerWidth > 768 && (
-                <button
-                  className="infoPlus"
-                  onClick={() => {
-                    getCurrent(product.id);
-                  }}
-                >
-                  <AiFillInfoCircle className="iconInfo" />
-                  Mais informações
-                </button>
+                <>
+                  <button
+                    className="infoPlus"
+                    onClick={() => {
+                      getCurrent(product.id);
+                    }}
+                  >
+                    <AiFillInfoCircle className="iconInfo" />
+                    Mais informações
+                  </button>
+                  <div>
+                    <button
+                      className="edit-delete edit"
+                      onClick={() => {
+                        setProductToEdit(product);
+                        navigate("/editproduct");
+                      }}
+                    >
+                      Editar
+                    </button>
+                    <button
+                      className="edit-delete delete"
+                      onClick={() => deleteProduct(product.id)}
+                    >
+                      Excluir
+                    </button>
+                  </div>
+                </>
               )}
-              <div>
-                <button
-                  className="edit-delete edit"
-                  onClick={() => {
-                    setProductToEdit(product);
-                    navigate("/editproduct");
-                  }}
-                >
-                  Editar
-                </button>
-                <button
-                  className="edit-delete delete"
-                  onClick={() => deleteProduct(product.id)}
-                >
-                  Excluir
-                </button>
-              </div>
             </section>
           </Card>
         );
