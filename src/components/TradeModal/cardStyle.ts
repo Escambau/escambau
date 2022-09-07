@@ -5,7 +5,7 @@ export const Card = styled.button`
   justify-content: space-between;
   align-items: center;
   width: 90%;
-  border: 1px solid var(--lightGrey);
+  border: 1px solid ${(props) => props.theme.colors.lightGrey};
   padding: 10px 20px;
   margin: 8px 0px;
   cursor: pointer;
@@ -58,7 +58,7 @@ export const Card = styled.button`
         & > h4 {
           font-size: 12px;
           font-weight: 400;
-          color: var(--blue);
+          color: ${(props) => props.theme.colors.blue};
         }
         & > h3 {
           font-size: 14px;
@@ -74,7 +74,7 @@ export const Card = styled.button`
         }
         & > span {
           font-size: 14px;
-          color: var(--blue);
+          color: ${(props) => props.theme.colors.blue};
         }
       }
     }
@@ -82,11 +82,11 @@ export const Card = styled.button`
   .containerCheckbox {
     position: relative;
     right: 20px;
-    border: 1px solid var(--lightGrey);
+    border: 1px solid ${(props) => props.theme.colors.lightGrey};
     border-radius: 100%;
     width: 25px;
     height: 25px;
-    
+
     @media (max-width: 450px) {
       right: 0px;
     }

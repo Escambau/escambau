@@ -16,7 +16,7 @@ export const ListTag = styled.ul`
     background-color: #dfe6e9;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: var(--blue);
+    background-color: ${(props) => props.theme.colors.blue};
     border-radius: 5px;
   }
   width: 100%;
@@ -26,7 +26,7 @@ const Card = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  border: 1px solid var(--lightGrey);
+  border: 1px solid ${(props) => props.theme.colors.lightGrey};
   padding: 10px 20px;
   margin: 8px 0px;
   transition: 0.3s;
@@ -50,7 +50,7 @@ const Card = styled.div`
     .infoPlus {
       display: flex;
       align-items: center;
-      color: var(--blue);
+      color: ${(props) => props.theme.colors.blue};
       font-size: 11px;
       margin-right: 20px;
       transition: 0.3s;
@@ -66,20 +66,20 @@ const Card = styled.div`
       transition: 0.3s;
     }
     .edit {
-      color: var(--grey);
+      color: ${(props) => props.theme.colors.grey};
       margin-bottom: 5px;
-      border: 1px solid var(--grey);
+      border: 1px solid ${(props) => props.theme.colors.grey};
       :hover {
         background-color: grey;
         color: white;
       }
     }
     .delete {
-      color: var(--orange);
-      border: 1px solid var(--orange);
+      color: ${(props) => props.theme.colors.orange};
+      border: 1px solid ${(props) => props.theme.colors.orange};
       background-color: white;
       :hover {
-        background-color: var(--orange);
+        background-color: ${(props) => props.theme.colors.orange};
         color: white;
       }
     }
@@ -108,7 +108,7 @@ const Card = styled.div`
         & > h4 {
           font-size: 12px;
           font-weight: 400;
-          color: var(--blue);
+          color: ${(props) => props.theme.colors.blue};
         }
         & > h3 {
           font-size: 14px;
@@ -117,7 +117,7 @@ const Card = styled.div`
           transition: 0.5s;
 
           :hover {
-            color: var(--blue);
+            color: ${(props) => props.theme.colors.blue};
           }
         }
       }
@@ -130,7 +130,7 @@ const Card = styled.div`
         }
         & > span {
           font-size: 14px;
-          color: var(--blue);
+          color: ${(props) => props.theme.colors.blue};
         }
       }
     }

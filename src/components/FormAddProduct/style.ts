@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const FormAdd = styled.form`
-
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -25,9 +24,9 @@ export const FormAdd = styled.form`
       align-items: center;
       gap: 2vw;
       height: 6vh;
-      border-bottom: 1px solid var(--lightGrey);
+      border-bottom: 1px solid ${(props) => props.theme.colors.lightGrey};
       outline: 0;
-      color: var(--grey);
+      color: ${(props) => props.theme.colors.grey};
       font-size: 16px;
 
       .input-price {
@@ -35,11 +34,11 @@ export const FormAdd = styled.form`
         width: 100%;
         height: 6vh;
         outline: 0;
-        color: var(--grey);
+        color: ${(props) => props.theme.colors.grey};
         font-size: 16px;
 
         ::placeholder {
-          color: var(--lightGrey);
+          color: ${(props) => props.theme.colors.lightGrey};
           font-size: 16px;
           font-weight: 400;
         }
@@ -55,14 +54,14 @@ export const FormAdd = styled.form`
     align-items: flex-start;
 
     span {
-      color: var(--redSpan);
+      color: ${(props) => props.theme.colors.redSpan};
       font-size: 14px;
       font-weight: 500;
 
       margin-top: 5px;
     }
     label {
-      color: var(--grey);
+      color: ${(props) => props.theme.colors.grey};
       font-size: 16px;
       font-weight: 800;
 
@@ -73,15 +72,15 @@ export const FormAdd = styled.form`
     select {
       width: 100%;
       height: 6vh;
-      border-bottom: 1px solid var(--lightGrey);
+      border-bottom: 1px solid ${(props) => props.theme.colors.lightGrey};
       outline: 0;
-      color: var(--grey);
+      color: ${(props) => props.theme.colors.grey};
       font-size: 16px;
       font-weight: 400;
       font-family: "Roboto";
 
       ::placeholder {
-        color: var(--lightGrey);
+        color: ${(props) => props.theme.colors.lightGrey};
         font-size: 16px;
         font-weight: 400;
       }
@@ -91,9 +90,9 @@ export const FormAdd = styled.form`
       width: 100%;
       height: 15vh;
       border: none;
-      border-bottom: 1px solid var(--lightGrey);
+      border-bottom: 1px solid ${(props) => props.theme.colors.lightGrey};
       outline: 0;
-      color: var(--grey);
+      color: ${(props) => props.theme.colors.grey};
       font-size: 16px;
       font-weight: 400;
       font-family: "Roboto";
@@ -101,7 +100,7 @@ export const FormAdd = styled.form`
 
       ::placeholder {
         align-self: flex-start;
-        color: var(--lightGrey);
+        color: ${(props) => props.theme.colors.lightGrey};
         font-size: 16px;
         font-weight: 400;
         font-family: "Roboto";
@@ -118,33 +117,32 @@ export const FormAdd = styled.form`
     padding: 15px 0;
 
     color: #fff;
-    background-color: var(--green);
+    background-color: ${(props) => props.theme.colors.green};
 
     font-size: 16px;
     font-weight: 1000;
     font-family: "Montserrat";
 
     :hover {
-      background-color: var(--greenOpacity);
+      background-color: ${(props) => props.theme.colors.greenOpacity};
       transition: 0.4s;
     }
   }
-  @media (min-width: 768px){
+  @media (min-width: 768px) {
     width: 50%;
-    
-    div {
 
+    div {
       span {
-          font-size: 14px;
-          color: var(--redSpan);
+        font-size: 14px;
+        color: ${(props) => props.theme.colors.redSpan};
       }
-      
+
       .input-standard,
       select {
         height: 7vh;
         border-radius: 8px;
         outline: 0;
-        color: var(--grey);
+        color: ${(props) => props.theme.colors.grey};
         font-size: 16px;
         padding: 0 1vw;
         border-bottom: none;
@@ -167,9 +165,9 @@ export const FormAdd = styled.form`
         }
 
         ::-webkit-scrollbar-thumb {
-          background-color: var(--blue);
+          background-color: ${(props) => props.theme.colors.blue};
           border-radius: 20px;
-          border: 3px solid var(--blue);
+          border: 3px solid ${(props) => props.theme.colors.blue};
         }
       }
 
@@ -187,9 +185,9 @@ export const FormAdd = styled.form`
 
         span {
           font-size: 14px;
-          color: var(--redSpan);
+          color: ${(props) => props.theme.colors.redSpan};
         }
       }
     }
   }
-`
+`;

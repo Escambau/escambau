@@ -11,7 +11,7 @@ export const MainTag = styled.main`
     & > h2 {
       font-size: 18px;
       font-weight: 700;
-      color: var(--blue);
+      color: ${(props) => props.theme.colors.blue};
       font-family: "Montserrat";
       text-align: start;
       margin-bottom: 20px;
@@ -33,19 +33,19 @@ export const MainTag = styled.main`
     & > h2 {
       font-size: 18px;
       font-weight: 700;
-      color: var(--blue);
+      color: ${(props) => props.theme.colors.blue};
       font-family: "Montserrat";
       text-align: start;
     }
     & > button {
-      background-color: var(--green);
+      background-color: ${(props) => props.theme.colors.green};
       padding: 10px;
       font-size: 13px;
       font-weight: 700;
       color: white;
       transition: 0.3s;
       :hover {
-        background-color: var(--greenOpacity);
+        background-color: ${(props) => props.theme.colors.greenOpacity};
       }
       & > svg {
         font-size: 18px;
@@ -61,17 +61,17 @@ export const MainTag = styled.main`
       margin-bottom: 20px;
 
       & > h3 {
-        color: var(--blue);
+        color: ${(props) => props.theme.colors.blue};
         font-size: 14px;
         font-family: "Montserrat";
         font-weight: 600;
       }
       & > select {
-        border: 1px solid var(--blue);
+        border: 1px solid ${(props) => props.theme.colors.blue};
         border-radius: 8px;
         padding: 3px 3px;
         text-align: center;
-        color: var(--blue);
+        color: ${(props) => props.theme.colors.blue};
         font-size: 12px;
         font-weight: 500;
       }
@@ -84,17 +84,17 @@ export const MainTag = styled.main`
     }
   }
   .btnsCategory {
-    border: 1px solid var(--blue);
+    border: 1px solid ${(props) => props.theme.colors.blue};
     border-radius: 8px;
     padding: 7px 30px;
     text-align: center;
-    color: var(--blue);
+    color: ${(props) => props.theme.colors.blue};
     font-size: 11px;
     font-weight: 600;
     margin: 5px 5px;
     transition: 0.3s;
     :hover {
-      background-color: var(--blue);
+      background-color: ${(props) => props.theme.colors.blue};
       color: white;
     }
   }
@@ -109,11 +109,11 @@ export const MainTag = styled.main`
       & > h2 {
         font-size: 18px;
         font-weight: 700;
-        color: var(--blue);
+        color: ${(props) => props.theme.colors.blue};
         font-family: "Montserrat";
       }
       & > button {
-        background-color: var(--green);
+        background-color: ${(props) => props.theme.colors.green};
         padding: 10px;
         font-size: 13px;
         font-weight: 700;

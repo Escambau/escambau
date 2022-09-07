@@ -23,15 +23,15 @@ export const Container = styled.div`
       height: 35px;
       align-self: center;
       font-family: "Montserrat";
-      color: var(--blue);
+      color: ${(props) => props.theme.colors.blue};
       font-size: 14px;
       font-weight: 900;
-      border: 2px solid var(--blue);
+      border: 2px solid ${(props) => props.theme.colors.blue};
     }
 
     h2 {
       font-family: "Montserrat";
-      color: var(--blue);
+      color: ${(props) => props.theme.colors.blue};
       font-size: 18px;
       font-weight: 900;
     }
@@ -79,7 +79,7 @@ export const Container = styled.div`
       .profile-button {
         position: absolute;
         left: 14vw;
-        background-color: var(--blue);
+        background-color: ${(props) => props.theme.colors.blue};
         color: white;
         font-size: 12px;
       }
@@ -90,7 +90,7 @@ export const Container = styled.div`
     }
 
     main {
-      background-color: var(--lightGreyBackground);
+      background-color: ${(props) => props.theme.colors.lightGreyBackground};
       padding: 10vh 4vw;
       border-radius: 10px;
       flex-direction: row-reverse;
