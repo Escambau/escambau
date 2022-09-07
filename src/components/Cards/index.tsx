@@ -17,17 +17,17 @@ const Cards = ({ product }: ICardsContext) => {
   const { getCurrent } = useContext(CurrentContext);
   const navigate = useNavigate();
   return (
-    <Card onClick={() => {
-      navigate("/moreinfo")
-      getCurrent(product.id)
-    }}>
+    <Card >
       <div>
         <img src={product.image} alt="" />
 
         <div>
           <div>
             <h4>{product.category}</h4>
-            <h3>{product.name}</h3>
+            <h3 onClick={() => {
+              navigate("/moreinfo")
+              getCurrent(product.id)
+            }}>{product.name}</h3>
           </div>
           <section>
             {window.innerWidth > 500 && <p>Preço estipulado:</p>}
