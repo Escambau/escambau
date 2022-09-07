@@ -13,14 +13,8 @@ import Header from "../Header";
 
 const MoreInfo = () => {
   const { user } = useContext(UserContext);
-<<<<<<< HEAD
-  const { isLogged, currentProduct, currentUser } = useContext(CurrentContext);
-  const { setIsTradeModal, setProductToEdit, deleteProduct } =
-    useContext(ProductContext);
-=======
   const { setIsTradeModal, setProductToEdit, deleteProduct } = useContext(ProductContext);
   const { isLogged, currentProduct, currentUser } = useContext(CurrentContext)
->>>>>>> 9fd274b6c16c72aefdb1555d145261aa4a48e830
   const navigate = useNavigate();
   return (
     <>

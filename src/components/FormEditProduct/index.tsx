@@ -56,7 +56,7 @@ const FormEditProduct = () => {
         <div className="price-and-category">
           <fieldset>
             <label htmlFor="price">Preço:</label>
-            <form className="price">
+            <div className="price">
               <p>R$</p>
               <input
                 className="input-price"
@@ -66,7 +66,7 @@ const FormEditProduct = () => {
                 placeholder="Preço do produto"
                 {...register("price")}
               ></input>
-            </form>
+            </div>
 
             {<span>{errors.price?.message}</span>}
           </fieldset>
@@ -78,9 +78,6 @@ const FormEditProduct = () => {
               {...register("category")}
               defaultValue={productToEdit ? `${productToEdit.category}` : ""}
             >
-              <option selected disabled>
-                Selecione uma categoria
-              </option>
               <option value="Eletrônicos e Eletrodomésticos">
                 Eletrônicos e Eletrodomésticos
               </option>
