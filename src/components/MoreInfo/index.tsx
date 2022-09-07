@@ -14,8 +14,12 @@ import Header from "../Header";
 const MoreInfo = () => {
   const { user } = useContext(UserContext);
   const { setIsTradeModal, setProductToEdit, deleteProduct } = useContext(ProductContext);
-  const { isLogged, currentProduct, currentUser } = useContext(CurrentContext)
+  const { isLogged, currentUser } = useContext(CurrentContext);
+  const currentProduct = JSON.parse(
+    localStorage.getItem("@currentProduct") as any
+  );
   const navigate = useNavigate();
+
   return (
     <>
       <motion.div
@@ -69,7 +73,6 @@ const MoreInfo = () => {
               {user?.id !== currentProduct.userId ? (
                 <button
                   className="btn"
-                  disabled={isLogged}
                   onClick={() => {
                     user ? setIsTradeModal(true) : navigate("/register");
                   }}
