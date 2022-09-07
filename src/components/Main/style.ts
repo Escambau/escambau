@@ -16,12 +16,27 @@ export const MainTag = styled.main`
         text-align: start;
         margin-bottom: 20px;
     }
+
+    h3 {
+      margin-bottom: 8px;
+    }
   }
   .addProduct {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
+
+    gap: 8px;
+
+    & > h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--blue);
+      font-family: "Montserrat";
+      text-align: start;
+    }
     & > button {
       background-color: var(--blue);
       padding: 5px 6px 2px 6px;
@@ -44,11 +59,13 @@ export const MainTag = styled.main`
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
+      
       & > h3 {
         color: var(--blue);
         font-size: 14px;
         font-family: "Montserrat";
         font-weight: 600;
+        
       }
       & > select {
         border: 1px solid var(--blue);
@@ -87,6 +104,10 @@ export const MainTag = styled.main`
       width: 70%;
     }
     .addProduct {
+
+      flex-direction: row;
+      gap: 0;
+
       & > h2 {
         font-size: 18px;
         font-weight: 700;
