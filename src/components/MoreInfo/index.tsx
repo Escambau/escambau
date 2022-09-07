@@ -13,7 +13,8 @@ import Header from "../Header";
 
 const MoreInfo = () => {
   const { user } = useContext(UserContext);
-  const { setIsTradeModal } = useContext(ProductContext);
+  const { setIsTradeModal, setProductToEdit, deleteProduct } =
+    useContext(ProductContext);
   const { currentUser, currentProduct, isLogged } = useContext(CurrentContext);
   const navigate = useNavigate();
 
@@ -25,16 +26,13 @@ const MoreInfo = () => {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
-        {user ? <Header /> : <HeaderUnlogged/>}
+        {user ? <Header /> : <HeaderUnlogged />}
         <ConfirmTradeModal />
         <TradeModal />
         <Container isLogged={isLogged}>
           <section className="left-wrapper">
             <div className="product-info">
-              <small>
-                {currentProduct?.category}
-                {" >"}
-              </small>
+              <small>{currentProduct?.category}</small>
               <h3>{currentProduct?.name}</h3>
               <img src={currentProduct?.image} alt={currentProduct?.name} />
             </div>
@@ -45,7 +43,7 @@ const MoreInfo = () => {
                   <p>Postado por:</p>
                   <h3 className="username">{currentUser?.name}</h3>
                 </div>
-                <p>
+                <p className="city">
                   {currentUser?.cidade} - {currentUser?.estado}
                 </p>
               </div>
@@ -70,15 +68,35 @@ const MoreInfo = () => {
               <p>{currentProduct?.description}</p>
             </div>
             <div className="btn-wrapper">
-              <button
-                className="btn"
-                disabled={isLogged}
-                onClick={() => {
-                  user ? setIsTradeModal(true) : navigate("/register");
-                }}
-              >
-                {user ? "Solicitar troca" : "Criar minha conta"}
-              </button>
+              {user?.id !== currentProduct.userId ? (
+                <button
+                  className="btn"
+                  disabled={isLogged}
+                  onClick={() => {
+                    user ? setIsTradeModal(true) : navigate("/register");
+                  }}
+                >
+                  {user ? "Solicitar troca" : "Criar minha conta"}
+                </button>
+              ) : (
+                <div className="btn-container">
+                  <button
+                    className="edit-delete edit"
+                    onClick={() => {
+                      setProductToEdit(currentProduct);
+                      navigate("/editproduct");
+                    }}
+                  >
+                    Editar
+                  </button>
+                  <button
+                    className="edit-delete delete"
+                    onClick={() => deleteProduct(currentProduct.id)}
+                  >
+                    Excluir
+                  </button>
+                </div>
+              )}
             </div>
           </section>
         </Container>
