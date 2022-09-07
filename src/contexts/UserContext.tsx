@@ -101,7 +101,6 @@ export function UserProvider({ children }: IUserProviders) {
           navigate("/", { replace: true });
         }, 3000);
         setIsModalLogin(false);
-        console.log(response.data.accessToken);
       })
       .catch((er) => {
         LoginError();
@@ -135,8 +134,6 @@ export function UserProvider({ children }: IUserProviders) {
 
       if (tokenResponse) {
         try {
-          // api.defaults.headers.common.authorization = `Bearer ${tokenResponse}`;
-
           const { data } = await api.get(`/users/${idResponse}`);
 
           setUser(data);
