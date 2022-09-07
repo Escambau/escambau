@@ -16,11 +16,10 @@ export const HeaderTag = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     width: 90%;
 
     margin-bottom: 0px;
-    & > button{
+    & > button {
       & > h1 {
         color: white;
         font-family: "Montserrat";
@@ -28,21 +27,26 @@ export const HeaderTag = styled.header`
         font-weight: 900;
       }
     }
+    .container-switch-login {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 2vh;
 
-    .btnLogin {
-      background-color: var(--green);
-      padding: 8px 30px;
-      color: white;
-      font-family: "Montserrat";
-      font-size: 12px;
-      font-weight: 900;
-      
-      :hover {
-        background-color: var(--greenOpacity);
-        transition: 0.4s;
+      .btnLogin {
+        background-color: var(--green);
+        padding: 8px 30px;
+        color: white;
+        font-family: "Montserrat";
+        font-size: 12px;
+        font-weight: 900;
+
+        :hover {
+          background-color: var(--greenOpacity);
+          transition: 0.4s;
+        }
       }
     }
-
   }
 
   .searchBar {
