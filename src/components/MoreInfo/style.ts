@@ -125,11 +125,11 @@ export const Container = styled.div<Props>`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     gap: 4vh;
 
     .product-description {
-      width: 100%;
+      width: 80%;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -257,14 +257,6 @@ export const Container = styled.div<Props>`
         flex-direction: row;
 
         gap: 20px;
-
-        .edit-delete {
-          width: 150px;
-
-          :hover {
-            opacity: 80%;
-          }
-        }
       }
     }
   }
