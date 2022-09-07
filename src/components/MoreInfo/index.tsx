@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-
 import { CurrentContext } from "../../contexts/CurrentContext";
 import { UserContext } from "./../../contexts/UserContext";
 import { useContext } from "react";
@@ -10,14 +9,17 @@ import { useNavigate } from "react-router-dom";
 import TradeModal from "../TradeModal";
 import ConfirmTradeModal from "../ConfirmTradeModal";
 import Header from "../Header";
+import DropdownModal from "../DropdownModal";
 
 const MoreInfo = () => {
   const { user } = useContext(UserContext);
   const { setIsTradeModal, setProductToEdit, deleteProduct } = useContext(ProductContext);
   const { isLogged, currentProduct, currentUser } = useContext(CurrentContext)
   const navigate = useNavigate();
+
   return (
     <>
+      <TradeModal />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -26,7 +28,7 @@ const MoreInfo = () => {
       >
         {user ? <Header /> : <HeaderUnlogged />}
         <ConfirmTradeModal />
-        <TradeModal />
+        <DropdownModal />
         <Container isLogged={isLogged}>
           <section className="left-wrapper">
             <div className="product-info">
@@ -70,9 +72,9 @@ const MoreInfo = () => {
                 <button
                   className="btn"
                   disabled={isLogged}
-                  onClick={() => {
-                    user ? setIsTradeModal(true) : navigate("/register");
-                  }}
+                  onClick={() =>
+                    user ? setIsTradeModal(true) : navigate("/register")
+                  }
                 >
                   {user ? "Solicitar troca" : "Criar minha conta"}
                 </button>
