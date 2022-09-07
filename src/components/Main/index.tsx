@@ -19,6 +19,7 @@ const Main = () => {
 
         <section className="listContainer">
           <div>
+            {window.innerWidth < 764 && <h3>Categorias:</h3>}
             <Categorys />
           </div>
           <List />

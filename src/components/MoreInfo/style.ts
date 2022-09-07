@@ -153,15 +153,6 @@ export const Container = styled.div<Props>`
       align-items: center;
       padding: 0;
 
-      gap: 5px;
-
-      .edit {
-        background-color: var(--grey);
-      }
-      .delete {
-        background-color: var(--red);
-      }
-
       button {
         width: 70%;
         background-color: var(--blue);
@@ -224,21 +215,6 @@ export const Container = styled.div<Props>`
       .btn-wrapper {
         align-self: flex-start;
         flex: 4;
-
-        width: 40%;
-
-        display: flex;
-        flex-direction: row;
-
-        gap: 20px;
-
-        .edit-delete {
-          width: 150px;
-
-          :hover {
-            opacity: 80%;
-          }
-        }
       }
     }
   }
