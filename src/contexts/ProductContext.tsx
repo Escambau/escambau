@@ -50,6 +50,8 @@ interface IProductContext {
   setSearch: Dispatch<SetStateAction<string>>;
   filteredProducts: IProduct[];
   setFilteredProducts: Dispatch<SetStateAction<IProduct[]>>;
+  setFilterProductUser: Dispatch<SetStateAction<IProduct[]>>;
+  filterProductUser: IProduct[];
 }
 
 export interface IProduct {
@@ -73,6 +75,7 @@ export function ProductProvider({ children }: IProductProvider) {
 
   const [products, setProducts] = useState<IProduct[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
+  const [filterProductUser, setFilterProductUser] = useState<IProduct[]>([])
   const [search, setSearch] = useState<string>("");
   const [currentProduct, setCurrentProduct] = useState<boolean>(false);
   const [isModalConfirmTrade, setIsModalConfirmTrade] =
@@ -101,7 +104,7 @@ export function ProductProvider({ children }: IProductProvider) {
     "Pets",
   ];
 
-  useEffect(() => {
+  useEffect(() => { 
     setFilteredProducts(
       products.filter(
         (product) =>
@@ -110,6 +113,16 @@ export function ProductProvider({ children }: IProductProvider) {
       )
     );
   }, [products, search]);
+
+  useEffect(() => { 
+    setFilterProductUser(
+      userProductList.filter(
+        (product) =>
+          product.name.toLowerCase().includes(search.toLowerCase()) ||
+          product.category.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  }, [userProductList, search]);
 
   useEffect(() => {
     const filterProductCategory = async () => {
@@ -231,7 +244,7 @@ export function ProductProvider({ children }: IProductProvider) {
         navigate("/profile", { replace: true });
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
         EditProductError();
       });
   };
@@ -288,6 +301,8 @@ export function ProductProvider({ children }: IProductProvider) {
         setSearch,
         setFilteredProducts,
         filteredProducts,
+        filterProductUser, 
+        setFilterProductUser
       }}
     >
       {children}
