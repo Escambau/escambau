@@ -92,6 +92,10 @@ export const Card = styled.div`
         & > h3 {
           font-size: 14px;
           font-family: "Montserrat";
+
+          :hover {
+            opacity: 80%;
+          }
         }
       }
       & > section {

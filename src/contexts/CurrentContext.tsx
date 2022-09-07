@@ -1,9 +1,8 @@
-import { createContext, useState, ReactNode, useContext } from "react";
+import { createContext, useState, ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 
 import { IProduct } from "./ProductContext";
-import { UserContext } from "./UserContext";
 
 interface IProductProvider {
   children: ReactNode;
@@ -48,21 +47,25 @@ export const CurrentProvider = ({ children }: IProductProvider) => {
     } else {
       setIsLogged(false);
     }
-    const teste = async () => {
-      try {
-        const responseProduct = await api.get(`/products/${currentId}`);
-        setCurrentProduct(responseProduct.data);
-
-        const responseUser = await api.get(
-          `/users/${responseProduct.data.userId}`
-        );
-        setCurrentUser(responseUser.data);
-        navigate("/moreinfo");
-      } catch (error) {
+    api
+      .get(`/products/${currentId}`)
+      .then((response) => {
+        setCurrentProduct(response.data);
+        localStorage.setItem("@currentProduct", JSON.stringify(response.data));
+        api
+          .get(`/users/${response.data.userId}`)
+          .then((response) => {
+            setCurrentUser(response.data);
+            localStorage.setItem("@currentUser", JSON.stringify(response.data));
+            navigate("/moreinfo");
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      })
+      .catch((error) => {
         console.error(error);
-      }
-    };
-    teste();
+      });
   };
 
   return (

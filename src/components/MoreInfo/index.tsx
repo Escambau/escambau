@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-
 import { CurrentContext } from "../../contexts/CurrentContext";
 import { UserContext } from "./../../contexts/UserContext";
 import { useContext } from "react";
@@ -7,16 +6,21 @@ import { Container } from "./style";
 import HeaderUnlogged from "../HeaderUnlogged";
 import { ProductContext } from "../../contexts/ProductContext";
 import { useNavigate } from "react-router-dom";
-import TradeModal from "../TradeModal";
 import ConfirmTradeModal from "../ConfirmTradeModal";
 import Header from "../Header";
+import DropdownModal from "../DropdownModal";
 
 const MoreInfo = () => {
   const { user } = useContext(UserContext);
   const { setIsTradeModal, setProductToEdit, deleteProduct } =
     useContext(ProductContext);
-  const { isLogged, currentProduct, currentUser } = useContext(CurrentContext);
+  const { isLogged } = useContext(CurrentContext);
+  const currentProduct = JSON.parse(
+    localStorage.getItem("@currentProduct") as any
+  );
+  const currentUser = JSON.parse(localStorage.getItem("@currentUser") as any);
   const navigate = useNavigate();
+
   return (
     <>
       <motion.div
@@ -27,7 +31,7 @@ const MoreInfo = () => {
       >
         {user ? <Header /> : <HeaderUnlogged />}
         <ConfirmTradeModal />
-        <TradeModal />
+        <DropdownModal />
         <Container isLogged={isLogged}>
           <section className="left-wrapper">
             <div className="product-info">
@@ -67,13 +71,12 @@ const MoreInfo = () => {
               <p>{currentProduct?.description}</p>
             </div>
             <div className="btn-wrapper">
-              {user?.id !== currentProduct.userId ? (
+              {user?.id ? (
                 <button
                   className="btn"
-                  disabled={isLogged}
-                  onClick={() => {
-                    user ? setIsTradeModal(true) : navigate("/register");
-                  }}
+                  onClick={() =>
+                    user ? setIsTradeModal(true) : navigate("/register")
+                  }
                 >
                   {user ? "Solicitar troca" : "Criar minha conta"}
                 </button>
