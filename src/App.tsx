@@ -7,7 +7,6 @@ import { ColorsContext } from "./contexts/ColorsContext";
 
 function App() {
   const { theme } = useContext(ColorsContext);
-  console.log(theme);
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
