@@ -5,7 +5,7 @@ export const Card = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  border: 1px solid var(--lightGrey);
+  border: 1px solid ${(props) => props.theme.colors.lightGrey};
   padding: 10px 20px;
   margin: 8px 0px;
   cursor: pointer;
@@ -33,7 +33,7 @@ export const Card = styled.div`
     margin-right: 10px;
     gap: 5px;
     .btnTrade {
-      background-color: var(--green);
+      background-color: ${(props) => props.theme.colors.green};
       padding: 10px;
       color: white;
       width: 180px;
@@ -42,7 +42,7 @@ export const Card = styled.div`
       }
     }
     & > button {
-      color: var(--blue);
+      color: ${(props) => props.theme.colors.blue};
       font-weight: 700;
     }
     .iconInfo {
@@ -52,7 +52,7 @@ export const Card = styled.div`
     .infoPlus {
       display: flex;
       align-items: center;
-      color: var(--blue);
+      color: ${(props) => props.theme.colors.blue};
       font-size: 14px;
       font-weight: 400;
       transition: 0.3s;
@@ -87,7 +87,7 @@ export const Card = styled.div`
         & > h4 {
           font-size: 12px;
           font-weight: 400;
-          color: var(--blue);
+          color: ${(props) => props.theme.colors.blue};
         }
         & > h3 {
           font-size: 14px;
@@ -107,7 +107,7 @@ export const Card = styled.div`
         }
         & > span {
           font-size: 14px;
-          color: var(--blue);
+          color: ${(props) => props.theme.colors.blue};
         }
       }
     }

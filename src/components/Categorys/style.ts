@@ -15,29 +15,28 @@ export const Category = styled.div`
 
     h1 {
       margin-left: 30px;
-      color: var(--blue);
+      color: ${(props) => props.theme.colors.blue};
     }
   }
 
   & > div {
-    
     display: flex;
     flex-direction: row;
     margin: 0 auto;
-    
+
     & > h3 {
-      color: var(--blue);
+      color: ${(props) => props.theme.colors.blue};
       font-size: 14px;
       font-family: "Montserrat";
       font-weight: 600;
       margin: 5px 10px 0 0;
     }
     & > select {
-      border: 1px solid var(--blue);
+      border: 1px solid ${(props) => props.theme.colors.blue};
       border-radius: 8px;
       padding: 3px 3px;
       text-align: center;
-      color: var(--blue);
+      color: ${(props) => props.theme.colors.blue};
       font-size: 12px;
       font-weight: 500;
     }
@@ -50,29 +49,29 @@ export const Category = styled.div`
     justify-content: center;
   }
   .btnAll {
-    border: 1px solid var(--blue);
+    border: 1px solid ${(props) => props.theme.colors.blue};
     border-radius: 8px;
     padding: 7px 30px;
     text-align: center;
     font-size: 11px;
     font-weight: 600;
     margin: 5px 5px;
-    background-color: var(--blue);
+    background-color: ${(props) => props.theme.colors.blue};
     color: white;
   }
   .btnsCategory {
-    border: 1px solid var(--blue);
+    border: 1px solid ${(props) => props.theme.colors.blue};
     border-radius: 8px;
     padding: 7px 30px;
     text-align: center;
-    color: var(--blue);
+    color: ${(props) => props.theme.colors.blue};
     font-size: 11px;
     font-weight: 600;
     margin: 5px 5px;
 
     transition: 0.3s;
     :hover {
-      background-color: var(--blue);
+      background-color: ${(props) => props.theme.colors.blue};
       color: white;
       transition: 0.4s;
     }

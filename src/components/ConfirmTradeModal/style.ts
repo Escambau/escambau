@@ -53,7 +53,7 @@ export const Box = styled.div`
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height: 60px;
-    background-color: var(--blue);
+    background-color: ${(props) => props.theme.colors.blue};
 
     p {
       width: 70%;
@@ -78,7 +78,7 @@ export const Box = styled.div`
     border-bottom-right-radius: 10px;
 
     .confirm {
-      background-color: var(--green);
+      background-color: ${(props) => props.theme.colors.green};
       width: 160px;
       height: 40px;
       color: white;
@@ -87,13 +87,13 @@ export const Box = styled.div`
       font-size: 16px;
 
       &:hover {
-        background-color: var(--greenOpacity);
+        background-color: ${(props) => props.theme.colors.greenOpacity};
         transition: 0.4s;
       }
     }
 
     .cancel {
-      background-color: var(--red);
+      background-color: ${(props) => props.theme.colors.red};
       width: 160px;
       height: 40px;
       color: white;
@@ -102,7 +102,7 @@ export const Box = styled.div`
       font-size: 16px;
 
       &:hover {
-        background-color: var(--redOpacity);
+        background-color: ${(props) => props.theme.colors.redOpacity};
         transition: 0.4s;
       }
     }

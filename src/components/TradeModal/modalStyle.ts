@@ -36,7 +36,7 @@ export const Modal = styled.div`
     height: 80px;
   }
   .btnTrade {
-    background-color: var(--green);
+    background-color: ${(props) => props.theme.colors.green};
     padding: 10px;
     width: 300px;
     font-weight: 600;
@@ -50,13 +50,13 @@ export const Modal = styled.div`
       font-size: 16px;
     }
     :hover {
-      background-color: var(--greenOpacity);
+      background-color: ${(props) => props.theme.colors.greenOpacity};
     }
   }
 
   .container {
     position: relative;
-    background-color: var(--blue);
+    background-color: ${(props) => props.theme.colors.blue};
     width: 100%;
 
     height: 80px;
@@ -73,7 +73,7 @@ export const Modal = styled.div`
       text-align: start;
       line-height: 15px;
 
-      @media (max-width: 768px){
+      @media (max-width: 768px) {
         width: 80%;
         font-size: 16px;
       }
@@ -117,7 +117,7 @@ export const List = styled.ul`
     width: 5px;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: var(--lightGrey);
+    background-color: ${(props) => props.theme.colors.lightGrey};
     border-radius: 5px;
   }
 `;

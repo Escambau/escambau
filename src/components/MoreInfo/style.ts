@@ -29,7 +29,7 @@ export const Container = styled.div<Props>`
       gap: 2vh;
 
       small {
-        color: var(--blue);
+        color: ${(props) => props.theme.colors.blue};
         font-size: 14px;
         font-weight: 400;
       }
@@ -77,13 +77,13 @@ export const Container = styled.div<Props>`
 
         h3 {
           font-size: 16px;
-          color: var(--blue);
+          color: ${(props) => props.theme.colors.blue};
           font-weight: 700;
         }
 
         p {
           font-size: 14px;
-          color: var(--grey);
+          color: ${(props) => props.theme.colors.grey};
           font-weight: 400;
         }
         .city {
@@ -113,7 +113,7 @@ export const Container = styled.div<Props>`
         }
         span {
           font-size: 16px;
-          color: var(--blue);
+          color: ${(props) => props.theme.colors.blue};
           font-weight: 900;
         }
       }
@@ -138,7 +138,7 @@ export const Container = styled.div<Props>`
 
       h3 {
         font-size: 16px;
-        color: var(--blue);
+        color: ${(props) => props.theme.colors.blue};
         font-weight: 900;
       }
 
@@ -160,7 +160,7 @@ export const Container = styled.div<Props>`
 
       & > button {
         width: 100%;
-        background-color: var(--blue);
+        background-color: ${(props) => props.theme.colors.blue};
         font-size: 18px;
         font-family: "Montserrat";
         color: white;
@@ -186,19 +186,19 @@ export const Container = styled.div<Props>`
       transition: 0.3s;
     }
     .edit {
-      color: var(--grey);
-      border: 1px solid var(--grey);
+      color: ${(props) => props.theme.colors.grey};
+      border: 1px solid ${(props) => props.theme.colors.grey};
       :hover {
         background-color: grey;
         color: white;
       }
     }
     .delete {
-      color: var(--orange);
-      border: 1px solid var(--orange);
+      color: ${(props) => props.theme.colors.orange};
+      border: 1px solid ${(props) => props.theme.colors.orange};
       background-color: white;
       :hover {
-        background-color: var(--orange);
+        background-color: ${(props) => props.theme.colors.orange};
         color: white;
       }
     }
@@ -226,8 +226,8 @@ export const Container = styled.div<Props>`
       .user-info {
         flex: 4;
         gap: 3vh;
-        background-color: var(--lightGreyBackground);
-        border: 0.1px solid var(--lightGrey);
+        background-color: ${(props) => props.theme.colors.lightGreyBackground};
+        border: 0.1px solid ${(props) => props.theme.colors.lightGrey};
         border-radius: 5px;
         padding: 6vh 0;
         max-height: 230px;
@@ -282,8 +282,8 @@ export const Container = styled.div<Props>`
       width: initial;
       flex: 4;
       gap: 3vh;
-      background-color: var(--lightGreyBackground);
-      border: 0.1px solid var(--lightGrey);
+      background-color: ${(props) => props.theme.colors.lightGreyBackground};
+      border: 0.1px solid ${(props) => props.theme.colors.lightGrey};
       border-radius: 5px;
       padding: 6vh 0;
       max-height: 230px;

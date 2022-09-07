@@ -10,42 +10,42 @@ export const Overlay = styled.div`
 
   background-color: transparent;
   cursor: auto;
-`
+`;
 
 export const Container = styled.div`
-    width: 200px;
-    height: 90px;
+  width: 200px;
+  height: 90px;
 
-    position: absolute;
-    top: 60px;
-    right: 10%;
+  position: absolute;
+  top: 60px;
+  right: 10%;
 
-    background-color: var(--darkGrey);
-    border-radius: 8px;
+  background-color: var(--darkGrey);
+  border-radius: 8px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-    & > button{
-      width: 80%;
-      font-size: 11px;
-      font-weight: 600;
-      color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-      padding: 8px 20px;
+  & > button {
+    width: 80%;
+    font-size: 11px;
+    font-weight: 600;
+    color: white;
 
-      transition: 0.3s;
-    }
-    .profile {
-      margin-bottom: 5px;
-      background-color: var(--green);
-      border: 1px solid var(--green);
-    }
-    .exit{
-        margin-bottom: 5px;
-        background-color: var(--grey);
-        border: 1px solid var(--grey);
-    }
-`
+    padding: 8px 20px;
+
+    transition: 0.3s;
+  }
+  .profile {
+    margin-bottom: 5px;
+    background-color: ${(props) => props.theme.colors.green};
+    border: 1px solid ${(props) => props.theme.colors.green};
+  }
+  .exit {
+    margin-bottom: 5px;
+    background-color: ${(props) => props.theme.colors.grey};
+    border: 1px solid ${(props) => props.theme.colors.grey};
+  }
+`;

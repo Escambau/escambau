@@ -6,7 +6,7 @@ export const HeaderTag = styled.header`
   align-items: center;
   justify-content: space-around;
 
-  background: var(--blue);
+  background: ${(props) => props.theme.colors.blue};
 
   height: 110px;
 
@@ -34,7 +34,7 @@ export const HeaderTag = styled.header`
       gap: 2vh;
 
       .btnLogin {
-        background-color: var(--green);
+        background-color: ${(props) => props.theme.colors.green};
         padding: 8px 30px;
         color: white;
         font-family: "Montserrat";
@@ -42,7 +42,7 @@ export const HeaderTag = styled.header`
         font-weight: 900;
 
         :hover {
-          background-color: var(--greenOpacity);
+          background-color: ${(props) => props.theme.colors.greenOpacity};
           transition: 0.4s;
         }
       }
@@ -71,7 +71,7 @@ export const HeaderTag = styled.header`
     }
     .magnifyGlass {
       font-size: 18px;
-      color: var(--blue);
+      color: ${(props) => props.theme.colors.blue};
 
       transition: 0.3s;
       :hover {

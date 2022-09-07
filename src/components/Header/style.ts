@@ -5,7 +5,7 @@ export const HeaderTag = styled.header`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: var(--blue);
+  background: ${(props) => props.theme.colors.blue};
   height: 110px;
   width: 100vw;
   padding: 10px 10px;
@@ -46,7 +46,7 @@ export const HeaderTag = styled.header`
   .perfil {
     color: black;
     font-size: 32px;
-    background: var(--lightGreen);
+    background: ${(props) => props.theme.colors.lightGreen};
     padding: 5px;
     border-radius: 100%;
 
@@ -84,7 +84,7 @@ export const HeaderTag = styled.header`
     }
     .magnifyGlass {
       font-size: 18px;
-      color: var(--blue);
+      color: ${(props) => props.theme.colors.blue};
 
       transition: 0.3s;
       :hover {
