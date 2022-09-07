@@ -30,8 +30,8 @@ const List = () => {
                 </section>
               </div>
             </div>
-              <section className="container-buttons">
-                {window.innerWidth > 768 && (
+            <section className="container-buttons">
+              {window.innerWidth > 768 && (
                 <button
                   className="infoPlus"
                   onClick={() => {
@@ -41,26 +41,25 @@ const List = () => {
                   <AiFillInfoCircle className="iconInfo" />
                   Mais informações
                 </button>
-                )}
-                <div>
-                  <button
-                    className="edit-delete edit"
-                    // onClick={() => setProductToEdit(card)}
-                    onClick={() => {
-                      setProductToEdit(product);
-                      navigate("/editproduct");
-                    }}
-                  >
-                    Editar
-                  </button>
-                  <button
-                    className="edit-delete delete"
-                    onClick={() => deleteProduct(product.id)}
-                  >
-                    Excluir
-                  </button>
-                </div>
-              </section>
+              )}
+              <div>
+                <button
+                  className="edit-delete edit"
+                  onClick={() => {
+                    setProductToEdit(product);
+                    navigate("/editproduct");
+                  }}
+                >
+                  Editar
+                </button>
+                <button
+                  className="edit-delete delete"
+                  onClick={() => deleteProduct(product.id)}
+                >
+                  Excluir
+                </button>
+              </div>
+            </section>
           </Card>
         );
       })}
