@@ -26,7 +26,7 @@ const Header = () => {
           <button onClick={() => setIsDropdownModal(true)}>
             <ImUser className="perfil" />
             {window.innerWidth > 764 && (
-              <h3 className="userName">{user?.name}</h3>
+              <h3 className="userName">Olá, {(user?.name)?.split(" ")[0]}</h3>
             )}
           </button>
         </section>
