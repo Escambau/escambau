@@ -13,7 +13,9 @@ import Header from "../Header";
 
 const MoreInfo = () => {
   const { user } = useContext(UserContext);
-  const { setIsTradeModal, setProductToEdit, deleteProduct } = useContext(ProductContext);
+  const { isLogged, currentProduct, currentUser } = useContext(CurrentContext);
+  const { setIsTradeModal, setProductToEdit, deleteProduct } =
+    useContext(ProductContext);
   const navigate = useNavigate();
   return (
     <>

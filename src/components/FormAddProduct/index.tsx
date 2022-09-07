@@ -65,9 +65,9 @@ export const FormAddProduct = () => {
             </option>
             <option value="Roupas">Roupas</option>
             <option value="Brinquedos">Brinquedos</option>
-            <option value="Utensílios Domésticos">Utensílios Domésticos</option>
+            <option value="Utensílios domésticos">Utensílios Domésticos</option>
             <option value="Automotivos">Automotivos</option>
-            <option value="Instrumentos Musicais">Instrumentos Musicais</option>
+            <option value="Instrumentos musicais">Instrumentos Musicais</option>
             <option value="Decoração">Decoração</option>
             <option value="Entretenimento">Entretenimento</option>
             <option value="Pets">Pets</option>
