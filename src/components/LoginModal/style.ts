@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import "animate.css";
 
 export const ModalLogin = styled.div`
   position: fixed;
@@ -43,7 +44,7 @@ export const ModalLogin = styled.div`
       }
     }
   }
-
+  
   .box-login {
     max-width: 310px;
     width: 100%;
@@ -58,6 +59,8 @@ export const ModalLogin = styled.div`
     background-color: white;
     border: none;
     border-radius: 10px;
+
+    animation: fadeIn 0.5s;
 
     form {
       display: flex;

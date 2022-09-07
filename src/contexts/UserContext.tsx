@@ -96,7 +96,7 @@ export function UserProvider({ children }: IUserProviders) {
         localStorage.setItem("@token", response.data.accessToken);
         localStorage.setItem("@id", response.data.user.id);
         setUser(response.data.user);
-        LoginSucess();
+        LoginSucess()
         setTimeout(() => {
           navigate("/", { replace: true });
         }, 3000);
