@@ -5,6 +5,16 @@ import RobotoWoff from "../fonts/roboto-v30-latin-regular.woff";
 import RobotoWoff2 from "../fonts/roboto-v30-latin-regular.woff2";
 const GlobalStyle = createGlobalStyle`
 
+	::-webkit-scrollbar {
+    width: 12px;
+		background-color: transparent;
+  }
+
+	::-webkit-scrollbar-thumb {
+		background-color: var(--lightGrey);
+		border: 3px solid var(--lightGrey);
+	}
+
 	:root {
 		--lightGreyBackground: #f7f7f7;
 		--lightGrey: #D9D9D9;
@@ -94,6 +104,7 @@ const GlobalStyle = createGlobalStyle`
         background-color: transparent;
         border: none;
         border-radius: 8px;
+		font-family: "Montserrat";
     }
 
 		/* HTML5 display-role reset for older browsers */

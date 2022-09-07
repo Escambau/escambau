@@ -2,10 +2,23 @@ import styled from "styled-components";
 
 export const Category = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex;
+  flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
   width: 100%;
+
+  .searchResults {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 30px;
+
+    h1 {
+      margin-left: 30px;
+      color: var(--blue);
+    }
+  }
 
   & > h3 {
     color: var(--blue);
@@ -29,7 +42,7 @@ export const Category = styled.div`
     flex-wrap: wrap;
     justify-content: center;
   }
-  .btnAll{
+  .btnAll {
     border: 1px solid var(--blue);
     border-radius: 8px;
     padding: 7px 30px;

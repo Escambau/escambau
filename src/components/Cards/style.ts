@@ -9,17 +9,14 @@ export const Card = styled.div`
   padding: 10px 20px;
   margin: 8px 0px;
   cursor: pointer;
-
   transition: 0.3s;
   :hover {
     width: 99%;
   }
-
   & > section {
     display: flex;
     flex-direction: row;
     align-items: center;
-
     & > div {
       height: 50px;
       display: flex;
@@ -35,18 +32,15 @@ export const Card = styled.div`
     height: 70px;
     margin-right: 10px;
     gap: 5px;
-
     .btnTrade {
       background-color: var(--green);
       padding: 10px;
       color: white;
       width: 180px;
-
       @media (min-width: 768px) {
         width: 180px;
       }
     }
-
     & > button {
       color: var(--blue);
       font-weight: 700;
@@ -61,9 +55,7 @@ export const Card = styled.div`
       color: var(--blue);
       font-size: 14px;
       font-weight: 400;
-
       transition: 0.3s;
-
       :hover {
         color: var(--darkGrey);
         transition: 0.4s;
@@ -74,14 +66,13 @@ export const Card = styled.div`
     display: flex;
     align-items: center;
     gap: 10px;
-
     & > img {
       object-fit: cover;
       width: 100px;
+      min-width: 100px;
       height: 100px;
       border-radius: 20px;
     }
-
     & > div {
       display: flex;
       flex-direction: column;
@@ -89,7 +80,6 @@ export const Card = styled.div`
       gap: 20px;
       /* height: 70px; */
       text-align: start;
-
       & > div {
         display: flex;
         flex-direction: column;
@@ -104,7 +94,6 @@ export const Card = styled.div`
           font-family: "Montserrat";
         }
       }
-
       & > section {
         display: flex;
         align-items: center;
@@ -119,7 +108,6 @@ export const Card = styled.div`
       }
     }
   }
-
   @media (min-width: 768px) {
     padding: 20px;
   }

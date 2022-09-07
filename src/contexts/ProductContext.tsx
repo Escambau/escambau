@@ -46,6 +46,10 @@ interface IProductContext {
   productMoreInfo: IProduct | null;
   setProductMoreInfo: Dispatch<SetStateAction<IProduct | null>>;
   deleteProduct: (id: number) => void;
+  search: string;
+  setSearch: Dispatch<SetStateAction<string>>;
+  filteredProducts: IProduct[];
+  setFilteredProducts: Dispatch<SetStateAction<IProduct[]>>;
 }
 
 export interface IProduct {
@@ -65,11 +69,11 @@ export const ProductContext = createContext<IProductContext>(
 
 export function ProductProvider({ children }: IProductProvider) {
   const { redirectToProfile } = useContext(UserContext);
-
   const navigate = useNavigate();
-  // const token = `Bearer ${localStorage.getItem("@token")}`;
 
   const [products, setProducts] = useState<IProduct[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
+  const [search, setSearch] = useState<string>("");
   const [currentProduct, setCurrentProduct] = useState<boolean>(false);
   const [isModalConfirmTrade, setIsModalConfirmTrade] =
     useState<boolean>(false);
@@ -98,9 +102,17 @@ export function ProductProvider({ children }: IProductProvider) {
   ];
 
   useEffect(() => {
-    const filterProductCategory = async () => {
-      console.log(selectCategory);
+    setFilteredProducts(
+      products.filter(
+        (product) =>
+          product.name.toLowerCase().includes(search.toLowerCase()) ||
+          product.category.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  }, [products, search]);
 
+  useEffect(() => {
+    const filterProductCategory = async () => {
       try {
         if (selectCategory === "Todos") {
           api.get(`/products`).then((response) => {
@@ -111,7 +123,6 @@ export function ProductProvider({ children }: IProductProvider) {
             .get(`/products`, { params: { category: selectCategory } })
             .then((response) => {
               setProducts(response.data);
-              console.log(response.data);
             });
         }
       } catch (error) {
@@ -158,6 +169,7 @@ export function ProductProvider({ children }: IProductProvider) {
       setUserSelectedProducts([...userSelectedProducts, currentProduct]);
     }
   };
+
   const isSelected = (currentProduct: IProduct) => {
     if (
       userSelectedProducts.find((product) => product.id === currentProduct.id)
@@ -187,7 +199,7 @@ export function ProductProvider({ children }: IProductProvider) {
         redirectToProfile();
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
         ProductAddNegative();
       });
   };
@@ -261,6 +273,10 @@ export function ProductProvider({ children }: IProductProvider) {
         productMoreInfo,
         setProductMoreInfo,
         deleteProduct,
+        search,
+        setSearch,
+        setFilteredProducts,
+        filteredProducts,
       }}
     >
       {children}

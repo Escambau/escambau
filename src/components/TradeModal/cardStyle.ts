@@ -6,12 +6,12 @@ export const Card = styled.button`
   align-items: center;
   width: 90%;
   border: 1px solid var(--lightGrey);
-  padding: 15px 5px;
+  padding: 10px 20px;
   margin: 8px 0px;
-
+  cursor: pointer;
   transition: 0.3s;
   :hover {
-    width: 91%;
+    width: 89%;
   }
 
   & > section {
@@ -32,17 +32,29 @@ export const Card = styled.button`
     align-items: center;
 
     & > img {
-      height: 50px;
+      object-fit: cover;
+      width: 100px;
+      height: 100px;
+      border-radius: 20px;
+      margin-right: 15px;
+
+      @media (max-width: 450px) {
+        width: 70px;
+        height: 70px;
+      }
     }
 
     & > div {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 70px;
+      gap: 20px;
+      /* height: 70px; */
       text-align: start;
-
       & > div {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
         & > h4 {
           font-size: 12px;
           font-weight: 400;
@@ -53,7 +65,6 @@ export const Card = styled.button`
           font-family: "Montserrat";
         }
       }
-
       & > section {
         display: flex;
         align-items: center;
@@ -75,6 +86,10 @@ export const Card = styled.button`
     border-radius: 100%;
     width: 25px;
     height: 25px;
+    
+    @media (max-width: 450px) {
+      right: 0px;
+    }
   }
 
   .checkmarkTrue {
@@ -84,13 +99,17 @@ export const Card = styled.button`
     color: green;
     font-size: 20px;
   }
-  .checkmarkFalse {
-  }
 
   @media (min-width: 768px) {
     .checkmark {
       top: 0;
       right: 30px;
     }
+  }
+  @media (min-width: 768px) {
+    padding: 20px;
+  }
+  @media (max-width: 360px) {
+    padding: 5px;
   }
 `;

@@ -1,5 +1,4 @@
 import FormEditProduct from "../../components/FormEditProduct";
-import Header from "../../../src/components/UserDashboard/Header";
 import shopping from "../../assets/shopping.png";
 import { Container } from "./style";
 import { motion } from "framer-motion";
@@ -10,6 +9,7 @@ import { UserContext } from "../../contexts/UserContext";
 import { ProductContext } from "../../contexts/ProductContext";
 import DropdownModal from "../../components/DropdownModal";
 import { CurrentContext } from "./../../contexts/CurrentContext";
+import Header from "../../components/Header";
 
 const EditProduct = () => {
   const navigate = useNavigate();

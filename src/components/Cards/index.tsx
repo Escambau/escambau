@@ -17,7 +17,10 @@ const Cards = ({ product }: ICardsContext) => {
   const { getCurrent } = useContext(CurrentContext);
   const navigate = useNavigate();
   return (
-    <Card onClick={() => navigate("/moreinfo")}>
+    <Card onClick={() => {
+      navigate("/moreinfo")
+      getCurrent(product.id)
+    }}>
       <div>
         <img src={product.image} alt="" />
 
@@ -35,27 +38,31 @@ const Cards = ({ product }: ICardsContext) => {
       </div>
 
       <label className="containerButtons">
-        {user ? (
+        {window.innerWidth > 768 &&
           <>
-            <button className="btnTrade" onClick={() => setIsTradeModal(true)}>
-              Trocar
-            </button>
-            <button className="infoPlus" onClick={() => getCurrent(product.id)}>
-              <AiFillInfoCircle className="iconInfo" />
-              Mais informações
-            </button>
+            {user ? (
+              <>
+                <button className="btnTrade" onClick={() => setIsTradeModal(true)}>
+                  Trocar
+                </button>
+                <button className="infoPlus" onClick={() => getCurrent(product.id)}>
+                  <AiFillInfoCircle className="iconInfo" />
+                  Mais informações
+                </button>
+              </>
+            ) : (
+              <>
+                <button onClick={() => navigate("/register")}>
+                  Criar minha conta
+                </button>
+                <button className="infoPlus" onClick={() => getCurrent(product.id)}>
+                  <AiFillInfoCircle className="iconInfo" />
+                  Mais informações
+                </button>
+              </>
+            )}
           </>
-        ) : (
-          <>
-            <button onClick={() => navigate("/register")}>
-              Criar minha conta
-            </button>
-            <button className="infoPlus" onClick={() => getCurrent(product.id)}>
-              <AiFillInfoCircle className="iconInfo" />
-              Mais informações
-            </button>
-          </>
-        )}
+        }
       </label>
     </Card>
   );
