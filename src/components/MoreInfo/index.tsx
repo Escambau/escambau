@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-
 import { CurrentContext } from "../../contexts/CurrentContext";
 import { UserContext } from "./../../contexts/UserContext";
 import { useContext } from "react";
@@ -7,17 +6,16 @@ import { Container } from "./style";
 import HeaderUnlogged from "../HeaderUnlogged";
 import { ProductContext } from "../../contexts/ProductContext";
 import { useNavigate } from "react-router-dom";
-import TradeModal from "../TradeModal";
 import ConfirmTradeModal from "../ConfirmTradeModal";
 import Header from "../Header";
+import DropdownModal from "../DropdownModal";
 
 const MoreInfo = () => {
   const { user } = useContext(UserContext);
   const { setIsTradeModal, setProductToEdit, deleteProduct } = useContext(ProductContext);
-  const { isLogged, currentUser } = useContext(CurrentContext);
-  const currentProduct = JSON.parse(
-    localStorage.getItem("@currentProduct") as any
-  );
+  const { isLogged } = useContext(CurrentContext);
+  const currentProduct = JSON.parse(localStorage.getItem("@currentProduct") as any);
+  const currentUser = JSON.parse(localStorage.getItem("@currentUser") as any);
   const navigate = useNavigate();
 
   return (
@@ -30,7 +28,7 @@ const MoreInfo = () => {
       >
         {user ? <Header /> : <HeaderUnlogged />}
         <ConfirmTradeModal />
-        <TradeModal />
+        <DropdownModal />
         <Container isLogged={isLogged}>
           <section className="left-wrapper">
             <div className="product-info">
@@ -73,9 +71,9 @@ const MoreInfo = () => {
               {user?.id ? (
                 <button
                   className="btn"
-                  onClick={() => {
-                    user ? setIsTradeModal(true) : navigate("/register");
-                  }}
+                  onClick={() =>
+                    user ? setIsTradeModal(true) : navigate("/register")
+                  }
                 >
                   {user ? "Solicitar troca" : "Criar minha conta"}
                 </button>
