@@ -18,7 +18,7 @@ export const Section = styled.section`
     font-family: "Montserrat";
     font-size: 19px;
     font-weight: 700;
-    color: var(--blue);
+    color: ${(props) => props.theme.colors.blue};
   }
   .infoInicial {
     display: none;
@@ -46,7 +46,7 @@ export const Section = styled.section`
         h2 {
           font-family: "Montserrat";
           font-weight: 700;
-          color: var(--blue);
+          color: ${(props) => props.theme.colors.blue};
           font-size: 1.3rem;
           text-align: left;
           line-height: 35px;
@@ -56,7 +56,7 @@ export const Section = styled.section`
           text-align: left;
           font-family: "Montserrat";
           font-weight: 700;
-          color: var(--green);
+          color: ${(props) => props.theme.colors.green};
           font-size: 1rem;
         }
 
@@ -74,7 +74,7 @@ export const Section = styled.section`
         h2 {
           font-family: "Montserrat";
           font-weight: 800;
-          color: var(--blue);
+          color: ${(props) => props.theme.colors.blue};
           font-size: 1.75rem;
           text-align: left;
           line-height: 2.5rem;
@@ -84,7 +84,7 @@ export const Section = styled.section`
           text-align: left;
           font-family: "Montserrat";
           font-weight: 700;
-          color: var(--green);
+          color: ${(props) => props.theme.colors.green};
           font-size: 1.4rem;
         }
       }
@@ -103,7 +103,7 @@ export const Section = styled.section`
 
     @media (min-width: 600px) {
       width: 73%;
-      background-color: var(--lightGreyBackground);
+      background-color: ${(props) => props.theme.colors.lightGreyBackground};
       flex-direction: row;
       align-items: center;
       gap: 5rem;
@@ -159,7 +159,7 @@ export const Form = styled.form`
   }
 
   label {
-    color: var(--grey);
+    color: ${(props) => props.theme.colors.grey};
     font-size: 16px;
     font-weight: 800;
   }
@@ -167,8 +167,8 @@ export const Form = styled.form`
   input {
     width: 100%;
     height: 6vh;
-    border-bottom: 1px solid var(--lightGrey);
-    color: var(--grey);
+    border-bottom: 1px solid ${(props) => props.theme.colors.lightGrey};
+    color: ${(props) => props.theme.colors.grey};
     outline: 0;
     padding: 0 1vh;
     font-size: 16px;
@@ -184,7 +184,7 @@ export const Form = styled.form`
 
   input::placeholder {
     align-self: flex-start;
-    color: var(--lightGrey);
+    color: ${(props) => props.theme.colors.lightGrey};
     font-size: 16px;
     font-weight: 400;
     font-family: "Roboto";
@@ -204,8 +204,8 @@ export const Form = styled.form`
     font-family: "Roboto";
     font-size: 16px;
     font-weight: 400;
-    color: var(--lightGrey);
-    border-bottom: 1px solid var(--lightGrey);
+    color: ${(props) => props.theme.colors.lightGrey};
+    border-bottom: 1px solid ${(props) => props.theme.colors.lightGrey};
     height: 2rem;
     width: 100%;
     cursor: pointer;
@@ -219,13 +219,13 @@ export const Form = styled.form`
   }
   select option {
     font-size: 0.8rem;
-    color: var(--grey);
+    color: ${(props) => props.theme.colors.grey};
     width: 100%;
     cursor: pointer;
   }
 
   button {
-    background-color: var(--green);
+    background-color: ${(props) => props.theme.colors.green};
     font-family: "Montserrat";
     font-size: 1rem;
     font-weight: 700;
@@ -238,7 +238,7 @@ export const Form = styled.form`
   }
 
   button:hover {
-    background-color: var(--greenOpacity);
+    background-color: ${(props) => props.theme.colors.greenOpacity};
     transition: 0.4s;
   }
 
@@ -251,6 +251,6 @@ export const Form = styled.form`
     padding-left: 0.1rem;
     font-size: 0.7rem;
     font-weight: 600;
-    color: var(--redSpan);
+    color: ${(props) => props.theme.colors.redSpan};
   }
 `;

@@ -44,7 +44,7 @@ export const ModalLogin = styled.div`
       }
     }
   }
-  
+
   .box-login {
     max-width: 310px;
     width: 100%;
@@ -99,7 +99,7 @@ export const ModalLogin = styled.div`
         }
 
         label {
-          color: var(--grey);
+          color: ${(props) => props.theme.colors.grey};
           font-family: "Montserrat";
         }
 
@@ -130,7 +130,7 @@ export const ModalLogin = styled.div`
         span {
           font-size: 10px;
           font-weight: 700;
-          color: var(--redSpan);
+          color: ${(props) => props.theme.colors.redSpan};
         }
       }
 
@@ -139,7 +139,7 @@ export const ModalLogin = styled.div`
 
         margin-top: 20px;
         color: white;
-        background-color: var(--green);
+        background-color: ${(props) => props.theme.colors.green};
 
         padding: 12px 0;
 
@@ -152,7 +152,7 @@ export const ModalLogin = styled.div`
         font-family: "Montserrat";
 
         :hover {
-          background-color: var(--greenOpacity);
+          background-color: ${(props) => props.theme.colors.greenOpacity};
           transition: 0.4s;
         }
       }
@@ -169,7 +169,7 @@ export const ModalLogin = styled.div`
       padding-bottom: 20px;
 
       h3 {
-        color: var(--blue);
+        color: ${(props) => props.theme.colors.blue};
         font-size: 14px;
         font-family: "Montserrat";
 
@@ -180,7 +180,7 @@ export const ModalLogin = styled.div`
         width: 100%;
 
         color: white;
-        background-color: var(--grey);
+        background-color: ${(props) => props.theme.colors.grey};
 
         border-radius: 5px;
         border: none;
@@ -192,7 +192,7 @@ export const ModalLogin = styled.div`
         font-family: "Montserrat";
 
         :hover {
-          background-color: var(--lightGrey);
+          background-color: ${(props) => props.theme.colors.lightGrey};
           transition: 0.4s;
         }
       }

@@ -19,7 +19,6 @@ root.render(
       <UserProvider>
         <ProductProvider>
           <CurrentProvider>
-            <GlobalStyle />
             <ColorsProvider>
               <App />
             </ColorsProvider>

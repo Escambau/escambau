@@ -19,10 +19,10 @@ export const ContainerAddProduct = styled.main`
       height: 35px;
       align-self: center;
       font-family: "Montserrat";
-      color: var(--blue);
+      color: ${(props) => props.theme.colors.blue};
       font-size: 14px;
       font-weight: 900;
-      border: 2px solid var(--blue);
+      border: 2px solid ${(props) => props.theme.colors.blue};
 
       :hover {
         opacity: 80%;
@@ -30,7 +30,7 @@ export const ContainerAddProduct = styled.main`
     }
     h2 {
       font-family: "Montserrat";
-      color: var(--blue);
+      color: ${(props) => props.theme.colors.blue};
       font-size: 18px;
       font-weight: 900;
     }
@@ -63,7 +63,7 @@ export const ContainerAddProduct = styled.main`
         font-weight: 700;
 
         color: #fff;
-        background-color: var(--blue);
+        background-color: ${(props) => props.theme.colors.blue};
         border: none;
 
         padding-right: 20px;
@@ -78,7 +78,7 @@ export const ContainerAddProduct = styled.main`
     section {
       display: flex;
       flex-direction: row;
-      background-color: var(--lightGreyBackground);
+      background-color: ${(props) => props.theme.colors.lightGreyBackground};
       border-radius: 8px;
 
       margin-top: 20px;
@@ -106,10 +106,10 @@ export const ContainerAddProduct = styled.main`
             line-height: 30px;
             text-align: start;
 
-            color: var(--blue);
+            color: ${(props) => props.theme.colors.blue};
           }
           p + p {
-            color: var(--green);
+            color: ${(props) => props.theme.colors.green};
             padding-top: 20px;
           }
 

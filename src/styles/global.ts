@@ -11,11 +11,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
 	::-webkit-scrollbar-thumb {
-		background-color: var(--lightGrey);
-		border: 3px solid var(--lightGrey);
+		background-color: ${(props) => props.theme.colors.lightGrey};
+		border: 3px solid ${(props) => props.theme.colors.lightGrey};
 	}
 
 	
+/* 
+ROOT NAO EXISTE MAIS POR CAUSA DO DARK MODE. USE AS PROPS NO LUGAR DAS VARIAVEIS TAL COMO ABAIXO: 
+EXEMPLO:
+${(props) => props.theme.colors.lightGrey};
 
 	 :root {
 		--lightGreyBackground: #f7f7f7;
@@ -30,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
 		--redOpacity: #ff5959;
 		--redSpan: #d50000;
 		--orange: #E84500;
-	}   
+	}    */
 
 	@font-face {
 	font-family: 'Montserrat';

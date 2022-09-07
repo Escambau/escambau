@@ -19,7 +19,7 @@ export const List = styled.ul`
     background-color: #dfe6e9;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: var(--blue);
+    background-color: ${(props) => props.theme.colors.blue};
     border-radius: 5px;
   }
 `;
