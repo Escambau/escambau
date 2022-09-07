@@ -72,7 +72,7 @@ const MoreInfo = () => {
               <p>{currentProduct?.description}</p>
             </div>
             <div className="btn-wrapper">
-              {user?.id !== currentProduct.userId ? (
+              {user?.id ? (
                 <button
                   className="btn"
                   onClick={() => {
