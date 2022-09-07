@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import Header from "../../components/UserDashboard/Header";
 import { ContainerAddProduct } from "./style";
 import mobile from "../../assets/mobileShop.png";
 import { UserContext } from "../../contexts/UserContext";
@@ -8,6 +7,7 @@ import { FormAddProduct } from "../../components/FormAddProduct";
 import { Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { CurrentContext } from "./../../contexts/CurrentContext";
+import Header from "../../components/Header";
 
 export function AddProduct() {
   const { navigate } = useContext(UserContext);

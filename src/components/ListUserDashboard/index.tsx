@@ -1,8 +1,8 @@
 import { AiFillInfoCircle } from "react-icons/ai";
-import { ProductContext } from "../../../contexts/ProductContext";
+import { ProductContext } from "../../contexts/ProductContext";
 import Card, { ListTag } from "./style";
 import { useContext } from "react";
-import { CurrentContext } from "../../../contexts/CurrentContext";
+import { CurrentContext } from "../../contexts/CurrentContext";
 import { useNavigate } from "react-router-dom";
 
 const List = () => {

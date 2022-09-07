@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Header from "../UserDashboard/Header";
+
 import { CurrentContext } from "../../contexts/CurrentContext";
 import { UserContext } from "./../../contexts/UserContext";
 import { useContext } from "react";
@@ -9,6 +9,7 @@ import { ProductContext } from "../../contexts/ProductContext";
 import { useNavigate } from "react-router-dom";
 import TradeModal from "../TradeModal";
 import ConfirmTradeModal from "../ConfirmTradeModal";
+import Header from "../Header";
 
 const MoreInfo = () => {
   const { user } = useContext(UserContext);
