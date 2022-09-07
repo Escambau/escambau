@@ -38,10 +38,10 @@ export const MainTag = styled.main`
       text-align: start;
     }
     & > button {
-      background-color: var(--blue);
-      padding: 5px 6px 2px 6px;
-      font-size: 14px;
-      font-weight: 400;
+      background-color: var(--green);
+      padding: 10px;
+      font-size: 13px;
+      font-weight: 700;
       color: white;
       transition: 0.3s;
       :hover {
