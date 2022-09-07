@@ -15,7 +15,9 @@ const GlobalStyle = createGlobalStyle`
 		border: 3px solid var(--lightGrey);
 	}
 
-	:root {
+	
+
+	 :root {
 		--lightGreyBackground: #f7f7f7;
 		--lightGrey: #D9D9D9;
 		--grey: #979797;
@@ -28,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
 		--redOpacity: #ff5959;
 		--redSpan: #d50000;
 		--orange: #E84500;
-	}
+	}   
 
 	@font-face {
 	font-family: 'Montserrat';

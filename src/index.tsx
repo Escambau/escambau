@@ -9,6 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import GlobalStyle from "./styles/global";
 import { CurrentProvider } from "./contexts/CurrentContext";
+import { ColorsProvider } from "./contexts/ColorsContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -20,7 +21,9 @@ root.render(
         <ProductProvider>
           <CurrentProvider>
             <GlobalStyle />
-            <App />
+            <ColorsProvider>
+              <App />
+            </ColorsProvider>
           </CurrentProvider>
         </ProductProvider>
       </UserProvider>
