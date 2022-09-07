@@ -5,7 +5,6 @@ export const Category = styled.div`
   justify-content: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20px;
   width: 100%;
 
   .searchResults {
@@ -20,20 +19,28 @@ export const Category = styled.div`
     }
   }
 
-  & > h3 {
-    color: var(--blue);
-    font-size: 14px;
-    font-family: "Montserrat";
-    font-weight: 600;
-  }
-  & > select {
-    border: 1px solid var(--blue);
-    border-radius: 8px;
-    padding: 3px 3px;
-    text-align: center;
-    color: var(--blue);
-    font-size: 12px;
-    font-weight: 500;
+  & > div {
+    
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    
+    & > h3 {
+      color: var(--blue);
+      font-size: 14px;
+      font-family: "Montserrat";
+      font-weight: 600;
+      margin: 5px 10px 0 0;
+    }
+    & > select {
+      border: 1px solid var(--blue);
+      border-radius: 8px;
+      padding: 3px 3px;
+      text-align: center;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 500;
+    }
   }
 
   & > div {
