@@ -11,8 +11,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
 	::-webkit-scrollbar-thumb {
-		background-color: var(--blue);
-		border: 3px solid var(--blue);
+		background-color: var(--lightGrey);
+		border: 3px solid var(--lightGrey);
 	}
 
 	:root {
