@@ -2,8 +2,8 @@ import { HeaderTag } from "./style";
 import { AiOutlineSearch } from "react-icons/ai";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { ImUser } from "react-icons/im";
-import { UserContext } from "../../../contexts/UserContext";
-import { ProductContext } from "../../../contexts/ProductContext";
+import { UserContext } from "../../contexts/UserContext";
+import { ProductContext } from "../../contexts/ProductContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
