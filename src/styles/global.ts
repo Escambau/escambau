@@ -5,6 +5,16 @@ import RobotoWoff from "../fonts/roboto-v30-latin-regular.woff";
 import RobotoWoff2 from "../fonts/roboto-v30-latin-regular.woff2";
 const GlobalStyle = createGlobalStyle`
 
+	::-webkit-scrollbar {
+    width: 12px;
+		background-color: transparent;
+  }
+
+	::-webkit-scrollbar-thumb {
+		background-color: var(--blue);
+		border: 3px solid var(--blue);
+	}
+
 	:root {
 		--lightGreyBackground: #f7f7f7;
 		--lightGrey: #D9D9D9;
