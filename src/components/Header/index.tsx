@@ -7,10 +7,12 @@ import { ProductContext } from "../../contexts/ProductContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Switch from "react-switch";
+import { CurrentContext } from "../../contexts/CurrentContext";
 
 const Header = () => {
   const { user, setIsDropdownModal } = useContext(UserContext);
   const { setSearch } = useContext(ProductContext);
+  const { windowWidth } = useContext(CurrentContext);
   const navigate = useNavigate();
 
   return (
@@ -34,7 +36,7 @@ const Header = () => {
 
           <button onClick={() => setIsDropdownModal(true)}>
             <ImUser className="perfil" />
-            {window.innerWidth > 764 && (
+            {windowWidth > 764 && (
               <h3 className="userName">Olá, {user?.name?.split(" ")[0]}</h3>
             )}
           </button>

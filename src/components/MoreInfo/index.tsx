@@ -17,7 +17,7 @@ const MoreInfo = () => {
   const currentProduct = JSON.parse(localStorage.getItem("@currentProduct") as any);
   const currentUser = JSON.parse(localStorage.getItem("@currentUser") as any);
   const navigate = useNavigate();
-
+    
   return (
     <>
       <motion.div

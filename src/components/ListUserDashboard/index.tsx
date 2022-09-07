@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const List = () => {
   const { userProductList, setProductToEdit, deleteProduct } =
     useContext(ProductContext);
-  const { getCurrent } = useContext(CurrentContext);
+  const { getCurrent, windowWidth } = useContext(CurrentContext);
   const navigate = useNavigate();
 
   return (
@@ -31,7 +31,7 @@ const List = () => {
               </div>
             </div>
             <section className="container-buttons">
-              {window.innerWidth > 768 && (
+              {windowWidth > 768 && (
                 <>
                   <button
                     className="infoPlus"

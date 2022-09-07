@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode } from "react";
+import { createContext, useState, ReactNode, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 
@@ -25,6 +25,8 @@ interface IProductContext {
   setProductUrl: React.Dispatch<React.SetStateAction<string>>;
   editProductUrl: string;
   setEditProductUrl: React.Dispatch<React.SetStateAction<string>>;
+  windowWidth: number;
+  setWindowWidth: React.Dispatch<React.SetStateAction<number>>;
 }
 export const CurrentContext = createContext<IProductContext>(
   {} as IProductContext
@@ -38,6 +40,7 @@ export const CurrentProvider = ({ children }: IProductProvider) => {
   const [isLogged, setIsLogged] = useState<boolean>(false);
   const [productUrl, setProductUrl] = useState<string>("");
   const [editProductUrl, setEditProductUrl] = useState<string>("");
+  const [windowWidth, setWindowWidth] = useState<number>(0)
   const navigate = useNavigate();
 
   const getCurrent = (currentId: number) => {
@@ -68,6 +71,14 @@ export const CurrentProvider = ({ children }: IProductProvider) => {
       });
   };
 
+  const myTimer = () => {setWindowWidth(window.innerWidth)}
+  const myInterval = setInterval(myTimer as any, 500)
+  
+  useEffect(() => {
+    console.log(windowWidth);
+    
+  }, [windowWidth])
+
   return (
     <CurrentContext.Provider
       value={{
@@ -80,6 +91,8 @@ export const CurrentProvider = ({ children }: IProductProvider) => {
         setProductUrl,
         editProductUrl,
         setEditProductUrl,
+        windowWidth, 
+        setWindowWidth
       }}
     >
       {children}
