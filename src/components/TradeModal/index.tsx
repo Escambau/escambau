@@ -15,7 +15,7 @@ const TradeModal = () => {
     isTradeModal,
     setIsTradeModal,
     setIsModalConfirmTrade,
-    userProductList
+    userProductList,
   } = useContext(ProductContext);
   const { user } = useContext(UserContext);
   useEffect(() => {
@@ -32,54 +32,64 @@ const TradeModal = () => {
       {isTradeModal && (
         <BackgroundGradiente>
           <Modal>
-            <div>
-              <h3>Selecione o produto que será trocado</h3>
+            <div className="container">
+              <h3 className="title">Selecione o produto que será trocado</h3>
               <button onClick={() => setIsTradeModal(false)}>
                 <IoMdClose />
               </button>
             </div>
 
-            {userProductList.length > 0 ?
-              <List>
-                {userProductList?.map((card) => {
-                  return (
-                    <Card key={card.id} onClick={() => filterProductsUser(card)}>
-                      <div>
-                        <img src={card.image} alt="" />
-
+            {userProductList.length > 0 ? (
+              <>
+                <List>
+                  {userProductList?.map((card) => {
+                    return (
+                      <Card
+                        key={card.id}
+                        onClick={() => filterProductsUser(card)}
+                      >
                         <div>
+                          <img src={card.image} alt="" />
+
                           <div>
-                            <h4>{card.category}</h4>
-                            <h3>{card.name}</h3>
+                            <div>
+                              <h4>{card.category}</h4>
+                              <h3>{card.name}</h3>
+                            </div>
+                            <section>
+                              {window.innerWidth > 500 && (
+                                <p>Preço estipulado:</p>
+                              )}
+                              <span>R$ {Number(card.price).toFixed(2)}</span>
+                            </section>
                           </div>
-                          <section>
-                            <p>Preço estipulado:</p>
-                            <span>{card.price}</span>
-                          </section>
                         </div>
-                      </div>
 
-                      <label className="containerCheckbox">
-                        {isSelected(card) ? (
-                          <span className="checkmarkFalse" />
-                        ) : (
-                          <FiCheck className="checkmarkTrue" />
-                        )}
-                      </label>
-                    </Card>
-                  );
-                })}
-              </List>
-              :
-              <h2>Ainda você ainda não adicionou nenhum produto</h2>
-            }
-
-            <button
-              className="btnTrade"
-              onClick={() => setIsModalConfirmTrade(true)}
-            >
-              Solicitar Troca
-            </button>
+                        <label className="containerCheckbox">
+                          {isSelected(card) ? (
+                            <span className="checkmarkFalse" />
+                          ) : (
+                            <FiCheck className="checkmarkTrue" />
+                          )}
+                        </label>
+                      </Card>
+                    );
+                  })}
+                </List>
+                <div className="containerBtnTrade">
+                  <button
+                    className="btnTrade"
+                    onClick={() => setIsModalConfirmTrade(true)}
+                  >
+                    Solicitar Troca
+                  </button>
+                </div>
+              </>
+            ) : (
+              <h2 className="emptyList">
+                Você ainda não adicionou nenhum produto
+              </h2>
+            )}
           </Modal>
         </BackgroundGradiente>
       )}
