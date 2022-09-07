@@ -1,17 +1,19 @@
 import { useContext } from "react";
+import { CurrentContext } from "../../contexts/CurrentContext";
 import { ProductContext } from "../../contexts/ProductContext";
 import { Category } from "./style";
 
 const Categorys = () => {
   const { search, categorysList, selectCategory, setSelectCategory } =
     useContext(ProductContext);
+    const {windowWidth} = useContext(CurrentContext)
   return (
     <>
       <Category>
         
-        {window.innerWidth < 764 ? (
+        {windowWidth < 764 ? (
           <div>
-            {window.innerWidth < 764 && <h3>Categorias:</h3>}
+            {windowWidth < 764 && <h3>Categorias:</h3>}
             <select
               name=""
               id=""
