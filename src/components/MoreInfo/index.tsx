@@ -12,12 +12,12 @@ import DropdownModal from "../DropdownModal";
 
 const MoreInfo = () => {
   const { user } = useContext(UserContext);
-  const { setIsTradeModal, isTradeModal, setProductToEdit, deleteProduct } = useContext(ProductContext);
-  const { isLogged, currentProduct, currentUser } = useContext(CurrentContext)
+  const { setIsTradeModal, setProductToEdit, deleteProduct } = useContext(ProductContext);
+  const { isLogged } = useContext(CurrentContext);
+  const currentProduct = JSON.parse(localStorage.getItem("@currentProduct") as any);
+  const currentUser = JSON.parse(localStorage.getItem("@currentUser") as any);
   const navigate = useNavigate();
-  console.log(isTradeModal);
-  console.log(setIsTradeModal);
-  
+
   return (
     <>
       <motion.div
