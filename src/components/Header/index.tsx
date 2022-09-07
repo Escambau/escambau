@@ -6,10 +6,14 @@ import { UserContext } from "../../contexts/UserContext";
 import { ProductContext } from "../../contexts/ProductContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { ThemeContext } from "styled-components";
+import { ColorsContext } from "../../contexts/ColorsContext";
 import Switch from "react-switch";
 import { CurrentContext } from "../../contexts/CurrentContext";
 
 const Header = () => {
+  const { toggleTheme } = useContext(ColorsContext);
+  const { colors, title } = useContext(ThemeContext);
   const { user, setIsDropdownModal } = useContext(UserContext);
   const { setSearch } = useContext(ProductContext);
   const { windowWidth } = useContext(CurrentContext);
@@ -28,10 +32,15 @@ const Header = () => {
           </button>
 
           <Switch
-            onChange={() => {}}
-            checked={true}
+            onChange={toggleTheme}
+            checked={title === "dark"}
             checkedIcon={false}
             uncheckedIcon={false}
+            height={15}
+            width={40}
+            handleDiameter={20}
+            offColor={colors.darkGrey}
+            onColor={colors.lightGrey}
           />
 
           <button onClick={() => setIsDropdownModal(true)}>

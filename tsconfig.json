@@ -14,8 +14,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "typeRoots": ["src/styles/styled.d.ts"]
   },
-  "include": ["src", "modules.d.ts"],
-  "files": ["src/styles/styled.d.ts"]
+  "include": ["src", "modules.d.ts"]
 }

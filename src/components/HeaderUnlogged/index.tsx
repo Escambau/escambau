@@ -4,9 +4,13 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../contexts/ProductContext";
+import { ThemeContext } from "styled-components";
+import { ColorsContext } from "../../contexts/ColorsContext";
 import Switch from "react-switch";
 
 const HeaderUnlogged = () => {
+  const { toggleTheme } = useContext(ColorsContext);
+  const { colors, title } = useContext(ThemeContext);
   const { setSearch } = useContext(ProductContext);
   const { setIsModalLogin } = useContext(UserContext);
   const navigate = useNavigate();
@@ -20,10 +24,15 @@ const HeaderUnlogged = () => {
 
         <div className="container-switch-login">
           <Switch
-            onChange={() => {}}
-            checked={true}
+            onChange={toggleTheme}
+            checked={title === "dark"}
             checkedIcon={false}
             uncheckedIcon={false}
+            height={15}
+            width={40}
+            handleDiameter={20}
+            offColor={colors.darkGrey}
+            onColor={colors.lightGrey}
           />
           <button className="btnLogin" onClick={() => setIsModalLogin(true)}>
             Login
