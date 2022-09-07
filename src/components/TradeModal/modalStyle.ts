@@ -68,10 +68,15 @@ export const Modal = styled.div`
     .title {
       color: white;
       font-size: 18px;
-
+      margin-left: 15px;
       width: 100%;
       text-align: start;
       line-height: 15px;
+
+      @media (max-width: 768px){
+        width: 80%;
+        font-size: 16px;
+      }
     }
 
     & > button {
@@ -96,22 +101,6 @@ export const Modal = styled.div`
     font-size: 16px;
     font-weight: 400;
     padding: 20px;
-  }
-
-  @media (min-width: 768px) {
-    & > div {
-      & > h3 {
-        font-size: 14px;
-      }
-      & > button {
-        top: -12px;
-        right: -12px;
-        font-size: 22px;
-        :hover {
-          font-size: 23px;
-        }
-      }
-    }
   }
 `;
 
