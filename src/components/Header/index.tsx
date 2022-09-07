@@ -6,6 +6,7 @@ import { UserContext } from "../../contexts/UserContext";
 import { ProductContext } from "../../contexts/ProductContext";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import Switch from "react-switch";
 
 const Header = () => {
   const { user, setIsDropdownModal } = useContext(UserContext);
@@ -23,10 +24,18 @@ const Header = () => {
           <button>
             <IoMdNotificationsOutline className="notification" />
           </button>
+
+          <Switch
+            onChange={() => {}}
+            checked={true}
+            checkedIcon={false}
+            uncheckedIcon={false}
+          />
+
           <button onClick={() => setIsDropdownModal(true)}>
             <ImUser className="perfil" />
             {window.innerWidth > 764 && (
-              <h3 className="userName">Olá, {(user?.name)?.split(" ")[0]}</h3>
+              <h3 className="userName">Olá, {user?.name?.split(" ")[0]}</h3>
             )}
           </button>
         </section>

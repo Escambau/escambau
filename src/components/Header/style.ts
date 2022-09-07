@@ -3,25 +3,22 @@ import styled from "styled-components";
 export const HeaderTag = styled.header`
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-
   background: var(--blue);
-
   height: 110px;
   width: 100vw;
-
-  padding: 10px 0px;
+  padding: 10px 10px;
 
   .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    width: 90%;
-
+    width: 100%;
     margin-bottom: 10px;
-    
-    button{
+    padding: 0;
+
+    button {
       & > h1 {
         color: white;
         font-family: "Montserrat";
@@ -32,9 +29,10 @@ export const HeaderTag = styled.header`
   }
 
   .notification-perfil {
-    width: 75px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: 2vh;
   }
   .notification {
     color: white;
@@ -66,7 +64,7 @@ export const HeaderTag = styled.header`
 
   .searchBar {
     position: relative;
-    width: 90%;
+    width: 100%;
     max-width: 450px;
     & > input {
       width: 100%;

@@ -4,21 +4,31 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../contexts/ProductContext";
+import Switch from "react-switch";
 
 const HeaderUnlogged = () => {
   const { setSearch } = useContext(ProductContext);
-
   const { setIsModalLogin } = useContext(UserContext);
   const navigate = useNavigate();
+
   return (
     <HeaderTag>
       <div className="container">
         <button onClick={() => navigate("/")}>
           <h1>Escambau</h1>
         </button>
-        <button className="btnLogin" onClick={() => setIsModalLogin(true)}>
-          Login
-        </button>
+
+        <div className="container-switch-login">
+          <Switch
+            onChange={() => {}}
+            checked={true}
+            checkedIcon={false}
+            uncheckedIcon={false}
+          />
+          <button className="btnLogin" onClick={() => setIsModalLogin(true)}>
+            Login
+          </button>
+        </div>
       </div>
 
       <div className="searchBar">
