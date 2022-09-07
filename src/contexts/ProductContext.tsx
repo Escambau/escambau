@@ -207,12 +207,17 @@ export function ProductProvider({ children }: IProductProvider) {
   const editProduct = (data: IProduct) => {
     const id = productToEdit.id;
     const token = localStorage.getItem("@token");
+    const userId = localStorage.getItem("@id");
     api
-      .put(`/products/${id}`, data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .put(
+        `/products/${id}`,
+        { ...data, userId },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((res) => {
         const editedProducts = userProductList.map((product) => {
           if (product.id === res.data.id) {
@@ -225,7 +230,8 @@ export function ProductProvider({ children }: IProductProvider) {
         EditProductSuccess();
         navigate("/profile", { replace: true });
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err);
         EditProductError();
       });
   };
