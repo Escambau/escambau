@@ -14,7 +14,7 @@ interface ICardsContext {
 const Cards = ({ product }: ICardsContext) => {
   const { user } = useContext(UserContext);
   const { setIsTradeModal } = useContext(ProductContext);
-  const { getCurrent } = useContext(CurrentContext);
+  const { getCurrent, windowWidth } = useContext(CurrentContext);
   const navigate = useNavigate();
   return (
     <Card >
@@ -30,7 +30,7 @@ const Cards = ({ product }: ICardsContext) => {
             }}>{product.name}</h3>
           </div>
           <section>
-            {window.innerWidth > 500 && <p>Preço estipulado:</p>}
+            {windowWidth > 500 && <p>Preço estipulado:</p>}
             <span>R$ {Number(product.price).toFixed(2)}</span>
 
           </section>
@@ -38,7 +38,7 @@ const Cards = ({ product }: ICardsContext) => {
       </div>
 
       <label className="containerButtons">
-        {window.innerWidth > 768 &&
+        {windowWidth > 768 &&
           <>
             {user ? (
               <>
