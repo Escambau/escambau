@@ -117,7 +117,6 @@ export const MainTag = styled.main`
       & > button {
         background-color: var(--green);
         padding: 10px;
-        /* padding: 7px 8px 4px 8px; */
         font-size: 13px;
         font-weight: 700;
         color: white;
