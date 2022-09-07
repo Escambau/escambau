@@ -239,6 +239,11 @@ export function ProductProvider({ children }: IProductProvider) {
           Authorization: `Bearer ${token}`,
         },
       });
+      await api
+        .get(`/products?userId=${localStorage.getItem("@id")}`)
+        .then((response) => {
+          setUserProductList(response.data);
+        });
 
       deleteProductSuccess();
     } catch (error) {
