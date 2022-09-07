@@ -52,7 +52,7 @@ export const CurrentProvider = ({ children }: IProductProvider) => {
       try {
         const responseProduct = await api.get(`/products/${currentId}`);
         setCurrentProduct(responseProduct.data);
-        
+
         const responseUser = await api.get(
           `/users/${responseProduct.data.userId}`
         );

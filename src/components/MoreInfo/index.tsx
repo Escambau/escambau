@@ -13,11 +13,8 @@ import Header from "../Header";
 
 const MoreInfo = () => {
   const { user } = useContext(UserContext);
-  const { setIsTradeModal, setProductToEdit, deleteProduct } =
-    useContext(ProductContext);
-  const { currentUser, currentProduct, isLogged } = useContext(CurrentContext);
+  const { setIsTradeModal, setProductToEdit, deleteProduct } = useContext(ProductContext);
   const navigate = useNavigate();
-
   return (
     <>
       <motion.div

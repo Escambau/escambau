@@ -9,11 +9,17 @@ import { LoginModal } from "../../components/LoginModal";
 import { MainTag } from "../../components/Main/style";
 import TradeModal from "../../components/TradeModal";
 import { UserContext } from "../../contexts/UserContext";
+import { motion } from "framer-motion";
 
 const Dashboard = () => {
   const { user } = useContext(UserContext);
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+    >
       <DropdownModal />
       <LoginModal />
       <ConfirmTradeModal />
@@ -26,7 +32,7 @@ const Dashboard = () => {
           <ListDashboard />
         </div>
       </MainTag>
-    </>
+    </motion.div>
   );
 };
 
