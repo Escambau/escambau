@@ -8,15 +8,22 @@ export const Card = styled.div`
   border: 1px solid ${(props) => props.theme.colors.lightGrey};
   padding: 10px 20px;
   margin: 8px 0px;
-  cursor: pointer;
   transition: 0.3s;
+
+  p {
+    color: ${(props) => props.theme.colors.textGeneral};
+  }
+
   :hover {
     width: 99%;
+    opacity: 80%;
   }
+
   & > section {
     display: flex;
     flex-direction: row;
     align-items: center;
+
     & > div {
       height: 50px;
       display: flex;
@@ -32,11 +39,17 @@ export const Card = styled.div`
     height: 70px;
     margin-right: 10px;
     gap: 5px;
+
     .btnTrade {
       background-color: ${(props) => props.theme.colors.green};
       padding: 10px;
-      color: white;
+      color: ${(props) => props.theme.colors.textButton};
       width: 180px;
+
+      :hover {
+        background-color: ${(props) => props.theme.colors.greenOpacity};
+      }
+
       @media (min-width: 768px) {
         width: 180px;
       }
@@ -57,7 +70,7 @@ export const Card = styled.div`
       font-weight: 400;
       transition: 0.3s;
       :hover {
-        color: var(--darkGrey);
+        color: ${(props) => props.theme.colors.darkGrey};
         transition: 0.4s;
       }
     }
@@ -92,6 +105,8 @@ export const Card = styled.div`
         & > h3 {
           font-size: 14px;
           font-family: "Montserrat";
+          color: ${(props) => props.theme.colors.textGeneral};
+          cursor: pointer;
 
           :hover {
             opacity: 80%;
@@ -104,6 +119,7 @@ export const Card = styled.div`
         & > p {
           font-size: 12px;
           margin-right: 5px;
+          ${(props) => props.theme.colors.textGeneral};
         }
         & > span {
           font-size: 14px;

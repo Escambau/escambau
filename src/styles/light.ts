@@ -2,6 +2,15 @@ export const light = () => {
   return {
     title: "light",
     colors: {
+      divTituloModal: "#4169E1",
+      icons: "#4169E1",
+      placeholder: "#D9D9D9",
+      backgroundInput: "#ffffff",
+      logoColor: "#ffffff",
+      headerColor: "#4169E1",
+      textButton: "#ffffff",
+      textGeneral: "#1B1B1B",
+      backgroundGeneral: "#ffffff",
       lightGreyBackground: "#f7f7f7",
       lightGrey: "#D9D9D9",
       grey: "#979797",

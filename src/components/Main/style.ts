@@ -42,7 +42,7 @@ export const MainTag = styled.main`
       padding: 10px;
       font-size: 13px;
       font-weight: 700;
-      color: white;
+      color: ${(props) => props.theme.colors.textButton};
       transition: 0.3s;
       :hover {
         background-color: ${(props) => props.theme.colors.greenOpacity};
@@ -95,7 +95,7 @@ export const MainTag = styled.main`
     transition: 0.3s;
     :hover {
       background-color: ${(props) => props.theme.colors.blue};
-      color: white;
+      color: ${(props) => props.theme.colors.textButton};
     }
   }
   @media (min-width: 768px) {
@@ -114,10 +114,10 @@ export const MainTag = styled.main`
       }
       & > button {
         background-color: ${(props) => props.theme.colors.green};
-        padding: 10px;
+        padding: 10px 30px;
         font-size: 13px;
         font-weight: 700;
-        color: white;
+        color: ${(props) => props.theme.colors.textButton};
         & > svg {
           font-size: 18px;
         }

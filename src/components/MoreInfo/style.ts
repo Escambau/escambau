@@ -37,7 +37,7 @@ export const Container = styled.div<Props>`
       h3 {
         font-size: 16px;
         font-family: "Montserrat";
-        color: var(--darkGrey);
+        color: ${(props) => props.theme.colors.darkGrey};
         font-weight: 700;
       }
 
@@ -109,7 +109,7 @@ export const Container = styled.div<Props>`
         }
         p {
           font-size: 14px;
-          color: var(--darkGrey);
+          color: ${(props) => props.theme.colors.darkGrey};
         }
         span {
           font-size: 16px;
@@ -145,7 +145,7 @@ export const Container = styled.div<Props>`
       p {
         text-align: left;
         font-size: 14px;
-        color: var(--darkGrey);
+        color: ${(props) => props.theme.colors.darkGrey};
       }
     }
 
@@ -163,7 +163,7 @@ export const Container = styled.div<Props>`
         background-color: ${(props) => props.theme.colors.blue};
         font-size: 18px;
         font-family: "Montserrat";
-        color: white;
+        color: ${(props) => props.theme.colors.textButton};
         font-weight: 900;
         height: 40px;
 
@@ -181,7 +181,7 @@ export const Container = styled.div<Props>`
       width: 45%;
       font-size: 11px;
       font-weight: 600;
-      color: white;
+      color: ${(props) => props.theme.colors.textButton};
       padding: 10px 20px;
       transition: 0.3s;
     }
@@ -190,16 +190,16 @@ export const Container = styled.div<Props>`
       border: 1px solid ${(props) => props.theme.colors.grey};
       :hover {
         background-color: grey;
-        color: white;
+        color: ${(props) => props.theme.colors.textButton};
       }
     }
     .delete {
       color: ${(props) => props.theme.colors.orange};
       border: 1px solid ${(props) => props.theme.colors.orange};
-      background-color: white;
+      ${(props) => props.theme.colors.backgroundGeneral};
       :hover {
         background-color: ${(props) => props.theme.colors.orange};
-        color: white;
+        color: ${(props) => props.theme.colors.textButton};
       }
     }
   }
@@ -229,12 +229,12 @@ export const Container = styled.div<Props>`
         background-color: ${(props) => props.theme.colors.lightGreyBackground};
         border: 0.1px solid ${(props) => props.theme.colors.lightGrey};
         border-radius: 5px;
-        padding: 6vh 0;
+        padding: 6vh 2vh;
         max-height: 230px;
 
         .user-info-name-address {
           .user-info-name {
-            flex-direction: row;
+            flex-direction: column;
           }
         }
       }

@@ -51,7 +51,21 @@ ${(props) => props.theme.colors.lightGrey};
 	body {
 		height: 100vh;
 		width: 100vw;
+		background-color:  ${(props) => props.theme.colors.backgroundGeneral};
 	}
+
+	select {
+		background-color:  ${(props) => props.theme.colors.backgroundInput}; }
+
+	input, textarea {
+		background-color:  ${(props) => props.theme.colors.backgroundInput};
+		color: ${(props) => props.theme.colors.textGeneral};
+
+		::placeholder {
+			color:  ${(props) => props.theme.colors.placeholder};
+		}
+	}
+
 
 	html, body, div, span, applet, object, iframe,
 	h1, h2, h3, h4, h5, h6, p, blockquote, pre,

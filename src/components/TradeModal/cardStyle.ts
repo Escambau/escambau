@@ -10,6 +10,7 @@ export const Card = styled.button`
   margin: 8px 0px;
   cursor: pointer;
   transition: 0.3s;
+  color: ${(props) => props.theme.colors.textGeneral};
   :hover {
     width: 89%;
   }

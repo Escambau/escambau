@@ -14,7 +14,6 @@ export const ContainerAddProduct = styled.main`
     width: 100%;
 
     button {
-      background-color: white;
       width: 150px;
       height: 35px;
       align-self: center;
@@ -61,11 +60,9 @@ export const ContainerAddProduct = styled.main`
       button {
         font-size: 12px;
         font-weight: 700;
-
-        color: #fff;
         background-color: ${(props) => props.theme.colors.blue};
+        color: ${(props) => props.theme.colors.textButton};
         border: none;
-
         padding-right: 20px;
         padding-left: 20px;
       }

@@ -2,6 +2,7 @@ import { HeaderTag } from "./style";
 import { AiOutlineSearch } from "react-icons/ai";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { ImUser } from "react-icons/im";
+import { BsMoonFill } from "react-icons/bs";
 import { UserContext } from "../../contexts/UserContext";
 import { ProductContext } from "../../contexts/ProductContext";
 import { useContext } from "react";
@@ -30,18 +31,20 @@ const Header = () => {
           <button>
             <IoMdNotificationsOutline className="notification" />
           </button>
-
-          <Switch
-            onChange={toggleTheme}
-            checked={title === "dark"}
-            checkedIcon={false}
-            uncheckedIcon={false}
-            height={15}
-            width={40}
-            handleDiameter={20}
-            offColor={colors.darkGrey}
-            onColor={colors.lightGrey}
-          />
+          <div className="toggle-moon">
+            <Switch
+              onChange={toggleTheme}
+              checked={title === "dark"}
+              checkedIcon={false}
+              uncheckedIcon={false}
+              height={15}
+              width={40}
+              handleDiameter={20}
+              offColor={colors.darkGrey}
+              onColor={colors.blue}
+            />
+            <BsMoonFill className="moon" />
+          </div>
 
           <button onClick={() => setIsDropdownModal(true)}>
             <ImUser className="perfil" />

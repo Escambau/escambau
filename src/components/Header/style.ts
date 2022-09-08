@@ -5,7 +5,7 @@ export const HeaderTag = styled.header`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: ${(props) => props.theme.colors.blue};
+  background: ${(props) => props.theme.colors.headerColor};
   height: 110px;
   width: 100vw;
   padding: 10px 10px;
@@ -20,7 +20,7 @@ export const HeaderTag = styled.header`
 
     button {
       & > h1 {
-        color: white;
+        color: ${(props) => props.theme.colors.logoColor};
         font-family: "Montserrat";
         font-size: 18px;
         font-weight: 700;
@@ -32,10 +32,23 @@ export const HeaderTag = styled.header`
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     gap: 2vh;
+
+    .toggle-moon {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 1vh;
+
+      svg {
+        color: ${(props) => props.theme.colors.textGeneral};
+      }
+    }
   }
+
   .notification {
-    color: white;
+    color: ${(props) => props.theme.colors.textButton};
     font-size: 20px;
 
     transition: 0.3s;
@@ -44,7 +57,7 @@ export const HeaderTag = styled.header`
     }
   }
   .perfil {
-    color: black;
+    color: ${(props) => props.theme.colors.green};
     font-size: 32px;
     background: ${(props) => props.theme.colors.lightGreen};
     padding: 5px;
@@ -58,7 +71,8 @@ export const HeaderTag = styled.header`
   .userName {
     transition: 0.3s;
     :hover {
-      color: var(--darkGrey);
+      font-weight: 700;
+      color: ${(props) => props.theme.colors.greenOpacity};
     }
   }
 
@@ -84,7 +98,7 @@ export const HeaderTag = styled.header`
     }
     .magnifyGlass {
       font-size: 18px;
-      color: ${(props) => props.theme.colors.blue};
+      color: ${(props) => props.theme.colors.icons};
 
       transition: 0.3s;
       :hover {
@@ -133,7 +147,7 @@ export const HeaderTag = styled.header`
 
         & > h3 {
           font-size: 14px;
-          color: white;
+          color: ${(props) => props.theme.colors.textButton};
           font-weight: 400;
 
           overflow: hidden;

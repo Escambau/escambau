@@ -12,11 +12,18 @@ export const ModalLogin = styled.div`
   font-family: "Montserrat";
   z-index: 10;
 
+  svg {
+    color: ${(props) => props.theme.colors.textGeneral};
+  }
+
+  .box-login {
+    background-color: ${(props) => props.theme.colors.backgroundGeneral};
+  }
+
   h2 {
     color: #4169e1;
     font-family: "Montserrat";
     font-weight: 700;
-
     margin-bottom: 20px;
   }
   .btn-exit {
@@ -32,8 +39,8 @@ export const ModalLogin = styled.div`
       font-family: "Montserrat";
       font-weight: 700;
 
-      background-color: var(--darkGrey);
-      color: #ffffff;
+      background-color: ${(props) => props.theme.colors.darkGrey};
+      color: ${(props) => props.theme.colors.textButton};
 
       border-radius: 50%;
 
@@ -56,7 +63,7 @@ export const ModalLogin = styled.div`
     flex-direction: column;
     align-items: center;
 
-    background-color: white;
+    ${(props) => props.theme.colors.backgroundGeneral};
     border: none;
     border-radius: 10px;
 
@@ -89,7 +96,7 @@ export const ModalLogin = styled.div`
 
           width: 100%;
 
-          border-bottom: 1px solid #d9d9d9;
+          border-bottom: 1px solid ${(props) => props.theme.colors.lightGrey};
 
           padding-right: 10px;
 
@@ -113,14 +120,14 @@ export const ModalLogin = styled.div`
           font-size: 14px;
 
           border: none;
-          border-bottom: 1px solid #d9d9d9;
+          border-bottom: 1px solid ${(props) => props.theme.colors.lightGrey};
 
           background-color: transparent;
 
           outline: 0;
 
           ::placeholder {
-            color: #d9d9d9;
+            color: ${(props) => props.theme.colors.placeholder};
           }
         }
         button {
@@ -138,7 +145,7 @@ export const ModalLogin = styled.div`
         width: 80%;
 
         margin-top: 20px;
-        color: white;
+        color: ${(props) => props.theme.colors.textButton};
         background-color: ${(props) => props.theme.colors.green};
 
         padding: 12px 0;
@@ -179,7 +186,7 @@ export const ModalLogin = styled.div`
       button {
         width: 100%;
 
-        color: white;
+        color: ${(props) => props.theme.colors.textButton};
         background-color: ${(props) => props.theme.colors.grey};
 
         border-radius: 5px;

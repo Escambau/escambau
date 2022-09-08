@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { IRegister, UserContext } from "../../contexts/UserContext";
 import { Section, Form } from "./style";
-import RegisterImage from "../../assets/RegisterImage.png";
+import RegisterImage from "../../assets/escambauCadastro.png";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerUserSchema } from "../../validations/registerUser";
 import { useContext } from "react";

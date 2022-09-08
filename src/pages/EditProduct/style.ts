@@ -18,7 +18,6 @@ export const Container = styled.div`
     gap: 2vh;
 
     .profile-button {
-      background-color: white;
       width: 150px;
       height: 35px;
       align-self: center;
@@ -27,6 +26,10 @@ export const Container = styled.div`
       font-size: 14px;
       font-weight: 900;
       border: 2px solid ${(props) => props.theme.colors.blue};
+
+      :hover {
+        opacity: 80%;
+      }
     }
 
     h2 {
@@ -54,7 +57,7 @@ export const Container = styled.div`
 
       h3 {
         font-family: "Montserrat";
-        color: var(--darkGrey);
+        color: ${(props) => props.theme.colors.darkGrey};
         font-size: 16px;
         font-weight: 900;
       }
@@ -80,7 +83,7 @@ export const Container = styled.div`
         position: absolute;
         left: 14vw;
         background-color: ${(props) => props.theme.colors.blue};
-        color: white;
+        color: ${(props) => props.theme.colors.textButton};
         font-size: 12px;
       }
 

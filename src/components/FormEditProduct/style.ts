@@ -46,7 +46,6 @@ export const Container = styled.div`
         border: none;
         border-bottom: 1px solid ${(props) => props.theme.colors.lightGrey};
         outline: 0;
-        color: ${(props) => props.theme.colors.grey};
         font-size: 16px;
         font-weight: 400;
         font-family: "Roboto";
@@ -54,7 +53,6 @@ export const Container = styled.div`
 
         ::placeholder {
           align-self: flex-start;
-          color: ${(props) => props.theme.colors.lightGrey};
           font-size: 16px;
           font-weight: 400;
           font-family: "Roboto";
@@ -71,11 +69,11 @@ export const Container = styled.div`
         height: 6vh;
         border-bottom: 1px solid ${(props) => props.theme.colors.lightGrey};
         outline: 0;
-        color: ${(props) => props.theme.colors.grey};
         font-size: 16px;
+        background-color: ${(props) => props.theme.colors.backgroundInput};
 
         p {
-          color: ${(props) => props.theme.colors.grey};
+          color: ${(props) => props.theme.colors.textGeneral};
           font-size: 16px;
         }
 
@@ -84,11 +82,9 @@ export const Container = styled.div`
           width: 100%;
           height: 6vh;
           outline: 0;
-          color: ${(props) => props.theme.colors.grey};
           font-size: 16px;
 
           ::placeholder {
-            color: ${(props) => props.theme.colors.lightGrey};
             font-size: 16px;
             font-weight: 400;
           }
@@ -101,13 +97,11 @@ export const Container = styled.div`
         height: 6vh;
         border-bottom: 1px solid ${(props) => props.theme.colors.lightGrey};
         outline: 0;
-        color: ${(props) => props.theme.colors.grey};
         font-size: 16px;
         font-weight: 400;
         font-family: "Roboto";
 
         ::placeholder {
-          color: ${(props) => props.theme.colors.lightGrey};
           font-size: 16px;
           font-weight: 400;
         }
@@ -126,7 +120,7 @@ export const Container = styled.div`
         background-color: ${(props) => props.theme.colors.green};
         height: 40px;
         width: 120px;
-        color: white;
+        color: ${(props) => props.theme.colors.textButton};
         font-size: 16px;
         font-family: "Montserrat";
         font-weight: 900;
@@ -136,7 +130,7 @@ export const Container = styled.div`
         background-color: ${(props) => props.theme.colors.grey};
         height: 40px;
         width: 120px;
-        color: white;
+        color: ${(props) => props.theme.colors.textButton};
         font-size: 16px;
         font-family: "Montserrat";
         font-weight: 900;
@@ -162,7 +156,6 @@ export const Container = styled.div`
           border: none;
           border-radius: 8px;
           outline: 0;
-          color: ${(props) => props.theme.colors.grey};
           font-size: 16px;
           padding: 0 1vw;
         }
@@ -175,7 +168,6 @@ export const Container = styled.div`
         }
 
         .price {
-          background-color: white;
           border-radius: 8px;
           border: none;
           gap: 1vw;

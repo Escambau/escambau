@@ -99,7 +99,7 @@ export const Section = styled.section`
     justify-content: center;
 
     gap: 60px;
-    background-color: white;
+    ${(props) => props.theme.colors.backgroundGeneral};
 
     @media (min-width: 600px) {
       width: 73%;
@@ -229,7 +229,7 @@ export const Form = styled.form`
     font-family: "Montserrat";
     font-size: 1rem;
     font-weight: 700;
-    color: white;
+    color: ${(props) => props.theme.colors.textButton};
 
     width: 100%;
     height: 2.5rem;

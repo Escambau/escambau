@@ -57,7 +57,7 @@ export const Category = styled.div`
     font-weight: 600;
     margin: 5px 5px;
     background-color: ${(props) => props.theme.colors.blue};
-    color: white;
+    color: ${(props) => props.theme.colors.textButton};
   }
   .btnsCategory {
     border: 1px solid ${(props) => props.theme.colors.blue};
@@ -72,7 +72,7 @@ export const Category = styled.div`
     transition: 0.3s;
     :hover {
       background-color: ${(props) => props.theme.colors.blue};
-      color: white;
+      color: ${(props) => props.theme.colors.textButton};
       transition: 0.4s;
     }
   }

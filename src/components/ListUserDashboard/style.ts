@@ -7,7 +7,7 @@ export const ListTag = styled.ul`
   padding: 10px 10px;
   max-height: 60vh;
   ::-webkit-scrollbar-track {
-    border: 5px solid white;
+    border: 5px solid ${(props) => props.theme.colors.textButton};
     background-color: #b2bec3;
     opacity: 0.5;
   }
@@ -55,13 +55,13 @@ const Card = styled.div`
       margin-right: 20px;
       transition: 0.3s;
       :hover {
-        color: var(--darkGrey);
+        color: ${(props) => props.theme.colors.darkGrey};
       }
     }
     .edit-delete {
       font-size: 11px;
       font-weight: 600;
-      color: white;
+      color: ${(props) => props.theme.colors.textButton};
       padding: 6px 20px;
       transition: 0.3s;
     }
@@ -71,16 +71,16 @@ const Card = styled.div`
       border: 1px solid ${(props) => props.theme.colors.grey};
       :hover {
         background-color: grey;
-        color: white;
+        color: ${(props) => props.theme.colors.textButton};
       }
     }
     .delete {
       color: ${(props) => props.theme.colors.orange};
       border: 1px solid ${(props) => props.theme.colors.orange};
-      background-color: white;
+      ${(props) => props.theme.colors.backgroundGeneral};
       :hover {
         background-color: ${(props) => props.theme.colors.orange};
-        color: white;
+        color: ${(props) => props.theme.colors.textButton};
       }
     }
   }
@@ -115,6 +115,7 @@ const Card = styled.div`
           font-family: "Montserrat";
           cursor: pointer;
           transition: 0.5s;
+          color: ${(props) => props.theme.colors.textGeneral};
 
           :hover {
             color: ${(props) => props.theme.colors.blue};
@@ -127,6 +128,7 @@ const Card = styled.div`
         & > p {
           font-size: 12px;
           margin-right: 5px;
+          color: ${(props) => props.theme.colors.textGeneral};
         }
         & > span {
           font-size: 14px;
