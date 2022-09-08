@@ -5,6 +5,8 @@ export const List = styled.ul`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  max-height: 65vh;
+  height: auto;
   padding: 10px 10px;
   overflow-y: scroll;
   height: 100vh;

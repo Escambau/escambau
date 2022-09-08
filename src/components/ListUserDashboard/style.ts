@@ -5,7 +5,7 @@ export const ListTag = styled.ul`
   align-items: center;
   overflow-y: scroll;
   padding: 10px 10px;
-  height: 100vh;
+  max-height: 60vh;
   ::-webkit-scrollbar-track {
     border: 5px solid ${(props) => props.theme.colors.textButton};
     background-color: #b2bec3;

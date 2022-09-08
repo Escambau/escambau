@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode, useEffect } from "react";
+import { createContext, useState, ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 
@@ -72,12 +72,7 @@ export const CurrentProvider = ({ children }: IProductProvider) => {
   };
 
   const myTimer = () => {setWindowWidth(window.innerWidth)}
-  const myInterval = setInterval(myTimer as any, 500)
-  
-  useEffect(() => {
-    console.log(windowWidth);
-    
-  }, [windowWidth])
+  setInterval(myTimer as any, 500)
 
   return (
     <CurrentContext.Provider

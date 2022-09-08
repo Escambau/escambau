@@ -6,14 +6,14 @@ import { CurrentContext } from "../../contexts/CurrentContext";
 import { useNavigate } from "react-router-dom";
 
 const List = () => {
-  const { userProductList, setProductToEdit, deleteProduct } =
+  const { userProductList, setProductToEdit, deleteProduct, filterProductUser } =
     useContext(ProductContext);
   const { getCurrent, windowWidth } = useContext(CurrentContext);
   const navigate = useNavigate();
 
   return (
     <ListTag>
-      {userProductList?.map((product, index) => {
+      {(filterProductUser.length > 0 ? filterProductUser : userProductList)?.map((product, index) => {
         return (
           <Card key={index}>
             <div>
