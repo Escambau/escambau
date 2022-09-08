@@ -4,6 +4,7 @@ import { UserContext } from "../../contexts/UserContext";
 import { useContext } from "react";
 import { ThemeContext } from "styled-components";
 import { ColorsContext } from "../../contexts/ColorsContext";
+import { BsMoonFill } from "react-icons/bs";
 import Switch from "react-switch";
 
 const HeaderRegister = () => {
@@ -18,17 +19,20 @@ const HeaderRegister = () => {
           <h1>Escambau</h1>
         </button>
         <div className="container-switch-login">
-          <Switch
-            onChange={toggleTheme}
-            checked={title === "dark"}
-            checkedIcon={false}
-            uncheckedIcon={false}
-            height={15}
-            width={40}
-            handleDiameter={20}
-            offColor={colors.darkGrey}
-            onColor={colors.lightGrey}
-          />
+          <div className="toggle-moon">
+            <Switch
+              onChange={toggleTheme}
+              checked={title === "dark"}
+              checkedIcon={false}
+              uncheckedIcon={false}
+              height={15}
+              width={40}
+              handleDiameter={20}
+              offColor={colors.darkGrey}
+              onColor={colors.blue}
+            />
+            <BsMoonFill className="moon" />
+          </div>
           <button className="btnLogin" onClick={() => setIsModalLogin(true)}>
             Login
           </button>

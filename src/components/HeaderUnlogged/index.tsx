@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../../contexts/ProductContext";
 import { ThemeContext } from "styled-components";
 import { ColorsContext } from "../../contexts/ColorsContext";
+import { BsMoonFill } from "react-icons/bs";
 import Switch from "react-switch";
 
 const HeaderUnlogged = () => {
@@ -23,17 +24,20 @@ const HeaderUnlogged = () => {
         </button>
 
         <div className="container-switch-login">
-          <Switch
-            onChange={toggleTheme}
-            checked={title === "dark"}
-            checkedIcon={false}
-            uncheckedIcon={false}
-            height={15}
-            width={40}
-            handleDiameter={20}
-            offColor={colors.darkGrey}
-            onColor={colors.lightGrey}
-          />
+          <div className="toggle-moon">
+            <Switch
+              onChange={toggleTheme}
+              checked={title === "dark"}
+              checkedIcon={false}
+              uncheckedIcon={false}
+              height={15}
+              width={40}
+              handleDiameter={20}
+              offColor={colors.darkGrey}
+              onColor={colors.blue}
+            />
+            <BsMoonFill className="moon" />
+          </div>
           <button className="btnLogin" onClick={() => setIsModalLogin(true)}>
             Login
           </button>

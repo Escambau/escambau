@@ -20,7 +20,7 @@ export const Container = styled.div`
   top: 60px;
   right: 10%;
 
-  background-color: var(--darkGrey);
+  background-color: ${(props) => props.theme.colors.placeholder};
   border-radius: 8px;
 
   display: flex;
@@ -32,7 +32,7 @@ export const Container = styled.div`
     width: 80%;
     font-size: 11px;
     font-weight: 600;
-    color: white;
+    color: ${(props) => props.theme.colors.textButton};
 
     padding: 8px 20px;
 
@@ -42,10 +42,18 @@ export const Container = styled.div`
     margin-bottom: 5px;
     background-color: ${(props) => props.theme.colors.green};
     border: 1px solid ${(props) => props.theme.colors.green};
+
+    :hover {
+      background-color: ${(props) => props.theme.colors.greenOpacity};
+    }
   }
   .exit {
     margin-bottom: 5px;
     background-color: ${(props) => props.theme.colors.grey};
     border: 1px solid ${(props) => props.theme.colors.grey};
+
+    :hover {
+      background-color: ${(props) => props.theme.colors.lightGrey};
+    }
   }
 `;

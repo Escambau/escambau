@@ -26,19 +26,18 @@ export const FormAdd = styled.form`
       height: 6vh;
       border-bottom: 1px solid ${(props) => props.theme.colors.lightGrey};
       outline: 0;
-      color: ${(props) => props.theme.colors.grey};
       font-size: 16px;
+      background-color: ${(props) => props.theme.colors.backgroundInput};
 
       .input-price {
         border: none;
         width: 100%;
         height: 6vh;
         outline: 0;
-        color: ${(props) => props.theme.colors.grey};
+
         font-size: 16px;
 
         ::placeholder {
-          color: ${(props) => props.theme.colors.lightGrey};
           font-size: 16px;
           font-weight: 400;
         }
@@ -74,13 +73,11 @@ export const FormAdd = styled.form`
       height: 6vh;
       border-bottom: 1px solid ${(props) => props.theme.colors.lightGrey};
       outline: 0;
-      color: ${(props) => props.theme.colors.grey};
       font-size: 16px;
       font-weight: 400;
       font-family: "Roboto";
 
       ::placeholder {
-        color: ${(props) => props.theme.colors.lightGrey};
         font-size: 16px;
         font-weight: 400;
       }
@@ -92,7 +89,6 @@ export const FormAdd = styled.form`
       border: none;
       border-bottom: 1px solid ${(props) => props.theme.colors.lightGrey};
       outline: 0;
-      color: ${(props) => props.theme.colors.grey};
       font-size: 16px;
       font-weight: 400;
       font-family: "Roboto";
@@ -100,7 +96,6 @@ export const FormAdd = styled.form`
 
       ::placeholder {
         align-self: flex-start;
-        color: ${(props) => props.theme.colors.lightGrey};
         font-size: 16px;
         font-weight: 400;
         font-family: "Roboto";
@@ -116,7 +111,7 @@ export const FormAdd = styled.form`
     margin: 0 auto;
     padding: 15px 0;
 
-    color: #fff;
+    color: ${(props) => props.theme.colors.textButton};
     background-color: ${(props) => props.theme.colors.green};
 
     font-size: 16px;
@@ -142,7 +137,6 @@ export const FormAdd = styled.form`
         height: 7vh;
         border-radius: 8px;
         outline: 0;
-        color: ${(props) => props.theme.colors.grey};
         font-size: 16px;
         padding: 0 1vw;
         border-bottom: none;
@@ -175,7 +169,6 @@ export const FormAdd = styled.form`
         gap: 1.5vh;
 
         .price {
-          background-color: white;
           border-radius: 8px;
           border: none;
           gap: 1vw;

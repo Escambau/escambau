@@ -13,6 +13,15 @@ interface ITheme {
 }
 
 interface IColors {
+  divTituloModal: string;
+  icons: string;
+  placeholder: string;
+  backgroundInput: string;
+  logoColor: string;
+  headerColor: string;
+  textButton: string;
+  textGeneral: string;
+  backgroundGeneral: string;
   lightGreyBackground: string;
   lightGrey: string;
   grey: string;

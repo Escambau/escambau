@@ -22,7 +22,7 @@ export const Modal = styled.div`
   width: 60%;
   max-width: 700px;
   max-height: 450px;
-  background-color: white;
+  background-color: ${(props) => props.theme.colors.backgroundGeneral};
   border-radius: 10px;
 
   @media (max-width: 768px) {
@@ -41,7 +41,7 @@ export const Modal = styled.div`
     width: 300px;
     font-weight: 600;
     font-size: 18px;
-    color: white;
+    color: ${(props) => props.theme.colors.textButton};
     transition: 0.3s;
 
     @media (max-width: 768px) {
@@ -56,7 +56,7 @@ export const Modal = styled.div`
 
   .container {
     position: relative;
-    background-color: ${(props) => props.theme.colors.blue};
+    background-color: ${(props) => props.theme.colors.divTituloModal};
     width: 100%;
 
     height: 80px;
@@ -66,7 +66,7 @@ export const Modal = styled.div`
     padding: 0px 15px;
     border-radius: 8px 8px 0px 0px;
     .title {
-      color: white;
+      color: ${(props) => props.theme.colors.textButton};
       font-size: 18px;
       margin-left: 15px;
       width: 100%;
@@ -85,11 +85,10 @@ export const Modal = styled.div`
 
       & > svg {
         font-size: 28px;
-        color: white;
-        background-color: var(--darkGrey);
+        color: ${(props) => props.theme.colors.textButton};
+        background-color: ${(props) => props.theme.colors.darkGrey};
         padding: 3px 3px 3px 3px;
         border-radius: 100%;
-
         transition: 0.3s;
         :hover {
           font-size: 21px;
@@ -101,6 +100,8 @@ export const Modal = styled.div`
     font-size: 16px;
     font-weight: 400;
     padding: 20px;
+    min-height: 150px;
+    color: ${(props) => props.theme.colors.textGeneral};
   }
 `;
 

@@ -21,7 +21,7 @@ export const Box = styled.div`
   position: relative;
   width: 70vw;
   height: 40vh;
-  background: white;
+  background: ${(props) => props.theme.colors.textButton};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -29,18 +29,21 @@ export const Box = styled.div`
   border-radius: 10px;
 
   .x {
-    background-color: black;
-    color: white;
+    background-color: ${(props) => props.theme.colors.darkGrey};
+    color: ${(props) => props.theme.colors.textButton};
     border-radius: 100%;
-    width: 25px;
-    height: 25px;
+    font-size: 22px;
+    padding: 3px 3px 3px 3px;
     display: flex;
     justify-content: center;
     align-items: center;
 
     &:hover {
-      background-color: var(--darkGrey);
-      transition: 0.4s;
+      background-color: ${(props) => props.theme.colors.darkGrey};
+      transition: 0.3s;
+      :hover {
+        font-size: 19px;
+      }
     }
   }
 
@@ -53,11 +56,11 @@ export const Box = styled.div`
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     height: 60px;
-    background-color: ${(props) => props.theme.colors.blue};
+    background-color: ${(props) => props.theme.colors.divTituloModal};
 
     p {
       width: 70%;
-      color: white;
+      color: ${(props) => props.theme.colors.textButton};
       font-family: "Montserrat";
       font-weight: 700;
       font-size: 15px;
@@ -73,7 +76,7 @@ export const Box = styled.div`
     gap: 10px;
     height: 180px;
     width: 100%;
-    background-color: white;
+    background-color: ${(props) => props.theme.colors.backgroundGeneral};
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 
@@ -81,7 +84,7 @@ export const Box = styled.div`
       background-color: ${(props) => props.theme.colors.green};
       width: 160px;
       height: 40px;
-      color: white;
+      color: ${(props) => props.theme.colors.textButton};
       font-family: "Montserrat";
       font-weight: 900;
       font-size: 16px;
@@ -96,7 +99,7 @@ export const Box = styled.div`
       background-color: ${(props) => props.theme.colors.red};
       width: 160px;
       height: 40px;
-      color: white;
+      color: ${(props) => props.theme.colors.textButton};
       font-family: "Montserrat";
       font-weight: 900;
       font-size: 16px;
@@ -120,7 +123,7 @@ export const Box = styled.div`
       align-items: center;
       gap: 10px;
       height: 180px;
-      background-color: white;
+      ${(props) => props.theme.colors.backgroundGeneral};
     }
   }
 
@@ -136,7 +139,7 @@ export const Box = styled.div`
       align-items: center;
       gap: 10px;
       height: 180px;
-      background-color: white;
+      background-color: ${(props) => props.theme.colors.backgroundGeneral};
     }
   }
 `;
